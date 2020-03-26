@@ -1,0 +1,7 @@
+@function color($id) {
+  @if map-has-key($colors, $id) {
+    @return map-get($colors, $id);
+  }
+  
+  @error "Invalid color name: `#{$id}`.";
+}

@@ -1,0 +1,28 @@
+/*
+Clearfix
+
+Include function inside selector to force an element self-clear its children.
+
+Function:
+cleartfix;
+
+Usage:
+@include cleartfix;
+
+Style guide: Modules.Clearfix
+*/
+
+@mixin clearfix {
+	zoom: 1;
+	*zoom: 1;
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}

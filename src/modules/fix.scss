@@ -1,0 +1,25 @@
+/*
+Fixed
+
+Change to position fixed on iOS Safari while scrolling
+
+Style guide: Fix.fixed
+*/
+
+@mixin fix-fixed {
+	position: fixed;
+	/* stylelint-disable-next-line */
+	-webkit-transform: translateZ(0);
+	transform: translate3d(0, 0, 0);
+	transform: translateZ(0);
+	/* stylelint-disable-next-line */
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	/* stylelint-disable-next-line */
+	-webkit-perspective: 1000;
+	perspective: 1000;
+}
+
+%fix-fixed {
+	@include fix-fixed;
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Frontbox Style Documentation",
+  "builder": "node_modules/@bartoszpiwek/frontbox-kss-styleguide/dist/",
+  "extend": "node_modules/@bartoszpiwek/frontbox-kss-styleguide/dist/helpers/",
+  "destination": "styleguide/",
+  "homepage": "playground/README.md"
+}

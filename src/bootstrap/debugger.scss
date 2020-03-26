@@ -1,0 +1,153 @@
+@mixin init-debugger {
+	.debugger {
+		position: fixed;
+		z-index: 999999;
+		bottom: 0;
+		width: calc(100% - 44px);
+		height: 250px;
+		transform: translateX(100%);
+		transition: transform $time-transition;
+		background-color: transparentize(color("black"), 0.2);
+		font-family: $font-family-monospace;
+		font-size: 12px;
+
+		&.open {
+			transform: translateX(0);
+		}
+
+		&__label {
+			display: flex;
+			position: absolute;
+			top: 0;
+			align-items: center;
+			justify-content: center;
+			width: 22px;
+			height: 100%;
+			background-color: transparentize(color("black"), 0.4);
+			color: color("white");
+			cursor: pointer;
+			writing-mode: vertical-rl;
+		}
+
+		&__content {
+			height: 100%;
+			overflow-y: auto;
+		}
+
+		&__unread {
+			position: absolute;
+			top: 5px;
+			left: 50%;
+			width: 20px;
+			height: 20px;
+			padding: 4px;
+			transform: translateX(-50%) rotate(-90deg);
+			transition: opacity $time-transition;
+			border-radius: 50%;
+			background-color: color("error");
+			color: color("white");
+			font-size: 10px;
+			text-align: center;
+
+			&:empty {
+				opacity: 0;
+			}
+		}
+
+		&-item {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			width: 100%;
+			margin-top: 0;
+			padding: 5px;
+			transition: opacity $time-transition;
+			border-right: 1px solid color("black");
+			border-left: 1px solid color("black");
+			opacity: 1;
+			background-color: color("black");
+			animation-fill-mode: forwards;
+
+			&.old {
+				opacity: 0.6;
+			}
+
+			&.error {
+				color: color("error");
+			}
+
+			&.warning {
+				color: color("warning");
+			}
+
+			&__title {
+				padding-right: 10px;
+				font-weight: bold;
+
+				&:after {
+					content: ":";
+				}
+			}
+
+			&__content {
+				font-style: italic;
+			}
+
+			&--big {
+				background-color: color("white");
+				color: color("black");
+				text-transform: uppercase;
+
+				.debugger-item {
+					&__title {
+						&:after {
+							content: none;
+						}
+					}
+				}
+			}
+
+			@include add-hover {
+				opacity: 1;
+			}
+
+			@include media("mobile") {
+				flex-direction: row;
+			}
+		}
+
+		&--watch {
+			left: 0;
+			transform: translateX(-100%);
+
+			.debugger {
+				&__label {
+					right: 0;
+					transform: translateX(100%);
+					border-top-right-radius: 10px;
+					border-bottom-right-radius: 10px;
+				}
+			}
+		}
+
+		&--console {
+			right: 0;
+			transform: translateX(100%);
+
+			.debugger {
+				&__label {
+					left: 0;
+					transform: translateX(-100%);
+					border-top-left-radius: 10px;
+					border-bottom-left-radius: 10px;
+				}
+			}
+		}
+
+		@include media("tablet") {
+			width: 300px;
+			height: 400px;
+		}
+	}
+}

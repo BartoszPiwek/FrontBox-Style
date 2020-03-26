@@ -1,0 +1,39 @@
+@function breakpoint($name) {
+	@return map-get($breakpoints, $name);
+}
+
+@mixin media($name) {
+  $width: map-deep-get($breakpoints, $name, size);
+
+  @if $width {
+    @media screen and (min-width: #{$width}px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-max($name) {
+  $width: map-deep-get($breakpoints, $name, size);
+
+  @if $width {
+    @media screen and (max-width: #{$width - 1}px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-special($name) {
+  $queries: map-get($media, $name);
+
+  @if $queries {
+    @media #{$queries} {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@bartoszpiwek/frontbox-style",
+  "version": "0.0.1",
+  "description": "Fronbox Style",
+  "main": "index.scss",
+  "style": "index.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "playground": "node-sass playground/playground.scss playground/playground.css",
+    "doc": "kss src/ --config kss-config.json"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "framework",
+    "frontbox",
+    "css",
+    "grid"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/bartoszpiwek/Frontbox-Style.git"
+  },
+  "author": "Bartosz Piwek",
+  "license": "ISC",
+  "devDependencies": {
+    "@bartoszpiwek/frontbox-kss-styleguide": "0.0.1",
+    "kss": "^3.0.0",
+    "node-sass": "^4.13.0",
+    "stylelint": "^13.2.1",
+    "stylelint-config-property-sort-order-smacss": "^6.0.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.16.0"
+  }
+}

@@ -1,0 +1,97 @@
+/*
+Row
+
+Style form container for columns. 
+Compatibility with [space](section-modules.html#modules-space) function
+
+Style guide: Grid.row
+*/
+@mixin grid-style-row {
+	.row {
+		display: flex;
+		position: relative;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+
+		> * {
+			display: flex;
+			position: relative;
+			flex-direction: column;
+			flex-grow: 0;
+			flex-shrink: 0;
+			height: auto !important;
+			min-height: 1px;
+		}
+
+		&.row-same {
+			* > * {
+				flex: 1 1 auto;
+			}
+		}
+	}
+}
+
+/*
+Columns
+
+Generate CSS flex columns. 
+
+Function:
+grid($grid-count, $breakpoints);
+
+Arguments:
+$grid-count : number? : 12
+$grid-breakpoints : { [key: string]: number }? : $breakpoints
+
+Usage:
+$breakpoint(
+ xs: 0,
+ sm: 576,
+ md: 768,
+ lg: 992,
+}
+@include grid(12, $breakpoints);
+
+Output:
+.row
+ .col-6 col-6
+ .col-6 col-6
+ .col-8 col-8
+ .col-4 col-4
+ .col-7 col-7
+ .col-5 col-5
+
+Style guide: Grid.columns
+*/
+
+@mixin grid($grid-count: 12, $grid-breakpoints: $breakpoints) {
+	@include add-responsive($grid-breakpoints) {
+		$prefix: &;
+
+		@for $i from 1 through $grid-count {
+			@at-root .#{$prefix}col-#{$i}{
+				flex-basis: 100% / ($grid-count / $i);
+				max-width: 100% / ($grid-count / $i);
+			}
+
+			@if $i != $grid-count {
+				@at-root .#{$prefix}pull-#{$i}{
+					right: 100% / ($grid-count / $i) !important;
+				}
+
+				@at-root .#{$prefix}push-#{$i}{
+					left: 100% / ($grid-count / $i) !important;
+				}
+
+				@at-root .#{$prefix}order-#{$i}{
+					order: $i;
+				}
+			}
+		}
+
+		@at-root .#{$prefix}col-shrink{
+			flex: 0 0 auto;
+		}
+	}
+}

@@ -1,0 +1,70 @@
+/*
+Space
+
+Include space function inside container class element to create space between element children's.
+Space can be created in asix x (`padding-left`), y (`padding-bottom`) or xy (`padding-left` and `padding-bottom`).
+Do not put addon style inside this relations. Default classes for this function named `.space` `.space-x` `.space-y` 
+and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+On this example we include default function classes on `.row` elements to create space between `[class=^col]`. 
+
+Function:
+add-space-x($size);
+add-space-y($size);
+add-space($size, $size-y);
+
+Arguments:
+$size : numberPixel
+$size-y : numberPixel? : $size
+
+Usage:
+.space {
+ @include add-space(20px, 10px);
+}
+.space-x {
+ @include add-space-x(20px);
+}
+.space-y {
+ @include add-space-y(10px);
+}
+
+Output:
+.row.space-x
+ .col-6
+ .col-6
+.row.space-y
+ .col-12
+ .col-12
+.row.space
+ .col-4 
+ .col-4 
+ .col-4 
+ .col-6
+ .col-6
+
+Style guide: Modules.space
+*/
+
+// Horizontal space
+@mixin add-space-x($size) {
+	width: calc(100% + #{$size});
+	margin-left: -#{$size};
+
+	> *:not(.space-ignore) {
+		padding-left: $size;
+	}
+}
+
+// Vertical space
+@mixin add-space-y($size) {
+	margin-bottom: -#{$size};
+
+	> *:not(.space-ignore) {
+		padding-bottom: $size;
+	}
+}
+
+// Vertical/horizontal space
+@mixin add-space($size: 0, $size-y: $size) {
+	@include add-space-x($size);
+	@include add-space-y($size-y);
+}

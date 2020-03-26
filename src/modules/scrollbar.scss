@@ -1,0 +1,38 @@
+/*
+Scrollbar
+
+Create custom scrollbar for selector.
+Default class for this function named `.scrollbar` and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+
+Function:
+scrollbar($size, $color-background, $color-thumb);
+
+Arguments:
+$size : number
+$color-background : color
+$color-thumb : color
+
+Usage:
+@include add-scrollbar(20, #000, #FFF);
+
+Style guide: Modules.Scrollbar
+*/
+
+@mixin add-scrollbar($size, $color-background, $color-thumb) {
+	&::-webkit-scrollbar {
+		width: #{$size}px;
+		height: #{$size}px;
+		background-color: $color-thumb;
+		-webkit-appearance: none;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		min-width: #{$size}px;
+		max-height: #{$size}px;
+		background-color: $color-background;
+	}
+
+	&::-webkit-scrollbar-track {
+		display: none;
+	}
+}

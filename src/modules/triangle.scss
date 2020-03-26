@@ -1,0 +1,52 @@
+/*
+Triangle
+
+Include function inside selector to create triangle.
+
+Function:
+triangle($width, $height, $position, $color);
+
+Arguments:
+$width : number
+$height : number
+$position : 'up' | 'right' | 'down' | 'left'
+$color : string
+
+Usage:
+@include add-triangle(10, 10, 'top', #000);
+
+Style guide: Modules.Triangle
+*/
+
+@mixin add-triangle($width, $height, $position, $color) {
+	$width-half: $width / 2;
+
+	width: 0;
+	height: 0;
+
+	@if ($position == "left") {
+		border-right: $height solid $color;
+	}
+
+	@else if($position == "up") {
+		border-bottom: $height solid $color;
+	}
+
+	@else if($position == "right") {
+		border-left: $height solid $color;
+	}
+
+	@else if($position == "down") {
+		border-top: $height solid $color;
+	}
+
+	@if ($position != "left" and $position != "right" == true) {
+		border-right: $width-half solid transparent;
+		border-left: $width-half solid transparent;
+	}
+
+	@else {
+		border-top: $width-half solid transparent;
+		border-bottom: $width-half solid transparent;
+	}
+}

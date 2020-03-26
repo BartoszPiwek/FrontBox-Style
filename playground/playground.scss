@@ -1,0 +1,98 @@
+@import '../index.scss';
+
+// Variables: color
+$colors: (
+  blue: blue,
+  red: red
+);
+
+.color {
+	&-blue {
+		color: color(blue);
+	}
+
+	&-red {
+		color: color(red);
+	}
+}
+
+// Variables: index
+$index: (
+	first: 1,
+	last: -1
+);
+
+.index {
+	&-wrapper {
+		position: relative;
+		width: 100px;
+		height: 100px;
+	}
+
+	&-item {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: red;
+	}
+
+	&-first {
+		z-index: index(first);
+	}
+
+	&-last {
+		z-index: index(last);
+	}
+}
+
+// Variables: media
+$breakpoints: (
+	mobile: (
+		name: sm,
+		size: 576
+	),
+	tablet: (
+		name: md,
+		size: 1000
+	),
+);
+
+.media {
+	&-item {
+		width: 100px;
+		height: 100px;
+		background: red;
+	}
+
+	&-md {
+		@include media(tablet) {
+			display: block;
+		}
+
+		@include media-max(tablet) {
+			display: none;
+		}
+	}
+
+	&-max-md {
+		@include media-max(tablet) {
+			display: block;
+		}
+
+		@include media(tablet) {
+			display: none;
+		}
+	}
+}
+
+// Modules: wrap
+@include wrap-style;
+
+.wrap {
+	@include add-wrap(200px, 20px);
+}
+
+// Modules: browser reset
+@include browser-reset;

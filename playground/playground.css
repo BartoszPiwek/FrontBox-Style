@@ -1,0 +1,183 @@
+/*!
+ * FrontBox Style 0.0.1
+ * Bartosz Piwek
+ * https://github.com/BartoszPiwek/FrontBox-Style
+ */
+/*
+Wrap
+
+Include wrap function inside container class to hold content in maximize width with space aside corner.
+Space can be created in asix x (`padding left` and `padding-right`).<br>
+Default class for this function named `.wrap` and is located in 
+[style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file. 
+Prepared modifications are `navbar` and `footer`.
+
+Function:
+add-wrap($max-width, $padding-x);
+
+Arguments:
+$max-width : numberPixel
+$padding-x : numberPixel? : 0
+
+Usage:
+.wrap {
+ @include add-wrap(1024px, 20px);
+}
+
+Output:
+.wrap
+
+Style guide: Modules.wrap
+*/
+/*
+Style
+
+Inject `.wrap` style.
+
+Function:
+wrap-style;
+
+Usage:
+@include wrap-style;
+
+Style guide: Modules.wrap.style
+*/
+/* stylelint-disable property-no-vendor-prefix */
+/* stylelint-disable selector-no-qualifying-type */
+/* Main Elements */
+.color-blue {
+  color: blue; }
+
+.color-red {
+  color: red; }
+
+.index-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px; }
+
+.index-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: red; }
+
+.index-first {
+  z-index: 1; }
+
+.index-last {
+  z-index: -1; }
+
+.media-item {
+  width: 100px;
+  height: 100px;
+  background: red; }
+
+@media screen and (min-width: 1000px) {
+  .media-md {
+    display: block; } }
+
+@media screen and (max-width: 999px) {
+  .media-md {
+    display: none; } }
+
+@media screen and (max-width: 999px) {
+  .media-max-md {
+    display: block; } }
+
+@media screen and (min-width: 1000px) {
+  .media-max-md {
+    display: none; } }
+
+.wrap {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto; }
+
+.wrap {
+  max-width: 240px;
+  padding-right: 20px;
+  padding-left: 20px; }
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-touch-callout: none; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+iframe {
+  border: 0; }
+
+ol,
+ul {
+  list-style: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: normal; }
+
+a {
+  display: inline;
+  color: inherit;
+  text-decoration: none; }
+
+iframe {
+  border: 0; }
+
+table {
+  border-spacing: 0; }
+
+/* Form Elements */
+[type="text"]::-ms-clear, [type="text"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0; }
+
+[type="number"] {
+  -moz-appearance: textfield; }
+
+[type="checkbox"],
+[type="radio"] {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; }
+
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  border: 0;
+  background: 0 0;
+  cursor: pointer;
+  -webkit-appearance: button; }
+
+label [for] {
+  cursor: pointer; }
+
+address {
+  font-style: normal; }
