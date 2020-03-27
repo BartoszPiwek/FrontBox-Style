@@ -2,3 +2,4 @@ node_modules
 *.lock
 styleguide
 package-lock.json
+*.log
