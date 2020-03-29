@@ -2,6 +2,6 @@
   "title": "Frontbox Style Documentation",
   "builder": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/",
   "extend": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/helpers/",
-  "destination": "styleguide/",
-  "homepage": "playground/README.md"
+  "destination": "documentation/",
+  "homepage": "src/README.md"
 }
