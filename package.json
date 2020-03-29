@@ -7,7 +7,7 @@
   "scripts": {
     "playground": "node-sass playground/index.scss playground/index.css",
     "doc": "kss src/ --config kss-config.json",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "sass",
