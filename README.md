@@ -9,11 +9,11 @@
 <table>
   <tr>
   <td>Current version:</td>
-  <td>0.0.1</td>
+  <td>0.0.2</td>
   </tr>
   <tr>
   <td>Published version:</td>
-  <td>0.0.1</td>
+  <td>0.0.2</td>
   </tr>
   </table>
 
@@ -28,7 +28,8 @@ or
 yarn add @bpiwek/frontbox-style
 ```
 
-## Documentation
+## Documentation [![Netlify Status](https://api.netlify.com/api/v1/badges/92d192a1-294d-42e7-90ee-b6f49809f4d2/deploy-status)](https://app.netlify.com/sites/festive-meitner-bb09bc/deploys)
+
 
 https://festive-meitner-bb09bc.netlify.com/
 
