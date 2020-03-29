@@ -4,18 +4,8 @@
 
 //TODO: description
 
-## Information
+[![npm version](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style.svg)](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style)
 
-<table>
-  <tr>
-  <td>Current version:</td>
-  <td>0.0.2</td>
-  </tr>
-  <tr>
-  <td>Published version:</td>
-  <td>0.0.2</td>
-  </tr>
-  </table>
 
 ## Install
 
