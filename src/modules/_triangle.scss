@@ -1,16 +1,14 @@
 /*
 Triangle
 
-Include function inside selector to create triangle.
+Create triangle element.
 
 Function:
-triangle($width, $height, $position, $color);
-
-Arguments:
-$width : number
-$height : number
-$position : 'up' | 'right' | 'down' | 'left'
-$color : string
+// $width : number
+// $height : number
+// $position : 'up' | 'right' | 'down' | 'left'
+// $color : string
+add-triangle($width, $height, $position, $color);
 
 Usage:
 @include add-triangle(10, 10, 'top', #000);

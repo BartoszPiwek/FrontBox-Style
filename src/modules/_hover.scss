@@ -2,15 +2,13 @@
 Hover
 
 Include function inside selector to style `:hover`, `:active` and `:focus` states. Style only trigger for non touch devices.<br>
-> Set <b>true</b> for parameter <b>$parentHover</b> to create trigger hover class `&--hover` for any parent element. 
+> Set <b>true</b> for parameter <code>$hasParentTrigger</code> to create trigger hover class `&--hover` for any parent element. 
 
 Function:
-add-hover($parentHover);
-
-Arguments:
-$parentHover : boolean : false
+add-hover($hasParentTrigger);
 
 Usage:
+// $hasParentTrigger : boolean : false
 .selector {
  @include add-hover(true) {
   // content 	
@@ -33,11 +31,10 @@ OutputCSS:
  }
 }
 
-
 Style guide: Modules.Hover
 */
 
-@mixin add-hover($parentHover: false) {
+@mixin add-hover($hasParentTrigger: false) {
 	@media (hover: hover) {
 		&:hover,
 		&:active,
@@ -46,7 +43,7 @@ Style guide: Modules.Hover
 		}
 	}
 
-	@if ($parentHover == true) {
+	@if ($hasParentTrigger == true) {
 		@media (hover: hover) {
 			&--hover:hover &,
 			&--hover:active &,

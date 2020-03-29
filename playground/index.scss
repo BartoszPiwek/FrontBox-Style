@@ -88,11 +88,16 @@ $breakpoints: (
 }
 
 // Modules: wrap
-@include wrap-style;
+@include add-wrap-style;
 
 .wrap {
 	@include add-wrap(200px, 20px);
 }
 
 // Modules: browser reset
-@include browser-reset;
+@include add-browser-reset;
+@include add-holder-style;
+
+.holder {
+	@include add-holder(200, 100);
+}

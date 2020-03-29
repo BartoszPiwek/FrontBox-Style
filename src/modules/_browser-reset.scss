@@ -2,7 +2,7 @@
 /* stylelint-disable selector-no-qualifying-type */
 
 /* Main Elements */
-@mixin browser-reset {
+@mixin add-browser-reset {
 	*,
 	*:after,
 	*:before {

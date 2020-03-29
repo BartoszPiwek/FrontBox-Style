@@ -1,19 +1,17 @@
 /*
 Holder
 
-Include function inside selector to create responsive holder.
-
-Function:
-add-holder($width, $height);
-
-Arguments:
-$width: number
-$height: number
+Create responsive holder.
 
 Usage:
+// $width: number
+// $height: number
 .selector {
- @include add-holder(500, 1000);
+ @include add-holder(50, 100);
 }
+
+Style:
+@include add-holder-style;
 
 Style guide: Modules.Holder
 */
@@ -29,21 +27,7 @@ Style guide: Modules.Holder
 	}
 }
 
-/*
-Style
-
-Inject style for selectors `.holder` and `.holder__content`.
-
-Function:
-holder-style;
-
-Usage:
-@include holder-style;
-
-Style guide: Modules.Holder.Style
-*/
-
-@mixin holder-style {
+@mixin add-holder-style {
 	.holder {
 		position: relative;
 

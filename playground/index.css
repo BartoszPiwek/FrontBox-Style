@@ -11,9 +11,6 @@ Clearfix
 
 Include function inside selector to force an element self-clear its children.
 
-Function:
-cleartfix;
-
 Usage:
 @include cleartfix;
 
@@ -22,14 +19,13 @@ Style guide: Modules.Clearfix
 /*
 Click Expand
 
-Include function inside selector to create :before pseudo element to expand click space.
-Default class for this function named `.click-expand` and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+Create pseudo element `before` to expand click space.
 
-Function:
-add-click-expand($space);
-
-Arguments:
-$space : number? : 5
+Usage:
+// $space : number
+.link {
+	@include add-click-expand($space);
+}
 
 Style guide: Modules.Click expand
 */
@@ -83,48 +79,31 @@ Style guide: Grid.columns
 /*
 Holder
 
-Include function inside selector to create responsive holder.
-
-Function:
-add-holder($width, $height);
-
-Arguments:
-$width: number
-$height: number
+Create responsive holder.
 
 Usage:
+// $width: number
+// $height: number
 .selector {
- @include add-holder(500, 1000);
+ @include add-holder(50, 100);
 }
 
+Style:
+@include add-holder-style;
+
 Style guide: Modules.Holder
-*/
-/*
-Style
-
-Inject style for selectors `.holder` and `.holder__content`.
-
-Function:
-holder-style;
-
-Usage:
-@include holder-style;
-
-Style guide: Modules.Holder.Style
 */
 /*
 Hover
 
 Include function inside selector to style `:hover`, `:active` and `:focus` states. Style only trigger for non touch devices.<br>
-> Set <b>true</b> for parameter <b>$parentHover</b> to create trigger hover class `&--hover` for any parent element. 
+> Set <b>true</b> for parameter <b>$hasParentHover</b> to create trigger hover class `&--hover` for any parent element. 
 
 Function:
-add-hover($parentHover);
-
-Arguments:
-$parentHover : boolean : false
+add-hover($hashasParentHover);
 
 Usage:
+// $hasParentHover : boolean : false
 .selector {
  @include add-hover(true) {
   // content 	
@@ -146,7 +125,6 @@ OutputCSS:
    // content 	
  }
 }
-
 
 Style guide: Modules.Hover
 */
@@ -285,16 +263,14 @@ Style guide: Blocks.square
 /*
 Triangle
 
-Include function inside selector to create triangle.
+Create triangle element.
 
 Function:
-triangle($width, $height, $position, $color);
-
-Arguments:
-$width : number
-$height : number
-$position : 'up' | 'right' | 'down' | 'left'
-$color : string
+// $width : number
+// $height : number
+// $position : 'up' | 'right' | 'down' | 'left'
+// $color : string
+add-triangle($width, $height, $position, $color);
 
 Usage:
 @include add-triangle(10, 10, 'top', #000);
@@ -304,41 +280,23 @@ Style guide: Modules.Triangle
 /*
 Wrap
 
-Include wrap function inside container class to hold content in maximize width with space aside corner.
-Space can be created in asix x (`padding left` and `padding-right`).<br>
-Default class for this function named `.wrap` and is located in 
-[style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file. 
-Prepared modifications are `navbar` and `footer`.
+Crete wrapper element to hold content in specific width with optional aside space.
+Space can be created in asix x (`padding left` and `padding-right`).
 
 Function:
+// $max-width : pixels
+// $padding-x? : pixels
 add-wrap($max-width, $padding-x);
-
-Arguments:
-$max-width : numberPixel
-$padding-x : numberPixel? : 0
 
 Usage:
 .wrap {
- @include add-wrap(1024px, 20px);
+	@include add-wrap(1024px, 20px);
 }
 
-Output:
-.wrap
+Style:
+@include add-wrap-style;
 
 Style guide: Modules.wrap
-*/
-/*
-Style
-
-Inject `.wrap` style.
-
-Function:
-wrap-style;
-
-Usage:
-@include wrap-style;
-
-Style guide: Modules.wrap.style
 */
 /*
 YouTube
@@ -497,3 +455,20 @@ label [for] {
 
 address {
   font-style: normal; }
+
+.holder {
+  position: relative; }
+  .holder__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.holder {
+  position: relative; }
+  .holder:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 50%; }

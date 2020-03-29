@@ -8,13 +8,11 @@ and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/
 On this example we include default function classes on `.row` elements to create space between `[class=^col]`. 
 
 Function:
+// $size : numberPixel
+// $size-y : numberPixel? : $size
 add-space-x($size);
 add-space-y($size);
 add-space($size, $size-y);
-
-Arguments:
-$size : numberPixel
-$size-y : numberPixel? : $size
 
 Usage:
 .space {
@@ -26,20 +24,6 @@ Usage:
 .space-y {
  @include add-space-y(10px);
 }
-
-Output:
-.row.space-x
- .col-6
- .col-6
-.row.space-y
- .col-12
- .col-12
-.row.space
- .col-4 
- .col-4 
- .col-4 
- .col-6
- .col-6
 
 Style guide: Modules.space
 */

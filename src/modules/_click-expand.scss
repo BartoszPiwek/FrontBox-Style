@@ -1,19 +1,18 @@
 /*
 Click Expand
 
-Include function inside selector to create :before pseudo element to expand click space.
-Default class for this function named `.click-expand` and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+Create pseudo element `before` to expand click space.
 
-Function:
-add-click-expand($space);
-
-Arguments:
-$space : number? : 5
+Usage:
+// $space : number
+.link {
+	@include add-click-expand($space);
+}
 
 Style guide: Modules.Click expand
 */
 
-@mixin add-click-expand($space: 5) {
+@mixin add-click-expand($space) {
 	position: relative;
 	z-index: 0;
 
