@@ -1,7 +1,7 @@
 {
   "name": "@bpiwek/frontbox-style",
-  "version": "0.0.1",
-  "description": "Fronbox Style",
+  "version": "0.0.2",
+  "description": "`Fronbox Style",
   "main": "index.scss",
   "style": "index.scss",
   "scripts": {

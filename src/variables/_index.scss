@@ -1,0 +1,7 @@
+@function index($id) {
+	@if map-has-key($index, $id) {
+		@return map-get($index, $id);
+	}
+
+	@error "Invalid index name: `#{$id}`.";
+}

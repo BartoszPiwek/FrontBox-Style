@@ -3,6 +3,304 @@
  * Bartosz Piwek
  * https://github.com/BartoszPiwek/FrontBox-Style
  */
+/* stylelint-disable property-no-vendor-prefix */
+/* stylelint-disable selector-no-qualifying-type */
+/* Main Elements */
+/*
+Clearfix
+
+Include function inside selector to force an element self-clear its children.
+
+Function:
+cleartfix;
+
+Usage:
+@include cleartfix;
+
+Style guide: Modules.Clearfix
+*/
+/*
+Click Expand
+
+Include function inside selector to create :before pseudo element to expand click space.
+Default class for this function named `.click-expand` and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+
+Function:
+add-click-expand($space);
+
+Arguments:
+$space : number? : 5
+
+Style guide: Modules.Click expand
+*/
+/*
+Fixed
+
+Change to position fixed on iOS Safari while scrolling
+
+Style guide: Fix.fixed
+*/
+/*
+Row
+
+Style form container for columns. 
+Compatibility with [space](section-modules.html#modules-space) function
+
+Style guide: Grid.row
+*/
+/*
+Columns
+
+Generate CSS flex columns. 
+
+Function:
+grid($grid-count, $breakpoints);
+
+Arguments:
+$grid-count : number? : 12
+$grid-breakpoints : { [key: string]: number }? : $breakpoints
+
+Usage:
+$breakpoint(
+ xs: 0,
+ sm: 576,
+ md: 768,
+ lg: 992,
+}
+@include grid(12, $breakpoints);
+
+Output:
+.row
+ .col-6 col-6
+ .col-6 col-6
+ .col-8 col-8
+ .col-4 col-4
+ .col-7 col-7
+ .col-5 col-5
+
+Style guide: Grid.columns
+*/
+/*
+Holder
+
+Include function inside selector to create responsive holder.
+
+Function:
+add-holder($width, $height);
+
+Arguments:
+$width: number
+$height: number
+
+Usage:
+.selector {
+ @include add-holder(500, 1000);
+}
+
+Style guide: Modules.Holder
+*/
+/*
+Style
+
+Inject style for selectors `.holder` and `.holder__content`.
+
+Function:
+holder-style;
+
+Usage:
+@include holder-style;
+
+Style guide: Modules.Holder.Style
+*/
+/*
+Hover
+
+Include function inside selector to style `:hover`, `:active` and `:focus` states. Style only trigger for non touch devices.<br>
+> Set <b>true</b> for parameter <b>$parentHover</b> to create trigger hover class `&--hover` for any parent element. 
+
+Function:
+add-hover($parentHover);
+
+Arguments:
+$parentHover : boolean : false
+
+Usage:
+.selector {
+ @include add-hover(true) {
+  // content 	
+ };
+}
+
+OutputCSS:
+@media (hover: hover) {
+ .selector:hover,
+ .selector:active,
+ .selector:focus {
+  // content 	
+ }
+}
+@media (hover: hover) {
+ .selector--hover:hover .selector,
+ .selector--hover:active .selector,
+ .selector--hover:focus .selector {
+   // content 	
+ }
+}
+
+
+Style guide: Modules.Hover
+*/
+/*
+Input Placeholder
+
+Include function inside selector `input` or `textarea` to style placeholder text.<br>
+
+Function:
+add-input-placeholder;
+
+Usage:
+input.selector {
+ @include add-input-placeholder {
+	// content
+ }
+}
+
+OutputCSS:
+input.selector::placeholder,
+input.selector::-webkit-input-placeholder,
+input.selector::-moz-placeholder,
+input.selector:-ms-input-placeholder,
+input.selector:-moz-placeholder {
+ // content
+}
+
+Style guide: Modules.input-placeholder
+*/
+/* stylelint-disable */
+/*
+Responsive
+
+Create responsive classes for content. 
+Generated name selectors will have prefixed with breakpoint name and underscore.
+
+Function:
+add-responsive($breakpoints-array);
+
+Arguments:
+$breakpoints-array : { [key: string]: number }? : $breakpoints
+
+Usage:
+@include add-responsive {
+	.foo {}	
+}
+
+OutputCSS:
+.foo {}
+@media screen and (min-width: 576px) {
+ .sm_foo {}
+}
+@media screen and (min-width: 768px) {
+ .md_foo {}
+}
+// and so on
+
+Style guide: Modules.Responsive
+*/
+/*
+Scrollbar
+
+Create custom scrollbar for selector.
+Default class for this function named `.scrollbar` and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+
+Function:
+scrollbar($size, $color-background, $color-thumb);
+
+Arguments:
+$size : number
+$color-background : color
+$color-thumb : color
+
+Usage:
+@include add-scrollbar(20, #000, #FFF);
+
+Style guide: Modules.Scrollbar
+*/
+/*
+Space
+
+Include space function inside container class element to create space between element children's.
+Space can be created in asix x (`padding-left`), y (`padding-bottom`) or xy (`padding-left` and `padding-bottom`).
+Do not put addon style inside this relations. Default classes for this function named `.space` `.space-x` `.space-y` 
+and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+On this example we include default function classes on `.row` elements to create space between `[class=^col]`. 
+
+Function:
+add-space-x($size);
+add-space-y($size);
+add-space($size, $size-y);
+
+Arguments:
+$size : numberPixel
+$size-y : numberPixel? : $size
+
+Usage:
+.space {
+ @include add-space(20px, 10px);
+}
+.space-x {
+ @include add-space-x(20px);
+}
+.space-y {
+ @include add-space-y(10px);
+}
+
+Output:
+.row.space-x
+ .col-6
+ .col-6
+.row.space-y
+ .col-12
+ .col-12
+.row.space
+ .col-4 
+ .col-4 
+ .col-4 
+ .col-6
+ .col-6
+
+Style guide: Modules.space
+*/
+/*
+Square
+
+Block square
+
+Markup:
+<div class="block-square">
+	Content
+</div>
+
+Style guide: Blocks.square
+*/
+/*
+Triangle
+
+Include function inside selector to create triangle.
+
+Function:
+triangle($width, $height, $position, $color);
+
+Arguments:
+$width : number
+$height : number
+$position : 'up' | 'right' | 'down' | 'left'
+$color : string
+
+Usage:
+@include add-triangle(10, 10, 'top', #000);
+
+Style guide: Modules.Triangle
+*/
 /*
 Wrap
 
@@ -42,9 +340,27 @@ Usage:
 
 Style guide: Modules.wrap.style
 */
-/* stylelint-disable property-no-vendor-prefix */
-/* stylelint-disable selector-no-qualifying-type */
-/* Main Elements */
+/*
+YouTube
+
+Embed YouTube iframe (default 21/9)
+
+Markup:
+<div class="block-youtube">
+	<iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
+</div>
+<div class="block-youtube block-youtube--16x9">
+	<iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
+</div>
+<div class="block-youtube block-youtube--4x3">
+	<iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
+</div>
+<div class="block-youtube block-youtube--1x1">
+	<iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
+</div>
+
+Style guide: Blocks.youtube
+*/
 .color-blue {
   color: blue; }
 
