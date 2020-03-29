@@ -1,6 +1,8 @@
-# <strong>FrontBox Style</strong> <small>by Bartosz Piwek</small>
+<h1>
+<strong>FrontBox Style</strong> <small>by Bartosz Piwek</small>
+</h2>
 
-Base style 
+//TODO: description
 
 ## Information
 
@@ -26,9 +28,9 @@ or
 yarn add @bpiwek/frontbox-style
 ```
 
-## Usage
+## Documentation
 
-// TODO: add netlify link
+https://festive-meitner-bb09bc.netlify.com/
 
 ## Develop
 Make sure to install this fallowing plugins for Visual Code Studio before making changes.
