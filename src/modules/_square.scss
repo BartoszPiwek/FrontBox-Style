@@ -1,24 +1,21 @@
 /*
 Square
 
-Block square
+Create square element. Child element have container size.
 
-Markup:
-<div class="block-square">
-	Content
-</div>
+Markup: square.html
 
 Style guide: Blocks.square
 */
 
-@mixin square-style($width, $height, $position, $color) {
+@mixin add-square-style() {
 	.square {
 		position: relative;
 		width: 100%;
 		height: 0;
 		padding-bottom: 100%;
 
-		> * {
+		&__content {
 			position: absolute;
 			top: 0;
 			left: 0;

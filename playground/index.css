@@ -97,13 +97,13 @@ Style guide: Modules.Holder
 Hover
 
 Include function inside selector to style `:hover`, `:active` and `:focus` states. Style only trigger for non touch devices.<br>
-> Set <b>true</b> for parameter <b>$hasParentHover</b> to create trigger hover class `&--hover` for any parent element. 
+> Set <b>true</b> for parameter <code>$hasParentTrigger</code> to create trigger hover class `&--hover` for any parent element. 
 
 Function:
-add-hover($hashasParentHover);
+add-hover($hasParentTrigger);
 
 Usage:
-// $hasParentHover : boolean : false
+// $hasParentTrigger : boolean : false
 .selector {
  @include add-hover(true) {
   // content 	
@@ -213,13 +213,11 @@ and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/
 On this example we include default function classes on `.row` elements to create space between `[class=^col]`. 
 
 Function:
+// $size : numberPixel
+// $size-y : numberPixel? : $size
 add-space-x($size);
 add-space-y($size);
 add-space($size, $size-y);
-
-Arguments:
-$size : numberPixel
-$size-y : numberPixel? : $size
 
 Usage:
 .space {
@@ -232,31 +230,14 @@ Usage:
  @include add-space-y(10px);
 }
 
-Output:
-.row.space-x
- .col-6
- .col-6
-.row.space-y
- .col-12
- .col-12
-.row.space
- .col-4 
- .col-4 
- .col-4 
- .col-6
- .col-6
-
 Style guide: Modules.space
 */
 /*
 Square
 
-Block square
+Create square element. Child element have container size.
 
-Markup:
-<div class="block-square">
-	Content
-</div>
+Markup: square.html
 
 Style guide: Blocks.square
 */

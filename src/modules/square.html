@@ -1,0 +1,25 @@
+<style>
+  @import 'src/modules/_square.scss';
+  @include add-square-style;
+
+  /* Addon */
+  .container {
+    width: 300px;
+  }
+
+  .square {
+    background: red;
+
+    &__content {
+      background: yellow;
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="square">
+    <div class="square__content">
+      content
+    </div>
+  </div>
+</div>
