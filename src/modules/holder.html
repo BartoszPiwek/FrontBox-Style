@@ -1,6 +1,10 @@
 <style>
   @import 'index';
-  @include add-square-style;
+  @include add-holder-style;
+
+  .holder--big {
+    @include add-holder(1980, 1080);
+  }
 
   /* Addon */
   .container {
@@ -8,14 +12,14 @@
     max-width: 500px;
   }
 
-  .square__content {
+  .holder__content {
     background: red;
   }
 </style>
 
 <div class="container">
-  <div class="square">
-    <div class="square__content">
+  <div class="holder holder--big">
+    <div class="holder__content">
       content
     </div>
   </div>

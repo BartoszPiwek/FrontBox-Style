@@ -1,0 +1,71 @@
+<style>
+  @import 'index';
+  @include add-holder-style;
+  @include add-browser-reset;
+
+  .space {
+    @include add-space(20px, 10px);
+  }
+
+  .space-x {
+    @include add-space-x(20px);
+  }
+
+  .space-y {
+    @include add-space-y(10px);
+  }
+
+  /* Addon */
+  .container {
+    overflow: hidden;
+
+    &+& {
+      margin-top: 40px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .element {
+    &:before {
+      background: red;
+      display: block;
+      height: 40px;
+      content: '';
+    }
+
+    &-50 {
+      width: 50%;
+    }
+
+    &-100 {
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="space-x content">
+    <div class="element element-50"></div>
+    <div class="element element-50"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="space-y content">
+    <div class="element element-100"></div>
+    <div class="element element-100"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="space content">
+    <div class="element element-50"></div>
+    <div class="element element-50"></div>
+    <div class="element element-100"></div>
+  </div>
+</div>

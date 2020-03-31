@@ -1,28 +1,25 @@
 /*
 Holder
 
-Create responsive holder.
+Create ratio holder.
 
 Usage:
 // $width: number
 // $height: number
 .selector {
- @include add-holder(50, 100);
+ @include add-holder($width, $height);
 }
 
 Style:
 @include add-holder-style;
 
+Markup: holder.html
+
 Style guide: Blocks.Holder
 */
 
 @mixin add-holder($width, $height) {
-	position: relative;
-
 	&:before {
-		content: "";
-		display: block;
-		width: 100%;
 		padding-top: ($height / $width) * 100%;
 	}
 }
@@ -30,6 +27,12 @@ Style guide: Blocks.Holder
 @mixin add-holder-style {
 	.holder {
 		position: relative;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+		}
 
 		&__content {
 			position: absolute;

@@ -1,0 +1,32 @@
+<style>
+  @import 'index';
+
+  .scrollbar {
+    @include add-scrollbar(20px, #000, #FFF);
+  }
+
+  /* Addon */
+  .scrollbar {
+    background: red;
+    overflow: scroll;
+    height: 300px;
+  }
+
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .content {
+    height: 1000px;
+    width: 1000px;
+  }
+</style>
+
+<div class="container">
+  <div class="scrollbar">
+    <div class="content">
+      content
+    </div>
+  </div>
+</div>

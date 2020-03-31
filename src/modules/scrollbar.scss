@@ -5,30 +5,30 @@ Create custom scrollbar for selector.
 Default class for this function named `.scrollbar` and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
 
 Function:
-scrollbar($size, $color-background, $color-thumb);
-
-Arguments:
-$size : number
-$color-background : color
-$color-thumb : color
+// $size : numberPixel
+// $color-background : string
+// $color-thumb : string
+add-scrollbar($size, $color-background, $color-thumb);
 
 Usage:
-@include add-scrollbar(20, #000, #FFF);
+@include add-scrollbar(20px, #000, #FFF);
+
+Markup: scrollbar.html
 
 Style guide: Modules.Scrollbar
 */
 
 @mixin add-scrollbar($size, $color-background, $color-thumb) {
 	&::-webkit-scrollbar {
-		width: #{$size}px;
-		height: #{$size}px;
+		width: $size;
+		height: $size;
 		background-color: $color-thumb;
 		-webkit-appearance: none;
 	}
 
 	&::-webkit-scrollbar-thumb {
-		min-width: #{$size}px;
-		max-height: #{$size}px;
+		min-width: $size;
+		max-height: $size;
 		background-color: $color-background;
 	}
 

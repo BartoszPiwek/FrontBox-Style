@@ -1,14 +1,14 @@
 /*
 Square
 
-Create square element. Child element have container size.
+Create square element. 
 
 Markup: square.html
 
 Style guide: Blocks.square
 */
 
-@mixin add-square-style() {
+@mixin add-square-style {
 	.square {
 		position: relative;
 		width: 100%;
