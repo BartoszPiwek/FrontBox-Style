@@ -1,0 +1,36 @@
+<style>
+  @import 'index';
+  @include add-square-style;
+
+  .link {
+    @include add-click-expand(20);
+  }
+
+  /* Addon */
+  .container {
+    position: relative;
+    height: 60px;
+    text-align: center;
+  }
+
+  .link {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+
+    &:before {
+      background: red;
+    }
+  }
+
+  span {
+    background: yellow;
+  }
+</style>
+
+<div class="container">
+  <a class="link" href="#">
+    <span>Link</span>
+  </a>
+</div>

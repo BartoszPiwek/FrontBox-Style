@@ -9,6 +9,8 @@ Usage:
 	@include add-click-expand($space);
 }
 
+Markup: click-expand.html
+
 Style guide: Modules.Click expand
 */
 
@@ -17,7 +19,7 @@ Style guide: Modules.Click expand
 	z-index: 0;
 
 	&:before {
-		content: "";
+		content: '';
 		display: block;
 		position: absolute;
 		z-index: -1;
