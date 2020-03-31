@@ -13,7 +13,9 @@ add-triangle($width, $height, $position, $color);
 Usage:
 @include add-triangle(10, 10, 'top', #000);
 
-Style guide: Modules.Triangle
+Markup: triangle.html
+
+Style guide: Blocks.Triangle
 */
 
 @mixin add-triangle($width, $height, $position, $color) {

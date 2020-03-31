@@ -1,0 +1,42 @@
+<style>
+  @import 'index';
+  @include add-square-style;
+
+  .triangle {
+    &-up {
+      @include add-triangle(20px, 20px, 'up', #000);
+    }
+
+    &-right {
+      @include add-triangle(20px, 20px, 'right', #000);
+    }
+
+    &-down {
+      @include add-triangle(20px, 20px, 'down', #000);
+    }
+
+    &-left {
+      @include add-triangle(20px, 20px, 'left', #000);
+    }
+  }
+
+  /* Addon */
+  .container {
+    &+& {
+      margin-top: 10px;
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="triangle-up"></div>
+</div>
+<div class="container">
+  <div class="triangle-right"></div>
+</div>
+<div class="container">
+  <div class="triangle-down"></div>
+</div>
+<div class="container">
+  <div class="triangle-left"></div>
+</div>

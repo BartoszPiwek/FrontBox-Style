@@ -1,0 +1,34 @@
+<style>
+  @import 'index';
+  @include add-browser-reset;
+  @include add-wrap-style;
+
+  .wrap {
+    &-small {
+      @include add-wrap(500px);
+    }
+
+    &-space {
+      @include add-wrap(700px, 20px);
+    }
+  }
+
+  /* Addon */
+  .wrap {
+    text-align: center;
+
+    background: yellow;
+
+    div {
+      background: red;
+    }
+  }
+</style>
+
+<div class="wrap wrap-small">
+  <div>Wrap content</div>
+</div>
+
+<div class="wrap wrap-space">
+  <div>Wrap content</div>
+</div>

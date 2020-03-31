@@ -1,17 +1,41 @@
 <style>
-  @import 'src/modules/youtube.scss';
+  @import 'index';
   @include add-youtube-style;
+
+  /* Addon */
+  .container {
+    max-width: 400px;
+
+    &+& {
+      margin-top: 20px;
+    }
+  }
+
+  .youtube__iframe {
+    background: red;
+  }
 </style>
 
-<div class="youtube">
-  <iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
+<div class="container">
+  <div class="youtube">
+    <iframe class="youtube__iframe"></iframe>
+  </div>
 </div>
-<div class="youtube youtube--16x9">
-  <iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
+
+<div class="container">
+  <div class="youtube youtube--16x9">
+    <iframe class="youtube__iframe"></iframe>
+  </div>
 </div>
-<div class="youtube youtube--4x3">
-  <iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
+
+<div class="container">
+  <div class="youtube youtube--4x3">
+    <iframe class="youtube__iframe"></iframe>
+  </div>
 </div>
-<div class="youtube youtube--1x1">
-  <iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
+
+<div class="container">
+  <div class="youtube youtube--1x1">
+    <iframe class="youtube__iframe"></iframe>
+  </div>
 </div>

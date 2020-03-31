@@ -3,7 +3,7 @@
   "builder": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/",
   "extend": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/helpers/",
   "destination": "documentation/",
-  "homepage": "src/README.md",
+  "homepage": "README.md",
   "custom": [
     "Function",
     "Output",

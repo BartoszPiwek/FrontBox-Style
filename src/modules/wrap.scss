@@ -10,12 +10,14 @@ Function:
 add-wrap($max-width, $padding-x);
 
 Usage:
-.wrap {
+.wrap-header {
 	@include add-wrap(1024px, 20px);
 }
 
 Style:
 @include add-wrap-style;
+
+Markup: wrap.html
 
 Style guide: Modules.wrap
 */

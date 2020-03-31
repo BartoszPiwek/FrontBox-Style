@@ -52,11 +52,9 @@ Generate CSS flex columns.
 Function:
 grid($grid-count, $breakpoints);
 
-Arguments:
-$grid-count : number? : 12
-$grid-breakpoints : { [key: string]: number }? : $breakpoints
-
 Usage:
+// $grid-count : number : 12
+// $grid-breakpoints : { [key: string]: { name: string; size: number }? : $breakpoints
 $breakpoint(
  xs: 0,
  sm: 576,
@@ -65,14 +63,15 @@ $breakpoint(
 }
 @include grid(12, $breakpoints);
 
-Output:
-.row
- .col-6 col-6
- .col-6 col-6
- .col-8 col-8
- .col-4 col-4
- .col-7 col-7
- .col-5 col-5
+Required:
+@import 'src/functions/map-deep-get.scss';
+@import 'src/variables/media.scss';
+@import 'src/modules/responsive.scss';
+
+Style:
+@include grid-style-row;
+
+Markup: grid.html
 
 Style guide: Grid.columns
 */
@@ -284,19 +283,7 @@ YouTube
 
 Embed YouTube iframe (default 21/9)
 
-Markup:
-<div class="block-youtube">
-	<iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
-</div>
-<div class="block-youtube block-youtube--16x9">
-	<iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
-</div>
-<div class="block-youtube block-youtube--4x3">
-	<iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
-</div>
-<div class="block-youtube block-youtube--1x1">
-	<iframe src="https://www.youtube.com/embed/GRxofEmo3HA"></iframe>
-</div>
+Markup: youtube.html
 
 Style guide: Blocks.youtube
 */
