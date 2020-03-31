@@ -53,14 +53,15 @@ $breakpoint(
 }
 @include grid(12, $breakpoints);
 
-Output:
-.row
- .col-6 col-6
- .col-6 col-6
- .col-8 col-8
- .col-4 col-4
- .col-7 col-7
- .col-5 col-5
+Required:
+@import 'src/functions/map-deep-get.scss';
+@import 'src/variables/media.scss';
+@import 'src/modules/responsive.scss';
+
+Style:
+@include grid-style-row;
+
+Markup: grid.html
 
 Style guide: Grid.columns
 */
