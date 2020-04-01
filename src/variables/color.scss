@@ -1,7 +1,33 @@
+/*
+Color
+
+Declare map variable `$colors` to can use function `color`.
+
+Function:
+// $valueIndex: string
+color($valueIndex);
+
+Usage:
+// $colors : { 
+// 	[key: string]: string
+// }
+$colors: (
+  primary: blue,
+  secondary: red
+);
+.element {
+	background: color('primary');
+}
+
+Markup: color.html
+
+Style guide: Variables.color
+*/
+
 @function color($id) {
 	@if map-has-key($colors, $id) {
 		@return map-get($colors, $id);
 	}
 
-	@error "Invalid index name: `#{$id}`.";
+	@error 'Invalid index name: `#{$id}`.';
 }

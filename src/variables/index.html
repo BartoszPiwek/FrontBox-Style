@@ -1,0 +1,43 @@
+<style type="iframe">
+  @import 'index';
+
+  $indexes: (
+    first: 1,
+    last: -1
+  );
+
+  .item {
+    &-first {
+      z-index: index('first');
+    }
+
+    &-last {
+      z-index: index('last');
+    }
+  }
+
+  /* Addon */
+  .container {
+    position: relative;
+    height: 100px;
+    width: 100px;
+  }
+
+  .item {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: red;
+  }
+</style>
+
+<div class="container">
+  <div class="item item-first">
+    Should be first
+  </div>
+  <div class="item item-last">
+    Should be last
+  </div>
+</div>

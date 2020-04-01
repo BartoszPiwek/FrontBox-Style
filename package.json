@@ -1,7 +1,7 @@
 {
   "name": "@bpiwek/frontbox-style",
   "version": "0.0.2",
-  "description": "`Fronbox Style",
+  "description": "Hermetic SCSS files contain helpful methods used on most websites, divided into categories: functions, generators, modules, shapes, styles, variables.",
   "main": "index.scss",
   "style": "index.scss",
   "scripts": {
@@ -14,13 +14,16 @@
     "scss",
     "framework",
     "frontbox",
+    "style",
     "css",
-    "grid"
+    "grid",
+    "shapes",
+    "modules"
   ],
   "author": "Bartosz Piwek",
   "license": "ISC",
   "devDependencies": {
-    "@bpiwek/frontbox-kss-styleguide": "^0.0.6",
+    "@bpiwek/frontbox-kss-styleguide": "^0.0.7",
     "kss": "^3.0.0",
     "node-sass": "^4.13.0",
     "stylelint": "^13.2.1",

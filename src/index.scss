@@ -1,8 +1,7 @@
-
 /*
 Variables
 
-Use variables instead static values.
+Organize values with easy-to-read variables and include their using functions.
 
 Style guide: Variables
 */
@@ -24,7 +23,7 @@ Style guide: Modules
 @import './modules/holder';
 @import './modules/hover';
 @import './modules/input-placeholder';
-@import './modules/screenreader';
+@import './modules/screen-reader';
 @import './modules/scrollbar';
 @import './modules/space';
 @import './modules/vh';
@@ -69,4 +68,3 @@ Style guide: Shapes
 @import './shapes/square';
 @import './shapes/triangle';
 @import './shapes/circle';
-

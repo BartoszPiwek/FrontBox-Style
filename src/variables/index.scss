@@ -1,7 +1,33 @@
+/*
+Index
+
+Declare map variable `$indexes` to can use function `index`.
+
+Function:
+// $valueIndex: string
+index($valueIndex);
+
+Usage:
+// $indexes : { 
+// 	[key: string]: number
+// }
+$indexes: (
+	first: 1,
+	last: -1
+);
+.element {
+	z-index: index('first');
+}
+
+Markup: index.html
+
+Style guide: Variables.Index
+*/
+
 @function index($id) {
-	@if map-has-key($index, $id) {
-		@return map-get($index, $id);
+	@if map-has-key($indexes, $id) {
+		@return map-get($indexes, $id);
 	}
 
-	@error "Invalid index name: `#{$id}`.";
+	@error 'Invalid index name: `#{$id}`.';
 }

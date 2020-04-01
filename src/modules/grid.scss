@@ -38,11 +38,11 @@ Columns
 Generate CSS flex columns. Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.html#variables-breakpoints)
 
 Function:
-grid($grid-count, $breakpoints?);
-
-Usage:
 // $grid-count : number
 // $grid-breakpoints? : $breakpoints
+@include grid($grid-count, $breakpoints?);
+
+Usage:
 $breakpoint(
  xs: 0,
  sm: 576,

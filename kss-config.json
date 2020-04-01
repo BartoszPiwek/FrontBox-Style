@@ -6,11 +6,7 @@
   "homepage": "README.md",
   "custom": [
     "Function",
-    "Output",
-    "OutputCSS",
-    "Icons",
-    "Usage",
-    "Title",
-    "Style"
+    "Style",
+    "Usage"
   ]
 }

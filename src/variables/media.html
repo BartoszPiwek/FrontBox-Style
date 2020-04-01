@@ -1,0 +1,62 @@
+<style type="iframe">
+  @import "index";
+
+  .media {
+    display: none;
+
+    &-sm {
+      @include media("mobile") {
+        display: block;
+      }
+    }
+
+    &-md {
+      @include media("fablet") {
+        display: block;
+      }
+    }
+
+    &-lg {
+      @include media("tablet") {
+        display: block;
+      }
+    }
+  }
+
+  /* Addon */
+  .media {
+    width: 100px;
+    height: 100px;
+    background: red;
+
+    &-small {
+      display: block;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .info {
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+</style>
+
+<p class="info">Change tab to "Preview responsive"!</p>
+<div class="container">
+  <span class="media media-small">
+    size small
+  </span>
+  <span class="media media-sm">
+    size mobile
+  </span>
+  <span class="media media-md">
+    size fablet
+  </span>
+  <span class="media media-lg">
+    size tablet
+  </span>
+</div>

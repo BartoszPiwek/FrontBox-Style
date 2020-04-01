@@ -1,44 +1,43 @@
 <h1>
 <strong>FrontBox Style</strong> <small>by Bartosz Piwek</small>
-</h2>
+</h1>
 
-//TODO: description
+Hermetic SCSS files contain helpful methods used on most websites, divided into categories: functions, generators, modules, shapes, styles, variables.
 
 [![npm version](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style.svg)](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style)
 
-
 ## Install
 
-Add package on your project
-```bash
-npm i @bpiwek/frontbox-style
-```
-or
+Add package on your project using command:
+
 ```bash
 yarn add @bpiwek/frontbox-style
 ```
 
-Import file inside main scss file.
+or
+
+```bash
+npm i @bpiwek/frontbox-style
+```
+
+Import file in main scss file.
 
 ```scss
-@import 'node_modules/@bpiwek/frontbox-style/index';
+@import "node_modules/@bpiwek/frontbox-style/index";
 ```
+
+Voilà!
 
 ## Documentation [![Netlify Status](https://api.netlify.com/api/v1/badges/92d192a1-294d-42e7-90ee-b6f49809f4d2/deploy-status)](https://app.netlify.com/sites/festive-meitner-bb09bc/deploys)
 
-https://festive-meitner-bb09bc.netlify.com/
+Go to [this website](https://festive-meitner-bb09bc.netlify.com/) to read the documentation.
 
 ## Develop
-Make sure to install this fallowing plugins for Visual Code Studio before making changes.
 
-<ul>
-<li>
-<a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier - code formatter</a>
-</li>
-<li>
-<a href="https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint">Stylelint - style linter</a>
-</li>
-</ul>
+Make sure to install this fallowing plugins for Visual Code Studio before making changes:
+
+- [Prettier - code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Stylelint - style linter](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 
 ## Bugs
 

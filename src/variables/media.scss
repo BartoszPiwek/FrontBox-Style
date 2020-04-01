@@ -1,39 +1,67 @@
-@function breakpoint($name) {
-	@return map-get($breakpoints, $name);
+/*
+Media
+
+Wrap code in breakpoint screen using mixins `media` and `media-max`.
+Searching index in map variable `$breakpoints` ([go to section](section-variables.html#variables-breakpoints)).
+
+Function:
+// $valueIndex: string;
+@include media($valueIndex) {}
+@include media-max($valueIndex) {}
+
+Usage:
+.element {
+	@include media(table) {
+		color: red;
+	}
+	@include media-max(table) {
+		display: none;
+	}
 }
 
-@mixin media($name) {
-  $width: map-deep-get($breakpoints, $name, size);
+Markup: media.html
 
-  @if $width {
-    @media screen and (min-width: #{$width}px) {
-      @content;
-    }
-  } @else {
-    @content;
-  }
+Style guide: Variables.media
+*/
+
+@mixin media($name) {
+	$width: map-deep-get($breakpoints, $name, size);
+
+	@if $width {
+		@media screen and (min-width: #{$width}px) {
+			@content;
+		}
+	}
+
+	@else {
+		@content;
+	}
 }
 
 @mixin media-max($name) {
-  $width: map-deep-get($breakpoints, $name, size);
+	$width: map-deep-get($breakpoints, $name, size);
 
-  @if $width {
-    @media screen and (max-width: #{$width - 1}px) {
-      @content;
-    }
-  } @else {
-    @content;
-  }
+	@if $width {
+		@media screen and (max-width: #{$width - 1}px) {
+			@content;
+		}
+	}
+
+	@else {
+		@content;
+	}
 }
 
-@mixin media-special($name) {
-  $queries: map-get($media, $name);
+// @mixin media-special($name) {
+// 	$queries: map-get($media, $name);
 
-  @if $queries {
-    @media #{$queries} {
-      @content;
-    }
-  } @else {
-    @content;
-  }
-}
+// 	@if $queries {
+// 		@media #{$queries} {
+// 			@content;
+// 		}
+// 	}
+
+// 	@else {
+// 		@content;
+// 	}
+// }
