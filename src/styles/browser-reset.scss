@@ -1,6 +1,18 @@
 /* stylelint-disable property-no-vendor-prefix */
 /* stylelint-disable selector-no-qualifying-type */
 
+/*
+Browser reset
+
+Reset the styling of all HTML elements.
+> Recommended for all project!
+
+Usage:
+@include add-browser-reset-style;
+
+Style guide: Styles.Browser reset
+*/
+
 /* Main Elements */
 @mixin add-browser-reset {
 	*,

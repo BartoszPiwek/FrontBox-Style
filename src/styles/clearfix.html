@@ -1,0 +1,44 @@
+<style>
+	@import 'index';
+	@include add-clearfix-style;
+
+	/* Addon */
+	.container {
+		&+& {
+			margin-top: 20px;
+		}
+	}
+
+	.element {
+		height: 30px;
+		width: 33%;
+
+		&:before {
+			background: yellow;
+			height: 30px;
+			display: block;
+			content: '';
+		}
+
+		&--float {
+			float: right;
+
+			&:before {
+				background: red;
+			}
+		}
+	}
+</style>
+
+<div class="container">
+	<div class="element element--float"></div>
+	<div class="element element--float"></div>
+	<div class="element"></div>
+</div>
+
+<div class="container">
+	<div class="element element--float"></div>
+	<div class="element element--float"></div>
+	<div class="clearfix"></div>
+	<div class="element"></div>
+</div>

@@ -10,7 +10,7 @@ Style guide: Flow.group-center
 */
 
 .group-center {
-	display: flex !important;
+	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;

@@ -1,3 +1,30 @@
+/*
+Breakpoints
+
+Variable `$breakpoints` includes [default](https://github.com/BartoszPiwek/FrontBox-Style/blob/master/src/variables/breakpoints.scss) map for breakpoint screen.
+> Declaration can be overwrite by own breakpoints.
+
+Usage:
+// $breakpoints : { 
+// 		[key: string]: { 
+// 			name: string; 
+// 			size: number 
+// 		}
+// }
+$breakpoints : { 
+	mobile: (
+		name: sm,
+		size: 576
+	),
+	tablet: (
+		name: md,
+		size: 1000
+	),
+}
+
+Style guide: Variables.breakpoints
+*/
+
 $breakpoints: (
   mobile: (
     name: sm,

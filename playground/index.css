@@ -3,18 +3,72 @@
  * Bartosz Piwek
  * https://github.com/BartoszPiwek/FrontBox-Style
  */
-/* stylelint-disable property-no-vendor-prefix */
-/* stylelint-disable selector-no-qualifying-type */
-/* Main Elements */
 /*
-Clearfix
+Variables
 
-Include function inside selector to force an element self-clear its children.
+Create Variables element
+
+Style guide: Variables
+*/
+/*
+Breakpoints
+
+Default breakpoints variable. Variable can be overwrite.
 
 Usage:
-@include cleartfix;
+// $breakpoints : { 
+// 		[key: string]: { 
+// 			name: string; 
+// 			size: number 
+// 		}
+// }
+$breakpoints : { 
+	mobile: (
+		name: sm,
+		size: 576
+	),
+	tablet: (
+		name: md,
+		size: 1000
+	),
+}
 
-Style guide: Modules.Clearfix
+Default: 
+$breakpoints: (
+  mobile: (
+    name: sm,
+    size: 576
+  ),
+  fablet: (
+    name: md,
+    size: 768
+  ),
+  tablet: (
+    name: lg,
+    size: 992
+  ),
+  desktop: (
+    name: xl,
+    size: 1200
+  ),
+  desktop-hd: (
+    name: hd,
+    size: 1366
+  ),
+  desktop-wide: (
+    name: whd,
+    size: 1440
+  )
+);
+
+Style guide: Variables.breakpoints
+*/
+/*
+Modules
+
+Create Modules element
+
+Style guide: Modules
 */
 /*
 Click Expand
@@ -26,6 +80,8 @@ Usage:
 .link {
 	@include add-click-expand($space);
 }
+
+Markup: click-expand.html
 
 Style guide: Modules.Click expand
 */
@@ -50,11 +106,16 @@ Columns
 Generate CSS flex columns. 
 
 Function:
-grid($grid-count, $breakpoints);
+grid($grid-count, $breakpoints?);
 
 Usage:
-// $grid-count : number : 12
-// $grid-breakpoints : { [key: string]: { name: string; size: number }? : $breakpoints
+// $grid-count : number
+// $grid-breakpoints : { 
+// 		[key: string]: { 
+// 			name: string; 
+// 			size: number 
+// 		}
+// }
 $breakpoint(
  xs: 0,
  sm: 576,
@@ -62,11 +123,6 @@ $breakpoint(
  lg: 992,
 }
 @include grid(12, $breakpoints);
-
-Required:
-@import 'src/functions/map-deep-get.scss';
-@import 'src/variables/media.scss';
-@import 'src/modules/responsive.scss';
 
 Style:
 @include grid-style-row;
@@ -78,19 +134,21 @@ Style guide: Grid.columns
 /*
 Holder
 
-Create responsive holder.
+Create ratio holder.
 
 Usage:
 // $width: number
 // $height: number
 .selector {
- @include add-holder(50, 100);
+ @include add-holder($width, $height);
 }
 
 Style:
 @include add-holder-style;
 
-Style guide: Modules.Holder
+Markup: holder.html
+
+Style guide: Blocks.Holder
 */
 /*
 Hover
@@ -155,6 +213,121 @@ Style guide: Modules.input-placeholder
 */
 /* stylelint-disable */
 /*
+Scrollbar
+
+Create custom scrollbar for selector.
+Default class for this function named `.scrollbar` and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+
+Function:
+// $size : numberPixel
+// $color-background : string
+// $color-thumb : string
+add-scrollbar($size, $color-background, $color-thumb);
+
+Usage:
+@include add-scrollbar(20px, #000, #FFF);
+
+Markup: scrollbar.html
+
+Style guide: Modules.Scrollbar
+*/
+/*
+Space
+
+Create space for flex box layout between element children's. Space can be created in asix x/y or both.
+
+Function:
+// $size : numberPixel
+// $size-y : numberPixel? : $size
+add-space-x($size);
+add-space-y($size);
+add-space($size, $size-y);
+
+Usage:
+.space {
+ @include add-space(20px, 10px);
+}
+.space-x {
+ @include add-space-x(20px);
+}
+.space-y {
+ @include add-space-y(10px);
+}
+
+Markup: space.html
+
+Style guide: Modules.space
+*/
+/*
+Wrap
+
+Crete wrapper element to hold content in specific width with optional aside space.
+Space can be created in asix x (`padding left` and `padding-right`).
+
+Function:
+// $max-width : pixels
+// $padding-x? : pixels
+add-wrap($max-width, $padding-x);
+
+Usage:
+.wrap-header {
+	@include add-wrap(1024px, 20px);
+}
+
+Style:
+@include add-wrap-style;
+
+Markup: wrap.html
+
+Style guide: Modules.wrap
+*/
+/*
+Functions
+
+Create Functions element
+
+Style guide: Functions
+*/
+/*
+Styles
+
+Create styles element
+
+Style guide: Styles
+*/
+/* stylelint-disable property-no-vendor-prefix */
+/* stylelint-disable selector-no-qualifying-type */
+/*
+Browser reset
+
+Reset the styling of all HTML elements.
+
+Usage:
+@include add-browser-reset-style;
+
+Style guide: Styles.Browser reset
+*/
+/* Main Elements */
+/*
+Clearfix
+
+Create `.clearfix` class to force an element self-clear its children.
+
+Usage:
+@include add-cleartfix-style;
+
+Markup: clearfix.html
+
+Style guide: Styles.Clearfix
+*/
+/*
+Generators
+
+Create generators
+
+Style guide: Generators
+*/
+/*
 Responsive
 
 Create responsive classes for content. 
@@ -181,64 +354,52 @@ OutputCSS:
 }
 // and so on
 
-Style guide: Modules.Responsive
+Style guide: Generators.Responsive
 */
 /*
-Scrollbar
+Utility count
 
-Create custom scrollbar for selector.
-Default class for this function named `.scrollbar` and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+Create responsive classes for content. 
+Generated name selectors will have prefixed with breakpoint name and underscore.
 
 Function:
-scrollbar($size, $color-background, $color-thumb);
+add-responsive($breakpoints-array);
 
 Arguments:
-$size : number
-$color-background : color
-$color-thumb : color
+$breakpoints-array : { [key: string]: number }? : $breakpoints
 
 Usage:
-@include add-scrollbar(20, #000, #FFF);
+@include add-responsive {
+	.foo {}	
+}
 
-Style guide: Modules.Scrollbar
+OutputCSS:
+.foo {}
+@media screen and (min-width: 576px) {
+ .sm_foo {}
+}
+@media screen and (min-width: 768px) {
+ .md_foo {}
+}
+// and so on
+
+Style guide: Generators.Utility count
 */
 /*
-Space
+Shapes
 
-Include space function inside container class element to create space between element children's.
-Space can be created in asix x (`padding-left`), y (`padding-bottom`) or xy (`padding-left` and `padding-bottom`).
-Do not put addon style inside this relations. Default classes for this function named `.space` `.space-x` `.space-y` 
-and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
-On this example we include default function classes on `.row` elements to create space between `[class=^col]`. 
+Create shapes element
 
-Function:
-// $size : numberPixel
-// $size-y : numberPixel? : $size
-add-space-x($size);
-add-space-y($size);
-add-space($size, $size-y);
-
-Usage:
-.space {
- @include add-space(20px, 10px);
-}
-.space-x {
- @include add-space-x(20px);
-}
-.space-y {
- @include add-space-y(10px);
-}
-
-Style guide: Modules.space
+Style guide: Shapes
 */
 /*
 Square
 
-Create square element. Child element have container size.
+Create square element. 
 
 Markup: square.html
 
-Style guide: Blocks.square
+Style guide: Shapes.square
 */
 /*
 Triangle
@@ -255,37 +416,18 @@ add-triangle($width, $height, $position, $color);
 Usage:
 @include add-triangle(10, 10, 'top', #000);
 
-Style guide: Modules.Triangle
+Markup: triangle.html
+
+Style guide: Shapes.Triangle
 */
 /*
-Wrap
+Circle
 
-Crete wrapper element to hold content in specific width with optional aside space.
-Space can be created in asix x (`padding left` and `padding-right`).
+Create circle element. 
 
-Function:
-// $max-width : pixels
-// $padding-x? : pixels
-add-wrap($max-width, $padding-x);
+Markup: circle.html
 
-Usage:
-.wrap {
-	@include add-wrap(1024px, 20px);
-}
-
-Style:
-@include add-wrap-style;
-
-Style guide: Modules.wrap
-*/
-/*
-YouTube
-
-Embed YouTube iframe (default 21/9)
-
-Markup: youtube.html
-
-Style guide: Blocks.youtube
+Style guide: Shapes.circle
 */
 .color-blue {
   color: blue; }
@@ -426,6 +568,10 @@ address {
 
 .holder {
   position: relative; }
+  .holder:before {
+    content: '';
+    display: block;
+    width: 100%; }
   .holder__content {
     position: absolute;
     top: 0;
@@ -433,10 +579,5 @@ address {
     width: 100%;
     height: 100%; }
 
-.holder {
-  position: relative; }
-  .holder:before {
-    content: "";
-    display: block;
-    width: 100%;
-    padding-top: 50%; }
+.holder:before {
+  padding-top: 50%; }

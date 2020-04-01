@@ -3,22 +3,17 @@
   @include add-square-style;
 
   .link {
-    @include add-click-expand(20);
+    @include add-click-expand(20px);
   }
 
   /* Addon */
   .container {
     position: relative;
-    height: 60px;
+    padding: 40px 0;
     text-align: center;
   }
 
   .link {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
-
     &:before {
       background: red;
     }

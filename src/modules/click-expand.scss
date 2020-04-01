@@ -4,7 +4,7 @@ Click Expand
 Create pseudo element `before` to expand click space.
 
 Usage:
-// $space : number
+// $space : numberPixel
 .link {
 	@include add-click-expand($space);
 }
@@ -25,8 +25,8 @@ Style guide: Modules.Click expand
 		z-index: -1;
 		top: 50%;
 		left: 50%;
-		width: calc(100% + #{$space * 2}px);
-		height: calc(100% + #{$space * 2}px);
+		width: calc(100% + #{$space * 2});
+		height: calc(100% + #{$space * 2});
 		transform: translate(-50%, -50%);
 		cursor: pointer;
 	}

@@ -35,19 +35,14 @@ Style guide: Grid.row
 /*
 Columns
 
-Generate CSS flex columns. 
+Generate CSS flex columns. Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.html#variables-breakpoints)
 
 Function:
-grid($grid-count, $breakpoints);
+grid($grid-count, $breakpoints?);
 
 Usage:
 // $grid-count : number
-// $grid-breakpoints : { 
-// 		[key: string]: { 
-// 			name: string; 
-// 			size: number 
-// 		}
-// }
+// $grid-breakpoints? : $breakpoints
 $breakpoint(
  xs: 0,
  sm: 576,
@@ -64,7 +59,7 @@ Markup: grid.html
 Style guide: Grid.columns
 */
 
-@mixin grid($grid-count, $grid-breakpoints) {
+@mixin grid($grid-count, $grid-breakpoints: $breakpoints) {
 	@include add-responsive($grid-breakpoints) {
 		$prefix: &;
 
