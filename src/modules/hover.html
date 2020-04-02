@@ -1,0 +1,31 @@
+<style type="iframe">
+  @import "index.scss";
+
+  .selector {
+    @include add-hover(true) {
+      color: red;
+    }
+  }
+
+  /* Addon */
+  .parent {
+    border: 1px solid blue;
+  }
+
+  .container {
+    & + & {
+      margin-top: 10px;
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="parent">
+    <span class="selector">Hover on element to change color</span>
+  </div>
+</div>
+<div class="container">
+  <div class="parent selector--hover">
+    <span class="selector">Hover on parent to change color</span>
+  </div>
+</div>

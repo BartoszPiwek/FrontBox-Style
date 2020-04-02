@@ -1,37 +1,30 @@
 /*
 Input Placeholder
 
-Include function inside selector `input` or `textarea` to style placeholder text.<br>
+Style placeholder text inside `input` or `textarea` elements.
 
 Function:
-add-input-placeholder;
+@include add-input-placeholder {};
 
 Usage:
-input.selector {
+input {
  @include add-input-placeholder {
-	// content
+	color: red;
  }
 }
 
-OutputCSS:
-input.selector::placeholder,
-input.selector::-webkit-input-placeholder,
-input.selector::-moz-placeholder,
-input.selector:-ms-input-placeholder,
-input.selector:-moz-placeholder {
- // content
-}
+HTML:
+<input type="text" placeholder="Placeholder" />
+<textarea placeholder="Placeholder"></textarea>
+
+Markup: input-placeholder.html
 
 Style guide: Modules.input-placeholder
 */
 
 /* stylelint-disable */
 @mixin add-input-placeholder {
-	&::placeholder,
-	&::-webkit-input-placeholder,
-	&::-moz-placeholder,
-	&:-ms-input-placeholder,
-	&:-moz-placeholder {
+	&::placeholder {
 		@content;
 	}
 }

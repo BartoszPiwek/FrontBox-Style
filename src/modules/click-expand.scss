@@ -1,13 +1,20 @@
 /*
 Click Expand
 
-Create pseudo element `before` to expand click space.
+Expand click space using pseudo element `before`. Use prepared class `click-expand` to style element.
+
+Function:
+// $space : numberPixel
+@include add-click-expand($space);
 
 Usage:
 // $space : numberPixel
 .link {
-	@include add-click-expand($space);
+	@include add-click-expand(20px);
 }
+
+HTML:
+<a href="#" class="expand-link link"></a>
 
 Markup: click-expand.html
 
@@ -15,19 +22,26 @@ Style guide: Modules.Click expand
 */
 
 @mixin add-click-expand($space) {
-	position: relative;
-	z-index: 0;
-
 	&:before {
-		content: '';
-		display: block;
-		position: absolute;
-		z-index: -1;
-		top: 50%;
-		left: 50%;
 		width: calc(100% + #{$space * 2});
 		height: calc(100% + #{$space * 2});
-		transform: translate(-50%, -50%);
-		cursor: pointer;
+	}
+}
+
+@mixin add-click-expand-style {
+	.click-expand {
+		position: relative;
+		z-index: 0;
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: -1;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			cursor: pointer;
+		}
 	}
 }

@@ -1,40 +1,34 @@
 /*
 Hover
 
-Include function inside selector to style `:hover`, `:active` and `:focus` states. Style only trigger for non touch devices.<br>
-> Set <b>true</b> for parameter <code>$hasParentTrigger</code> to create trigger hover class `&--hover` for any parent element. 
+Style states `:hover`, `:active` and `:focus`. Style only trigger for non touch devices.<br>
+> Set <b>true</b> for parameter <code>$canParentTrigger</code> to create trigger hover class `&--hover` for any parent element. 
 
 Function:
-add-hover($hasParentTrigger);
+// $canParentTrigger : boolean : false
+@include add-hover($canParentTrigger);
 
 Usage:
-// $hasParentTrigger : boolean : false
 .selector {
  @include add-hover(true) {
-  // content 	
+  color: red;
  };
 }
 
-OutputCSS:
-@media (hover: hover) {
- .selector:hover,
- .selector:active,
- .selector:focus {
-  // content 	
- }
-}
-@media (hover: hover) {
- .selector--hover:hover .selector,
- .selector--hover:active .selector,
- .selector--hover:focus .selector {
-   // content 	
- }
-}
+HTML:
+<div>
+	<span class="selector"></span>
+</div>
+<div class="selector--hover">
+	<span class="selector"></span>
+</div>
+
+Markup: hover.html
 
 Style guide: Modules.Hover
 */
 
-@mixin add-hover($hasParentTrigger: false) {
+@mixin add-hover($canParentTrigger: false) {
 	@media (hover: hover) {
 		&:hover,
 		&:active,
@@ -43,7 +37,7 @@ Style guide: Modules.Hover
 		}
 	}
 
-	@if ($hasParentTrigger == true) {
+	@if ($canParentTrigger == true) {
 		@media (hover: hover) {
 			&--hover:hover &,
 			&--hover:active &,
