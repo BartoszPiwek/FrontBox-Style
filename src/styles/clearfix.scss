@@ -1,10 +1,13 @@
 /*
 Clearfix
 
-Create `.clearfix` class to force an element self-clear its children.
+Prepared class `clearfix` to force an element self-clear its children.
 
 Usage:
 @include add-cleartfix-style;
+
+HTML:
+<div class="clearfix"></div>
 
 Markup: clearfix.html
 

@@ -1,7 +1,12 @@
 /*
 Square
 
-Create square element. 
+Prepared class `square` (for parent) and `square__content` (for child) create responsive square shape based on element width.
+
+HTML:
+<div class="square">
+	<div class="square__content"></div>
+</div>
 
 Markup: square.html
 

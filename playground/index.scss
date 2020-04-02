@@ -96,7 +96,7 @@ $breakpoints: (
 
 // Modules: browser reset
 @include add-browser-reset;
-@include add-holder-style;
+@include add-rectangle-style;
 
 .holder {
 	@include add-holder(200, 100);

@@ -11,25 +11,6 @@ Style guide: Variables
 @import './variables/media';
 
 /*
-Modules
-
-Create Modules element
-
-Style guide: Modules
-*/
-@import './modules/click-expand';
-@import './modules/fixes';
-@import './modules/grid';
-@import './modules/holder';
-@import './modules/hover';
-@import './modules/input-placeholder';
-@import './modules/screen-reader';
-@import './modules/scrollbar';
-@import './modules/space';
-@import './modules/vh';
-@import './modules/wrap';
-
-/*
 Functions
 
 Create Functions element
@@ -39,9 +20,27 @@ Style guide: Functions
 @import './functions/map-deep-get';
 
 /*
+Modules
+
+Create Modules element
+
+Style guide: Modules
+*/
+@import './modules/click-expand';
+@import './modules/fixes';
+@import './modules/grid';
+@import './modules/hover';
+@import './modules/input-placeholder';
+@import './modules/screen-reader';
+@import './modules/scrollbar';
+@import './modules/space';
+@import './modules/vh';
+@import './modules/wrap';
+
+/*
 Styles
 
-Create styles element
+Prepare style for selectors/classes.
 
 Style guide: Styles
 */
@@ -61,10 +60,11 @@ Style guide: Generators
 /*
 Shapes
 
-Create shapes element
+Prepare classes and mixins to create shapes.
 
 Style guide: Shapes
 */
 @import './shapes/square';
 @import './shapes/triangle';
 @import './shapes/circle';
+@import './shapes/rectangle';

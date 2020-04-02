@@ -23,7 +23,7 @@
   "author": "Bartosz Piwek",
   "license": "ISC",
   "devDependencies": {
-    "@bpiwek/frontbox-kss-styleguide": "^0.0.8",
+    "@bpiwek/frontbox-kss-styleguide": "^0.0.9",
     "kss": "^3.0.0",
     "node-sass": "^4.13.0",
     "stylelint": "^13.2.1",

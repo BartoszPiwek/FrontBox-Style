@@ -1,0 +1,50 @@
+/*
+Rectangle
+
+Create responsive rectangle shape. Use prepared class `rectangle` (for parent) and `rectangle__content` (for child).
+
+Usage:
+// $width: number
+// $height: number
+.rectangle-16-9 {
+ @include add-rectangle($width, $height);
+}
+
+HTML:
+<div class="rectangle rectangle-16-9">
+  <div class="rectangle__content"></div>
+</div>
+
+Style:
+@include add-rectangle-style;
+
+Markup: rectangle.html
+
+Style guide: Shapes.Rectangle
+*/
+
+@mixin add-rectangle($width, $height) {
+	&:before {
+		padding-top: ($height / $width) * 100%;
+	}
+}
+
+@mixin add-rectangle-style {
+	.rectangle {
+		position: relative;
+
+		&__content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+		}
+	}
+}

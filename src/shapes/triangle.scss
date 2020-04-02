@@ -1,17 +1,25 @@
 /*
 Triangle
 
-Create triangle element.
+Create triangle shape. On element who include this mixin use style class `triangle`.
+
+Usage:
+.triangle-up {
+	@include add-triangle(10, 10, 'top', #000);
+}
+
+HTML:
+<div class="triangle triangle-up"></div>
 
 Function:
-// $width : number
-// $height : number
+// $width : numberPixel
+// $height : numberPixel
 // $position : 'up' | 'right' | 'down' | 'left'
 // $color : string
 add-triangle($width, $height, $position, $color);
 
-Usage:
-@include add-triangle(10, 10, 'top', #000);
+Style:
+@include add-triangle-style;
 
 Markup: triangle.html
 
@@ -19,34 +27,38 @@ Style guide: Shapes.Triangle
 */
 
 @mixin add-triangle($width, $height, $position, $color) {
-	$width-half: $width / 2;
+	$half-width: $width / 2;
 
-	width: 0;
-	height: 0;
-
-	@if ($position == "left") {
+	@if ($position == 'left') {
 		border-right: $height solid $color;
 	}
 
-	@else if($position == "up") {
+	@else if($position == 'up') {
 		border-bottom: $height solid $color;
 	}
 
-	@else if($position == "right") {
+	@else if($position == 'right') {
 		border-left: $height solid $color;
 	}
 
-	@else if($position == "down") {
+	@else if($position == 'down') {
 		border-top: $height solid $color;
 	}
 
-	@if ($position != "left" and $position != "right" == true) {
-		border-right: $width-half solid transparent;
-		border-left: $width-half solid transparent;
+	@if ($position != 'left' and $position != 'right' == true) {
+		border-right: $half-width solid transparent;
+		border-left: $half-width solid transparent;
 	}
 
 	@else {
-		border-top: $width-half solid transparent;
-		border-bottom: $width-half solid transparent;
+		border-top: $half-width solid transparent;
+		border-bottom: $half-width solid transparent;
+	}
+}
+
+@mixin add-triangle-style {
+	.triangle {
+		width: 0;
+		height: 0;
 	}
 }

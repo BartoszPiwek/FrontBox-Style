@@ -1,9 +1,9 @@
 <style type="iframe">
   @import 'index';
-  @include add-holder-style;
+  @include add-rectangle-style;
 
-  .holder--big {
-    @include add-holder(1980, 1080);
+  .rectangle-16-9 {
+  @include add-rectangle(16, 9);
   }
 
   /* Addon */
@@ -12,14 +12,14 @@
     max-width: 500px;
   }
 
-  .holder__content {
+  .rectangle__content {
     background: red;
   }
 </style>
 
 <div class="container">
-  <div class="holder holder--big">
-    <div class="holder__content">
+  <div class="rectangle rectangle-16-9">
+    <div class="rectangle__content">
       content
     </div>
   </div>
