@@ -4,7 +4,7 @@ Grid
 Grid system based on the flex display property.
 
 Style:
-@include grid-style-row;
+@include add-grid-row-style;
 
 Style guide: Layout.Grid
 */
@@ -16,7 +16,7 @@ Style form container for columns.
 
 Style guide: Layout.Grid.Row
 */
-@mixin grid-style-row {
+@mixin add-grid-row-style {
 	.row {
 		display: flex;
 		position: relative;
@@ -45,51 +45,32 @@ Style guide: Layout.Grid.Row
 /*
 Columns
 
-Generate columns classes.
+Generate `col` classes.
 
-Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.html#variables-breakpoints)
+Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.html#variables-breakpoints).
 
 > Responsive classes has automatic generated using [responsive](section-functions.html#functions-responsive) mixin.
 
 Function:
 // $grid-count : number
 // $grid-breakpoints? : $breakpoints
-@include grid($grid-count, $breakpoints?);
+@include add-grid($grid-count, $breakpoints?);
 
 Usage:
-@include grid(12);
+@include add-grid(12);
 
 Markup: grid.html
 
 Style guide: Layout.Grid.Columns
 */
 
-@mixin grid($grid-count, $grid-breakpoints: $breakpoints) {
-	@include add-responsive($grid-breakpoints) {
+@mixin add-grid($grid-count, $grid-breakpoints: $breakpoints) {
+	@include add-responsive('col', $grid-breakpoints) {
 		@for $i from 1 through $grid-count {
-			
-			#{&}col-#{$i}{
+			&-#{$i} {
 				flex-basis: 100% / ($grid-count / $i);
 				max-width: 100% / ($grid-count / $i);
 			}
-
-			@if $i != $grid-count {
-				#{&}pull-#{$i}{
-					right: 100% / ($grid-count / $i) !important;
-				}
-
-				#{&}push-#{$i}{
-					left: 100% / ($grid-count / $i) !important;
-				}
-
-				#{&}order-#{$i}{
-					order: $i;
-				}
-			}
-		}
-
-		#{&}col-shrink{
-			flex: 0 0 auto;
 		}
 	}
 }
@@ -97,21 +78,61 @@ Style guide: Layout.Grid.Columns
 /*
 Offset
 
-Generate columns.
+Function:
+// $grid-count : number
+// $grid-breakpoints? : $breakpoints
+@include add-grid-offset($grid-count, $breakpoints?);
 
-Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.html#variables-breakpoints)
+Usage:
+@include add-grid-offset(12);
 
-> Responsive classes has generated using [responsive](section-functions.html#functions-responsive) mixin.
+Style guide: Layout.Grid.Offset
+*/
+
+@mixin add-grid-offset($grid-count, $grid-breakpoints: $breakpoints) {
+	@include add-responsive('pull', $grid-breakpoints) {
+		@for $i from 1 through $grid-count {
+			@if $i != $grid-count {
+				#{&}pull-#{$i} {
+					right: 100% / ($grid-count / $i) !important;
+				}
+			}
+		}
+	}
+
+	@include add-responsive('push', $grid-breakpoints) {
+		@for $i from 1 through $grid-count {
+			@if $i != $grid-count {
+				#{&}pull-#{$i} {
+					left: 100% / ($grid-count / $i) !important;
+				}
+			}
+		}
+	}
+}
+
+/*
+Order
 
 Function:
 // $grid-count : number
 // $grid-breakpoints? : $breakpoints
-@include grid($grid-count, $breakpoints?);
+@include add-grid-order($grid-count, $breakpoints?);
 
 Usage:
-@include grid(12);
+@include add-grid-order(12);
 
-Markup: grid.html
-
-Style guide: Layout.Grid.Columns.Offset
+Style guide: Layout.Grid.Order
 */
+
+@mixin add-grid-order($grid-count, $grid-breakpoints: $breakpoints) {
+	@include add-responsive(order, $grid-breakpoints) {
+		@for $i from 1 through $grid-count {
+			@if $i != $grid-count {
+				#{&}-#{$i} {
+					order: $i;
+				}
+			}
+		}
+	}
+}

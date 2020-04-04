@@ -1,12 +1,12 @@
 <style type="iframe">
-  @import 'index.scss';
+  @import "index.scss";
 
-  @include grid($grid-count: 12);
-  @include grid-style-row;
+  @include add-grid($grid-count: 12);
+  @include add-grid-row-style;
 
   /* Addon */
   .row {
-    &>div {
+    & > div {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,7 +21,7 @@
       }
     }
 
-    &+& {
+    & + & {
       margin-top: 6px;
     }
   }

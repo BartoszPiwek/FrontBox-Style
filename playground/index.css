@@ -1,19 +1,20 @@
 /*!
- * FrontBox Style 0.0.1
+ * FrontBox Style 0.0.2
  * Bartosz Piwek
  * https://github.com/BartoszPiwek/FrontBox-Style
  */
 /*
 Variables
 
-Create Variables element
+Organize values using variables map and easy-to-read functions or mixins.
 
 Style guide: Variables
 */
 /*
 Breakpoints
 
-Default breakpoints variable. Variable can be overwrite.
+[Default](https://github.com/BartoszPiwek/FrontBox-Style/blob/master/src/variables/breakpoints.scss) breakpoints screen map.
+> Declaration can be overwrite by own breakpoints.
 
 Usage:
 // $breakpoints : { 
@@ -33,53 +34,149 @@ $breakpoints : {
 	),
 }
 
-Default: 
-$breakpoints: (
-  mobile: (
-    name: sm,
-    size: 576
-  ),
-  fablet: (
-    name: md,
-    size: 768
-  ),
-  tablet: (
-    name: lg,
-    size: 992
-  ),
-  desktop: (
-    name: xl,
-    size: 1200
-  ),
-  desktop-hd: (
-    name: hd,
-    size: 1366
-  ),
-  desktop-wide: (
-    name: whd,
-    size: 1440
-  )
-);
-
 Style guide: Variables.breakpoints
+*/
+/*
+Color
+
+Get color value.<br>
+Function `color` return value index from `$colors` map.
+
+Function:
+// $valueIndex: string
+color($valueIndex);
+
+Usage:
+// $colors : { 
+// 	[key: string]: string
+// }
+$colors: (
+  primary: blue,
+  secondary: red
+);
+.element {
+	background: color('primary');
+}
+
+Markup: color.html
+
+Style guide: Variables.color
+*/
+/*
+Index
+
+Get index value for property `z-index`.<br>
+Function `index` return value index from `$indexes` map.
+
+Function:
+// $id: string
+index($id);
+
+Usage:
+// $indexes : { 
+// 	[key: string]: number
+// }
+$indexes: (
+	first: 1,
+	last: -1
+);
+.element {
+	z-index: index('first');
+}
+
+Markup: index.html
+
+Style guide: Variables.Index
+*/
+/*
+Media
+
+Wrap code in breakpoint screen.<br>
+Mixins `media` and `media-max` take parameter `$valueIndex` - value index from `$breakpoints` map ([go to section](section-variables.html#variables-breakpoints)).
+
+Function:
+// $valueIndex: string;
+@include media($valueIndex) {}
+@include media-max($valueIndex) {}
+
+Usage:
+.element {
+	@include media(tablet) {
+		color: red;
+	}
+	@include media-max(tablet) {
+		display: none;
+	}
+}
+
+Markup: media.html
+
+Style guide: Variables.media
+*/
+/*
+Functions
+
+Resolve common problems with SCSS preprocessor.
+
+Style guide: Functions
+*/
+/*
+Map deep get
+
+Fetch deeply nested values from a map.
+
+Function:
+// $deep-map: { 
+// 		[key: string]: { 
+// 			...
+// 		}
+// }
+// $keys: string[]
+map-deep-get($deep-map, $keys...);
+
+Usage:
+$deep-map: (
+  "first": (
+    value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  ),
+  "second": (
+    value: "Fusce non orci elit.",
+  ),
+);
+element {
+ &:before {
+   content: "[#]{map-deep-get($deep-map, first, value)}";
+ }
+}
+
+Markup: map-deep-get.html
+
+Styleguide: Functions.Map deep get
 */
 /*
 Modules
 
-Create Modules element
+Change elements behavior.
 
 Style guide: Modules
 */
 /*
 Click Expand
 
-Create pseudo element `before` to expand click space.
+Expand click space using pseudo element `before`. Use prepared class `click-expand` to style element.
+
+Function:
+// $space : numberPixel
+@include add-click-expand($space);
 
 Usage:
-// $space : number
+// $space : numberPixel
 .link {
-	@include add-click-expand($space);
+	@include add-click-expand(20px);
 }
+
+HTML:
+<a href="#" class="expand-link link"></a>
 
 Markup: click-expand.html
 
@@ -93,121 +190,54 @@ Change to position fixed on iOS Safari while scrolling
 Style guide: Fix.fixed
 */
 /*
-Row
-
-Style form container for columns. 
-Compatibility with [space](section-modules.html#modules-space) function
-
-Style guide: Grid.row
-*/
-/*
-Columns
-
-Generate CSS flex columns. 
-
-Function:
-grid($grid-count, $breakpoints?);
-
-Usage:
-// $grid-count : number
-// $grid-breakpoints : { 
-// 		[key: string]: { 
-// 			name: string; 
-// 			size: number 
-// 		}
-// }
-$breakpoint(
- xs: 0,
- sm: 576,
- md: 768,
- lg: 992,
-}
-@include grid(12, $breakpoints);
-
-Style:
-@include grid-style-row;
-
-Markup: grid.html
-
-Style guide: Grid.columns
-*/
-/*
-Holder
-
-Create ratio holder.
-
-Usage:
-// $width: number
-// $height: number
-.selector {
- @include add-holder($width, $height);
-}
-
-Style:
-@include add-rectangle-style;
-
-Markup: holder.html
-
-Style guide: Blocks.Holder
-*/
-/*
 Hover
 
-Include function inside selector to style `:hover`, `:active` and `:focus` states. Style only trigger for non touch devices.<br>
-> Set <b>true</b> for parameter <code>$hasParentTrigger</code> to create trigger hover class `&--hover` for any parent element. 
+Style states `:hover`, `:active` and `:focus`. Style only trigger for non touch devices.<br>
+> Set <b>true</b> for parameter <code>$canParentTrigger</code> to create trigger hover class `&--hover` for any parent element. 
 
 Function:
-add-hover($hasParentTrigger);
+// $canParentTrigger : boolean : false
+@include add-hover($canParentTrigger);
 
 Usage:
-// $hasParentTrigger : boolean : false
 .selector {
  @include add-hover(true) {
-  // content 	
+  color: red;
  };
 }
 
-OutputCSS:
-@media (hover: hover) {
- .selector:hover,
- .selector:active,
- .selector:focus {
-  // content 	
- }
-}
-@media (hover: hover) {
- .selector--hover:hover .selector,
- .selector--hover:active .selector,
- .selector--hover:focus .selector {
-   // content 	
- }
-}
+HTML:
+<div>
+	<span class="selector"></span>
+</div>
+<div class="selector--hover">
+	<span class="selector"></span>
+</div>
+
+Markup: hover.html
 
 Style guide: Modules.Hover
 */
 /*
 Input Placeholder
 
-Include function inside selector `input` or `textarea` to style placeholder text.<br>
+Style placeholder text inside `input` or `textarea` elements.
 
 Function:
-add-input-placeholder;
+@include add-input-placeholder {};
 
 Usage:
-input.selector {
+input {
  @include add-input-placeholder {
-	// content
+	color: red;
  }
 }
 
-OutputCSS:
-input.selector::placeholder,
-input.selector::-webkit-input-placeholder,
-input.selector::-moz-placeholder,
-input.selector:-ms-input-placeholder,
-input.selector:-moz-placeholder {
- // content
-}
+HTML:
+<input type="text" placeholder="Placeholder" />
+<textarea placeholder="Placeholder"></textarea>
+
+Markup: input-placeholder.html
 
 Style guide: Modules.input-placeholder
 */
@@ -215,8 +245,7 @@ Style guide: Modules.input-placeholder
 /*
 Scrollbar
 
-Create custom scrollbar for selector.
-Default class for this function named `.scrollbar` and located in [style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file.<br>
+Style browser scrollbar.
 
 Function:
 // $size : numberPixel
@@ -225,11 +254,85 @@ Function:
 add-scrollbar($size, $color-background, $color-thumb);
 
 Usage:
-@include add-scrollbar(20px, #000, #FFF);
+.scrollbar {
+	@include add-scrollbar(20px, #000, #FFF);
+}
+
+HTML:
+<div class="scollbar"></div>
 
 Markup: scrollbar.html
 
 Style guide: Modules.Scrollbar
+*/
+/*
+Layout
+
+Style guide: Layout
+*/
+/*
+Grid
+
+Grid system based on the flex display property.
+
+Style:
+@include add-grid-row-style;
+
+Style guide: Layout.Grid
+*/
+/*
+Row
+
+Style form container for columns. 
+
+Style guide: Layout.Grid.Row
+*/
+/*
+Columns
+
+Generate `col` classes.
+
+Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.html#variables-breakpoints).
+
+> Responsive classes has automatic generated using [responsive](section-functions.html#functions-responsive) mixin.
+
+Function:
+// $grid-count : number
+// $grid-breakpoints? : $breakpoints
+@include add-grid($grid-count, $breakpoints?);
+
+Usage:
+@include add-grid(12);
+
+Markup: grid.html
+
+Style guide: Layout.Grid.Columns
+*/
+/*
+Offset
+
+Function:
+// $grid-count : number
+// $grid-breakpoints? : $breakpoints
+@include add-grid-offset($grid-count, $breakpoints?);
+
+Usage:
+@include add-grid-offset(12);
+
+Style guide: Layout.Grid.Offset
+*/
+/*
+Order
+
+Function:
+// $grid-count : number
+// $grid-breakpoints? : $breakpoints
+@include add-grid-order($grid-count, $breakpoints?);
+
+Usage:
+@include add-grid-order(12);
+
+Style guide: Layout.Grid.Order
 */
 /*
 Space
@@ -256,7 +359,7 @@ Usage:
 
 Markup: space.html
 
-Style guide: Modules.space
+Style guide: Layout.space
 */
 /*
 Wrap
@@ -279,19 +382,12 @@ Style:
 
 Markup: wrap.html
 
-Style guide: Modules.wrap
-*/
-/*
-Functions
-
-Create Functions element
-
-Style guide: Functions
+Style guide: Layout.wrap
 */
 /*
 Styles
 
-Create styles element
+Styles for selectors/classes.
 
 Style guide: Styles
 */
@@ -300,7 +396,8 @@ Style guide: Styles
 /*
 Browser reset
 
-Reset the styling of all HTML elements.
+Set of CSS rules that resets the styling of all HTML elements to a consistent baseline.
+> Recommended for all projects!
 
 Usage:
 @include add-browser-reset-style;
@@ -311,10 +408,13 @@ Style guide: Styles.Browser reset
 /*
 Clearfix
 
-Create `.clearfix` class to force an element self-clear its children.
+Prepared class `clearfix` to force an element self-clear its children.
 
 Usage:
 @include add-cleartfix-style;
+
+HTML:
+<div class="clearfix"></div>
 
 Markup: clearfix.html
 
@@ -323,36 +423,31 @@ Style guide: Styles.Clearfix
 /*
 Generators
 
-Create generators
+Create dynamic code.
 
 Style guide: Generators
 */
 /*
 Responsive
 
-Create responsive classes for content. 
-Generated name selectors will have prefixed with breakpoint name and underscore.
+Create responsive classes with breakpoint name prefix. 
+
+Parameter `$breakpoints-array` on default is [$breakpoints](section-variables.html#variables-breakpoints).
 
 Function:
-add-responsive($breakpoints-array);
-
-Arguments:
-$breakpoints-array : { [key: string]: number }? : $breakpoints
+// $class-name : string
+// $breakpoints-array? : $breakpoints
+@include add-responsive($class-name, $breakpoints-array) {};
 
 Usage:
-@include add-responsive {
-	.foo {}	
+@include add-responsive(color-red {
+	color: red;
 }
 
-OutputCSS:
-.foo {}
-@media screen and (min-width: 576px) {
- .sm_foo {}
-}
-@media screen and (min-width: 768px) {
- .md_foo {}
-}
-// and so on
+HTML:
+<div class="md_color-red">Color red</div>
+
+Markup: responsive.html
 
 Style guide: Generators.Responsive
 */
@@ -388,33 +483,52 @@ Style guide: Generators.Utility count
 /*
 Shapes
 
-Create shapes element
+Create CSS shapes.
 
 Style guide: Shapes
 */
 /*
 Square
 
-Create square element. 
+Responsive square shape based on element width.
+
+Prepared elements classes:
+- `square` - parent
+- `square__content` - child. 
+
+HTML:
+<div class="square">
+	<div class="square__content"></div>
+</div>
 
 Markup: square.html
+
+Style:
+@import add-square-style;
 
 Style guide: Shapes.square
 */
 /*
 Triangle
 
-Create triangle element.
+Create triangle shape.
+
+Mixin `add-rectangle` create triangle.
 
 Function:
-// $width : number
-// $height : number
+// $width : numberPixel
+// $height : numberPixel
 // $position : 'up' | 'right' | 'down' | 'left'
 // $color : string
-add-triangle($width, $height, $position, $color);
+@include add-triangle($width, $height, $position, $color);
 
 Usage:
-@include add-triangle(10, 10, 'top', #000);
+.triangle-up {
+	@include add-triangle(20px, 20px, 'top', #000);
+}
+
+HTML:
+<div class="triangle-up"></div>
 
 Markup: triangle.html
 
@@ -423,200 +537,77 @@ Style guide: Shapes.Triangle
 /*
 Circle
 
-Create circle element. 
+Responsive circle shape based on element width.
+
+Prepared elements classes:
+- `circle` - parent
+- `circle__content` - child. 
+
+Child element will be centered on axis xy.
 
 Markup: circle.html
 
+Style:
+@include add-circle-style;
+
 Style guide: Shapes.circle
 */
-.color-blue {
-	color: blue;
+/*
+Rectangle
+
+Responsive rectangle shape based on element width.
+
+Mixin `add-rectangle` create width to height ratio.
+
+Prepared elements classes:
+- `rectangle` - parent
+- `rectangle__content` - child. 
+
+Function:
+// $width: number
+// $height: number
+@include add-rectangle($width, $height);
+
+Usage:
+.rectangle-16-9 {
+ @include add-rectangle(16, 9);
 }
 
+HTML:
+<div class="rectangle rectangle-16-9">
+  <div class="rectangle__content"></div>
+</div>
+
+Style:
+@include add-rectangle-style;
+
+Markup: rectangle.html
+
+Style guide: Shapes.Rectangle
+*/
 .color-red {
-	color: red;
-}
+  color: red; }
 
-.index-wrapper {
-	position: relative;
-	width: 100px;
-	height: 100px;
-}
+@media screen and (min-width: 576px) {
+  .sm_color-red {
+    color: red; } }
 
-.index-item {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: red;
-}
+@media screen and (min-width: 768px) {
+  .md_color-red {
+    color: red; } }
 
-.index-first {
-	z-index: 1;
-}
+@media screen and (min-width: 992px) {
+  .lg_color-red {
+    color: red; } }
 
-.index-last {
-	z-index: -1;
-}
+@media screen and (min-width: 1200px) {
+  .xl_color-red {
+    color: red; } }
 
-.media-item {
-	width: 100px;
-	height: 100px;
-	background: red;
-}
+@media screen and (min-width: 1366px) {
+  .hd_color-red {
+    color: red; } }
 
-@media screen and (min-width: 1000px) {
-	.media-md {
-		display: block;
-	}
-}
-
-@media screen and (max-width: 999px) {
-	.media-md {
-		display: none;
-	}
-}
-
-@media screen and (max-width: 999px) {
-	.media-max-md {
-		display: block;
-	}
-}
-
-@media screen and (min-width: 1000px) {
-	.media-max-md {
-		display: none;
-	}
-}
-
-.wrap {
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-.wrap {
-	max-width: 240px;
-	padding-right: 20px;
-	padding-left: 20px;
-}
-
-*,
-*:after,
-*:before {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-html {
-	-webkit-text-size-adjust: 100%;
-	-webkit-touch-callout: none;
-}
-
-body {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-iframe {
-	border: 0;
-}
-
-ol,
-ul {
-	list-style: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-size: 16px;
-	font-weight: normal;
-}
-
-a {
-	display: inline;
-	color: inherit;
-	text-decoration: none;
-}
-
-iframe {
-	border: 0;
-}
-
-table {
-	border-spacing: 0;
-}
-
-/* Form Elements */
-[type="text"]::-ms-clear,
-[type="text"]::-ms-reveal {
-	display: none;
-	width: 0;
-	height: 0;
-}
-
-[type="number"] {
-	-moz-appearance: textfield;
-}
-
-[type="checkbox"],
-[type="radio"] {
-	position: absolute !important;
-	bottom: 0 !important;
-	left: 50% !important;
-	width: 1px !important;
-	height: 1px !important;
-	padding: 0 !important;
-	overflow: hidden !important;
-	clip: rect(0 0 0 0) !important;
-	border: 0 !important;
-	white-space: nowrap !important;
-	-webkit-clip-path: inset(50%) !important;
-	clip-path: inset(50%) !important;
-}
-
-[type="button"],
-[type="reset"],
-[type="submit"],
-button {
-	border: 0;
-	background: 0 0;
-	cursor: pointer;
-	-webkit-appearance: button;
-}
-
-label [for] {
-	cursor: pointer;
-}
-
-address {
-	font-style: normal;
-}
-
-.holder {
-	position: relative;
-}
-
-.holder:before {
-	content: '';
-	display: block;
-	width: 100%;
-}
-
-.holder__content {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.holder:before {
-	padding-top: 50%;
-}
+@media screen and (min-width: 1440px) {
+  .whd_color-red {
+    color: red; } }

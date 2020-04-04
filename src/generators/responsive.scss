@@ -1,21 +1,18 @@
 /*
 Responsive
 
-Create responsive classes for content. 
-
-Generated selectors based on content class with breakpoint name prefix.
+Create responsive classes with breakpoint name prefix. 
 
 Parameter `$breakpoints-array` on default is [$breakpoints](section-variables.html#variables-breakpoints).
 
 Function:
-// $breakpoints-array> : $breakpoints
-@include add-responsive($breakpoints-array) {};
+// $class-name : string
+// $breakpoints-array? : $breakpoints
+@include add-responsive($class-name, $breakpoints-array) {};
 
 Usage:
-@include add-responsive {
-	[#]{&}color-red{
-		color: red;
-	}
+@include add-responsive(color-red {
+	color: red;
 }
 
 HTML:
@@ -26,14 +23,16 @@ Markup: responsive.html
 Style guide: Generators.Responsive
 */
 
-@mixin add-responsive($breakpoints-array: $breakpoints) {
-	@content;
+@mixin add-responsive($class-name, $breakpoints-array: $breakpoints) {
+	.#{$class-name} {
+		@content;
+	}
 
 	@each $label, $other in $breakpoints {
 		$breakpoint-name: map-deep-get($breakpoints, $label, name);
 
 		@include media($label) {
-			.#{$breakpoint-name}_ {
+			.#{$breakpoint-name}_#{$class-name} {
 				@content;
 			}
 		}
