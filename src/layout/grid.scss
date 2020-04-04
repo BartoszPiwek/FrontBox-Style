@@ -66,30 +66,29 @@ Style guide: Layout.Grid.Columns
 
 @mixin grid($grid-count, $grid-breakpoints: $breakpoints) {
 	@include add-responsive($grid-breakpoints) {
-		$prefix: &;
-
 		@for $i from 1 through $grid-count {
-			@at-root .#{$prefix}col-#{$i}{
+			
+			#{&}col-#{$i}{
 				flex-basis: 100% / ($grid-count / $i);
 				max-width: 100% / ($grid-count / $i);
 			}
 
 			@if $i != $grid-count {
-				@at-root .#{$prefix}pull-#{$i}{
+				#{&}pull-#{$i}{
 					right: 100% / ($grid-count / $i) !important;
 				}
 
-				@at-root .#{$prefix}push-#{$i}{
+				#{&}push-#{$i}{
 					left: 100% / ($grid-count / $i) !important;
 				}
 
-				@at-root .#{$prefix}order-#{$i}{
+				#{&}order-#{$i}{
 					order: $i;
 				}
 			}
 		}
 
-		@at-root .#{$prefix}col-shrink{
+		#{&}col-shrink{
 			flex: 0 0 auto;
 		}
 	}

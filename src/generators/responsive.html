@@ -2,9 +2,7 @@
   @import "index.scss";
 
   @include add-responsive {
-    $prefix: &;
-
-    @at-root .#{$prefix}color-red {
+    #{&}color-red {
       color: red;
     }
   }

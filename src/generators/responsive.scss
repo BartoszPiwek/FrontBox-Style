@@ -13,8 +13,7 @@ Function:
 
 Usage:
 @include add-responsive {
-	$prefix: &;
-	@at-root .[#]{$prefix}color-red{
+	[#]{&}color-red{
 		color: red;
 	}
 }
@@ -34,7 +33,7 @@ Style guide: Generators.Responsive
 		$breakpoint-name: map-deep-get($breakpoints, $label, name);
 
 		@include media($label) {
-			#{$breakpoint-name}_ {
+			.#{$breakpoint-name}_ {
 				@content;
 			}
 		}
