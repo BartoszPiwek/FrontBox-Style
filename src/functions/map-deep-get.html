@@ -1,0 +1,20 @@
+<style type="iframe">
+  @import "index.scss";
+
+  $deepMap: (
+    "first": (
+      value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    ),
+    "second": (
+      value: "Fusce non orci elit.",
+    ),
+  );
+
+  .element {
+    &:before {
+      content: "#{map-deep-get($deepMap, first, value);}";
+    }
+  }
+</style>
+
+<div class="element"></div>

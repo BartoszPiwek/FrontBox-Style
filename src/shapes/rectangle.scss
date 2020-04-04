@@ -1,13 +1,22 @@
 /*
 Rectangle
 
-Create responsive rectangle shape. Use prepared class `rectangle` (for parent) and `rectangle__content` (for child) to style elements.
+Responsive rectangle shape based on element width.
 
-Usage:
+Mixin `add-rectangle` create width to height ratio.
+
+Prepared elements classes:
+- `rectangle` - parent
+- `rectangle__content` - child. 
+
+Function:
 // $width: number
 // $height: number
+@include add-rectangle($width, $height);
+
+Usage:
 .rectangle-16-9 {
- @include add-rectangle($width, $height);
+ @include add-rectangle(16, 9);
 }
 
 HTML:

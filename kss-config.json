@@ -4,10 +4,5 @@
   "extend": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/helpers/",
   "destination": "documentation/",
   "homepage": "README.md",
-  "custom": [
-    "Function",
-    "Style",
-    "Usage",
-    "HTML"
-  ]
+  "custom": ["Function", "Style", "Classes", "Usage", "HTML"]
 }

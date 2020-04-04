@@ -1,7 +1,41 @@
-@function map-deep-get($map, $keys...) {
+/*
+Map deep get
+
+Fetch deeply nested values from a map.
+
+Function:
+// $deep-map: { 
+// 		[key: string]: { 
+// 			...
+// 		}
+// }
+// $keys: string[]
+map-deep-get($deep-map, $keys...);
+
+Usage:
+$deep-map: (
+  "first": (
+    value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  ),
+  "second": (
+    value: "Fusce non orci elit.",
+  ),
+);
+element {
+ &:before {
+   content: "[#]{map-deep-get($deep-map, first, value)}";
+ }
+}
+
+Markup: map-deep-get.html
+
+Styleguide: Functions.Map deep get
+*/
+
+@function map-deep-get($deep-map, $keys...) {
 	@each $key in $keys {
-		$map: map-get($map, $key);
+		$deep-map: map-get($deep-map, $key);
 	}
 
-	@return $map;
+	@return $deep-map;
 }

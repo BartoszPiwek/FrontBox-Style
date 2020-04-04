@@ -1,8 +1,8 @@
 /*
 Media
 
-Wrap code in breakpoint screen using mixins `media` and `media-max`.
-Searching index in map variable `$breakpoints` ([go to section](section-variables.html#variables-breakpoints)).
+Wrap code in breakpoint screen.<br>
+Mixins `media` and `media-max` take parameter `$valueIndex` - value index from `$breakpoints` map ([go to section](section-variables.html#variables-breakpoints)).
 
 Function:
 // $valueIndex: string;
@@ -11,10 +11,10 @@ Function:
 
 Usage:
 .element {
-	@include media(table) {
+	@include media(tablet) {
 		color: red;
 	}
-	@include media-max(table) {
+	@include media-max(tablet) {
 		display: none;
 	}
 }

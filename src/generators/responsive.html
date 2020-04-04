@@ -1,0 +1,15 @@
+<style type="iframe">
+  @import "index.scss";
+
+  @include add-responsive {
+    $prefix: &;
+
+    @at-root .#{$prefix}color-red {
+      color: red;
+    }
+  }
+</style>
+
+<div class="md_color-red">
+  Color red
+</div>

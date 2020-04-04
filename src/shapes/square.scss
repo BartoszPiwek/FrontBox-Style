@@ -1,7 +1,11 @@
 /*
 Square
 
-Prepared class `square` (for parent) and `square__content` (for child) create responsive square shape based on element width.
+Responsive square shape based on element width.
+
+Prepared elements classes:
+- `square` - parent
+- `square__content` - child. 
 
 HTML:
 <div class="square">
@@ -9,6 +13,9 @@ HTML:
 </div>
 
 Markup: square.html
+
+Style:
+@import add-square-style;
 
 Style guide: Shapes.square
 */

@@ -1,25 +1,24 @@
 /*
 Triangle
 
-Create triangle shape. On element who include this mixin use style class `triangle`.
+Create triangle shape.
 
-Usage:
-.triangle-up {
-	@include add-triangle(10, 10, 'top', #000);
-}
-
-HTML:
-<div class="triangle triangle-up"></div>
+Mixin `add-rectangle` create triangle.
 
 Function:
 // $width : numberPixel
 // $height : numberPixel
 // $position : 'up' | 'right' | 'down' | 'left'
 // $color : string
-add-triangle($width, $height, $position, $color);
+@include add-triangle($width, $height, $position, $color);
 
-Style:
-@include add-triangle-style;
+Usage:
+.triangle-up {
+	@include add-triangle(20px, 20px, 'top', #000);
+}
+
+HTML:
+<div class="triangle-up"></div>
 
 Markup: triangle.html
 
@@ -28,6 +27,9 @@ Style guide: Shapes.Triangle
 
 @mixin add-triangle($width, $height, $position, $color) {
 	$half-width: $width / 2;
+
+	width: 0;
+	height: 0;
 
 	@if ($position == 'left') {
 		border-right: $height solid $color;
@@ -53,12 +55,5 @@ Style guide: Shapes.Triangle
 	@else {
 		border-top: $half-width solid transparent;
 		border-bottom: $half-width solid transparent;
-	}
-}
-
-@mixin add-triangle-style {
-	.triangle {
-		width: 0;
-		height: 0;
 	}
 }

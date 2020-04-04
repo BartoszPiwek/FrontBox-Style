@@ -2,28 +2,27 @@
 Responsive
 
 Create responsive classes for content. 
-Generated name selectors will have prefixed with breakpoint name and underscore.
+
+Generated selectors based on content class with breakpoint name prefix.
+
+Parameter `$breakpoints-array` on default is [$breakpoints](section-variables.html#variables-breakpoints).
 
 Function:
-add-responsive($breakpoints-array);
-
-Arguments:
-$breakpoints-array : { [key: string]: number }? : $breakpoints
+// $breakpoints-array> : $breakpoints
+@include add-responsive($breakpoints-array) {};
 
 Usage:
 @include add-responsive {
-	.foo {}	
+	$prefix: &;
+	@at-root .[#]{$prefix}color-red{
+		color: red;
+	}
 }
 
-OutputCSS:
-.foo {}
-@media screen and (min-width: 576px) {
- .sm_foo {}
-}
-@media screen and (min-width: 768px) {
- .md_foo {}
-}
-// and so on
+HTML:
+<div class="md_color-red">Color red</div>
+
+Markup: responsive.html
 
 Style guide: Generators.Responsive
 */

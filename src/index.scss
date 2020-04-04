@@ -1,7 +1,7 @@
 /*
 Variables
 
-Organize values with easy-to-read variables and include their using functions.
+Organize values using variables map and easy-to-read functions or mixins.
 
 Style guide: Variables
 */
@@ -13,7 +13,7 @@ Style guide: Variables
 /*
 Functions
 
-Create Functions element
+Resolve common problems with SCSS preprocessor.
 
 Style guide: Functions
 */
@@ -22,25 +22,31 @@ Style guide: Functions
 /*
 Modules
 
-Create Modules element
+Change elements behavior.
 
 Style guide: Modules
 */
 @import './modules/click-expand';
 @import './modules/fixes';
-@import './modules/grid';
 @import './modules/hover';
 @import './modules/input-placeholder';
 @import './modules/screen-reader';
 @import './modules/scrollbar';
-@import './modules/space';
 @import './modules/vh';
-@import './modules/wrap';
+
+/*
+Layout
+
+Style guide: Layout
+*/
+@import './layout/grid';
+@import './layout/space';
+@import './layout/wrap';
 
 /*
 Styles
 
-Prepare style for selectors/classes.
+Styles for selectors/classes.
 
 Style guide: Styles
 */
@@ -50,7 +56,7 @@ Style guide: Styles
 /*
 Generators
 
-Create generators
+Create dynamic code.
 
 Style guide: Generators
 */
@@ -60,7 +66,7 @@ Style guide: Generators
 /*
 Shapes
 
-Prepare classes and mixins to create shapes.
+Create CSS shapes.
 
 Style guide: Shapes
 */

@@ -1,42 +1,41 @@
 <style type="iframe">
-  @import 'index';
-  @include add-triangle-style;
+  @import "index";
 
   .triangle {
     &-up {
-      @include add-triangle(20px, 20px, 'up', #000);
+      @include add-triangle(20px, 20px, "up", #000);
     }
 
     &-right {
-      @include add-triangle(20px, 20px, 'right', #000);
+      @include add-triangle(20px, 20px, "right", #000);
     }
 
     &-down {
-      @include add-triangle(20px, 20px, 'down', #000);
+      @include add-triangle(20px, 20px, "down", #000);
     }
 
     &-left {
-      @include add-triangle(20px, 20px, 'left', #000);
+      @include add-triangle(20px, 20px, "left", #000);
     }
   }
 
   /* Addon */
   .container {
-    &+& {
+    & + & {
       margin-top: 10px;
     }
   }
 </style>
 
 <div class="container">
-  <div class="triangle triangle-up"></div>
+  <div class="triangle-up"></div>
 </div>
 <div class="container">
-  <div class="triangle triangle-right"></div>
+  <div class="triangle-right"></div>
 </div>
 <div class="container">
-  <div class="triangle triangle-down"></div>
+  <div class="triangle-down"></div>
 </div>
 <div class="container">
-  <div class="triangle triangle-left"></div>
+  <div class="triangle-left"></div>
 </div>

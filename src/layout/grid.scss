@@ -1,10 +1,20 @@
 /*
+Grid
+
+Grid system based on the flex display property.
+
+Style:
+@include grid-style-row;
+
+Style guide: Layout.Grid
+*/
+
+/*
 Row
 
 Style form container for columns. 
-Compatibility with [space](section-modules.html#modules-space) function
 
-Style guide: Grid.row
+Style guide: Layout.Grid.Row
 */
 @mixin grid-style-row {
 	.row {
@@ -35,7 +45,11 @@ Style guide: Grid.row
 /*
 Columns
 
-Generate CSS flex columns. Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.html#variables-breakpoints)
+Generate columns classes.
+
+Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.html#variables-breakpoints)
+
+> Responsive classes has automatic generated using [responsive](section-functions.html#functions-responsive) mixin.
 
 Function:
 // $grid-count : number
@@ -43,20 +57,11 @@ Function:
 @include grid($grid-count, $breakpoints?);
 
 Usage:
-$breakpoint(
- xs: 0,
- sm: 576,
- md: 768,
- lg: 992,
-}
-@include grid(12, $breakpoints);
-
-Style:
-@include grid-style-row;
+@include grid(12);
 
 Markup: grid.html
 
-Style guide: Grid.columns
+Style guide: Layout.Grid.Columns
 */
 
 @mixin grid($grid-count, $grid-breakpoints: $breakpoints) {
@@ -89,3 +94,25 @@ Style guide: Grid.columns
 		}
 	}
 }
+
+/*
+Offset
+
+Generate columns.
+
+Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.html#variables-breakpoints)
+
+> Responsive classes has generated using [responsive](section-functions.html#functions-responsive) mixin.
+
+Function:
+// $grid-count : number
+// $grid-breakpoints? : $breakpoints
+@include grid($grid-count, $breakpoints?);
+
+Usage:
+@include grid(12);
+
+Markup: grid.html
+
+Style guide: Layout.Grid.Columns.Offset
+*/
