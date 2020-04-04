@@ -1,5 +1,5 @@
 /*!
- * FrontBox Style 0.0.2
+ * FrontBox Style 0.0.3
  * Bartosz Piwek
  * https://github.com/BartoszPiwek/FrontBox-Style
  */
@@ -586,28 +586,41 @@ Markup: rectangle.html
 Style guide: Shapes.Rectangle
 */
 .color-red {
-  color: red; }
+  color: red;
+}
 
 @media screen and (min-width: 576px) {
   .sm_color-red {
-    color: red; } }
+    color: red;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .md_color-red {
-    color: red; } }
+    color: red;
+  }
+}
 
 @media screen and (min-width: 992px) {
   .lg_color-red {
-    color: red; } }
+    color: red;
+  }
+}
 
 @media screen and (min-width: 1200px) {
   .xl_color-red {
-    color: red; } }
+    color: red;
+  }
+}
 
 @media screen and (min-width: 1366px) {
   .hd_color-red {
-    color: red; } }
+    color: red;
+  }
+}
 
 @media screen and (min-width: 1440px) {
   .whd_color-red {
-    color: red; } }
+    color: red;
+  }
+}
