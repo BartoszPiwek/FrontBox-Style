@@ -1,7 +1,7 @@
 <style type="iframe">
-  @import 'index';
+  @import "index";
   @include add-rectangle-style;
-  @include add-browser-reset;
+  @include add-browser-reset-style;
 
   .space {
     @include add-space(20px, 10px);
@@ -19,7 +19,7 @@
   .container {
     overflow: hidden;
 
-    &+& {
+    & + & {
       margin-top: 40px;
     }
   }
@@ -35,7 +35,7 @@
       background: red;
       display: block;
       height: 40px;
-      content: '';
+      content: "";
     }
 
     &-50 {

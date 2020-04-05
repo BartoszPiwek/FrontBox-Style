@@ -4,7 +4,7 @@
 
 Hermetic SCSS files contain helpful methods used on most websites, divided into categories: functions, generators, modules, shapes, styles, variables.
 
-[![npm version](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style.svg)](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style)
+![npm version](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style.svg)
 
 ## Install
 
@@ -28,9 +28,9 @@ Import file in main scss file.
 
 Voilà!
 
-## Documentation [![Netlify Status](https://api.netlify.com/api/v1/badges/92d192a1-294d-42e7-90ee-b6f49809f4d2/deploy-status)](https://app.netlify.com/sites/festive-meitner-bb09bc/deploys)
+## Documentation ![Netlify Status](https://api.netlify.com/api/v1/badges/92d192a1-294d-42e7-90ee-b6f49809f4d2/deploy-status)
 
-Go to [this website](https://festive-meitner-bb09bc.netlify.com/) to read the documentation.
+Go to [website](https://festive-meitner-bb09bc.netlify.com/) to read the documentation.
 
 ## Develop
 
