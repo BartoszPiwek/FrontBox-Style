@@ -40,7 +40,7 @@ Style guide: Variables.breakpoints
 Color
 
 Get color value.<br>
-Function `color` return value index from `$colors` map.
+Function `color` return index value from `$colors` map.
 
 Function:
 // $valueIndex: string
@@ -66,7 +66,7 @@ Style guide: Variables.color
 Index
 
 Get index value for property `z-index`.<br>
-Function `index` return value index from `$indexes` map.
+Function `index` return index value from `$indexes` map.
 
 Function:
 // $id: string
@@ -92,7 +92,7 @@ Style guide: Variables.Index
 Media
 
 Wrap code in breakpoint screen.<br>
-Mixins `media` and `media-max` take parameter `$valueIndex` - value index from `$breakpoints` map ([go to section](section-variables.html#variables-breakpoints)).
+Mixins `media` and `media-max` take parameter `$valueIndex` - index value from `$breakpoints` map ([go to section](section-variables.html#variables-breakpoints)).
 
 Function:
 // $valueIndex: string;

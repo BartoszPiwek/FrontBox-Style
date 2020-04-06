@@ -1,0 +1,24 @@
+/*
+Group 
+
+Center elements in content using prepared class `group`.
+
+HTML:
+<div class='group></div>
+
+Style:
+@include add-group-style;
+
+Markup: group.html
+
+Style guide: Layout.group
+*/
+
+@mixin add-group-style {
+	.group {
+		display: inline-flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+}

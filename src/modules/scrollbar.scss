@@ -7,7 +7,7 @@ Function:
 // $size : numberPixel
 // $color-background : string
 // $color-thumb : string
-add-scrollbar($size, $color-background, $color-thumb);
+@include add-scrollbar($size, $color-background, $color-thumb);
 
 Usage:
 .scrollbar {

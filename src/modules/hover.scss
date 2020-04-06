@@ -1,12 +1,15 @@
 /*
 Hover
 
-Style states `:hover`, `:active` and `:focus`. Style only trigger for non touch devices.<br>
-> Set <b>true</b> for parameter <code>$canParentTrigger</code> to create trigger hover class `&--hover` for any parent element. 
+Style states `:hover`, `:active` and `:focus`.
+
+Set flag `$canParentTrigger` to create trigger hover class `&--hover` for any parent element. 
+
+> States only trigger for non touch devices.
 
 Function:
 // $canParentTrigger : boolean : false
-@include add-hover($canParentTrigger);
+@include add-hover($canParentTrigger) {};
 
 Usage:
 .selector {

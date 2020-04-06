@@ -1,44 +1,33 @@
 <style type="iframe">
-	@import 'index';
-	@include add-clearfix-style;
+  @import "index";
+  @include add-browser-reset-style;
+  @include add-clearfix-style;
 
-	/* Addon */
-	.container {
-		&+& {
-			margin-top: 20px;
-		}
-	}
+  /* Addon */
+  .container {
+    & + & {
+      margin-top: 20px;
+    }
+  }
 
-	.element {
-		height: 30px;
-		width: 33%;
-
-		&:before {
-			background: yellow;
-			height: 30px;
-			display: block;
-			content: '';
-		}
-
-		&--float {
-			float: right;
-
-			&:before {
-				background: red;
-			}
-		}
-	}
+  .element {
+    height: 30px;
+    width: 60%;
+    float: right;
+    background: red;
+  }
 </style>
 
 <div class="container">
-	<div class="element element--float"></div>
-	<div class="element element--float"></div>
-	<div class="element"></div>
+  <div>
+    <div class="element"></div>
+  </div>
+  <p>Without clearfix class</p>
 </div>
 
 <div class="container">
-	<div class="element element--float"></div>
-	<div class="element element--float"></div>
-	<div class="clearfix"></div>
-	<div class="element"></div>
+  <div class="clearfix">
+    <div class="element"></div>
+  </div>
+  <p>With clearfix class</p>
 </div>
