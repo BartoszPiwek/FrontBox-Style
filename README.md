@@ -1,10 +1,9 @@
 <h1>
-<strong>FrontBox Style</strong> <small>by Bartosz Piwek</small>
+<strong>FrontBox Style</strong> <small>by Bartosz Piwek</small><br>
+<img src="https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style.svg">
 </h1>
 
 Hermetic SCSS files contain helpful methods used on most websites, divided into categories: functions, generators, modules, shapes, styles, variables.
-
-![npm version](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style.svg)
 
 ## Install
 
