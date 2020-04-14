@@ -4,7 +4,7 @@ Grid
 Grid system based on the flex display property.
 
 Style:
-@include add-grid-row-style;
+@include add-grid-style;
 
 Style guide: Layout.Grid
 */
@@ -16,7 +16,7 @@ Style form container for columns.
 
 Style guide: Layout.Grid.Row
 */
-@mixin add-grid-row-style {
+@mixin add-grid-style {
 	.row {
 		display: flex;
 		position: relative;
