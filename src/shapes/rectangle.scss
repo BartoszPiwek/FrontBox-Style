@@ -5,55 +5,34 @@ Responsive rectangle shape based on element width.
 
 Mixin `add-rectangle` create width to height ratio.
 
-Prepared elements classes:
-- `rectangle` - parent
-- `rectangle__content` - child. 
-
 Function:
 // $width: number
 // $height: number
 @include add-rectangle($width, $height);
 
 Usage:
-.rectangle-16-9 {
+.rectangle {
+ @extend %rectangle-style;
  @include add-rectangle(16, 9);
 }
-
-HTML:
-<div class="rectangle rectangle-16-9">
-  <div class="rectangle__content"></div>
-</div>
-
-Style:
-@include add-rectangle-style;
 
 Markup: rectangle.html
 
 Style guide: Shapes.Rectangle
 */
 
-@mixin add-rectangle($width, $height) {
-	&:before {
-		padding-top: ($height / $width) * 100%;
-	}
+@mixin rectangle($width, $height) {
+	padding-top: ($height / $width) * 100%;
 }
 
-@mixin add-rectangle-style {
-	.rectangle {
-		position: relative;
+%rectangle-style {
+	position: relative;
 
-		&__content {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-
-		&:before {
-			content: '';
-			display: block;
-			width: 100%;
-		}
+	> * {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 	}
 }

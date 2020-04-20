@@ -1,8 +1,11 @@
 <style type="iframe">
   @import "index.scss";
-  @include add-browser-reset-style;
-  @include add-grid($grid-count: 12);
-  @include add-grid-style;
+  @include browser-reset-style;
+  @include grid($grid-count: 12);
+
+  .row {
+    @extend %grid-style;
+  }
 
   /* Addon */
   .row {

@@ -8,13 +8,12 @@ Set of CSS rules that resets the styling of all HTML elements to a consistent ba
 > Recommended for all projects!
 
 Usage:
-@include add-browser-reset-style;
+@include browser-reset-style;
 
 Style guide: Styles.Browser reset
 */
 
-/* Main Elements */
-@mixin add-browser-reset-style {
+@mixin browser-reset-style {
 	*,
 	*:after,
 	*:before {
@@ -48,8 +47,8 @@ Style guide: Styles.Browser reset
 	h4,
 	h5,
 	h6 {
-		font-size: 16px;
-		font-weight: normal;
+		font-size: inherit;
+		font-weight: inherit;
 	}
 
 	a {

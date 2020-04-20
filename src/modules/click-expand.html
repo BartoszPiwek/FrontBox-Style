@@ -1,9 +1,10 @@
 <style type="iframe">
   @import "index";
-  @include add-click-expand-style;
 
   .link {
-    @include add-click-expand(20px);
+    @extend %click-expand-style;
+
+    @include click-expand(20px);
   }
 
   /* Addon */

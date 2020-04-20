@@ -3,42 +3,31 @@ Grid
 
 Grid system based on the flex display property.
 
-Style:
-@include add-grid-style;
+Include style form columns and rows.
+
+Usage:
+.wrap {
+	@extend %grid-style;
+}
 
 Style guide: Layout.Grid
 */
 
-/*
-Row
+%grid-style {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
 
-Style form container for columns. 
-
-Style guide: Layout.Grid.Row
-*/
-@mixin add-grid-style {
-	.row {
+	> * {
 		display: flex;
 		position: relative;
-		flex-direction: row;
-		flex-wrap: wrap;
-		width: 100%;
-
-		> * {
-			display: flex;
-			position: relative;
-			flex-direction: column;
-			flex-grow: 0;
-			flex-shrink: 0;
-			height: auto !important;
-			min-height: 1px;
-		}
-
-		&.row-same {
-			* > * {
-				flex: 1 1 auto;
-			}
-		}
+		flex-direction: column;
+		flex-grow: 0;
+		flex-shrink: 0;
+		height: auto !important;
+		min-height: 1px;
 	}
 }
 
@@ -54,84 +43,30 @@ Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.htm
 Function:
 // $grid-count : number
 // $grid-breakpoints? : $breakpoints
-@include add-grid($grid-count, $breakpoints?);
+@include grid($grid-count, $breakpoints?);
 
 Usage:
-@include add-grid(12);
+@include grid(12);
 
 Markup: grid.html
 
 Style guide: Layout.Grid.Columns
 */
 
-@mixin add-grid($grid-count, $grid-breakpoints: $breakpoints) {
-	@include add-responsive('col', $grid-breakpoints) {
+@mixin grid($grid-count, $grid-breakpoints: $breakpoints) {
+	@include responsive {
 		@for $i from 1 through $grid-count {
-			&-#{$i} {
+			@at-root .#{&}col-#{$i} {
 				flex-basis: 100% / ($grid-count / $i);
 				max-width: 100% / ($grid-count / $i);
 			}
-		}
-	}
-}
 
-/*
-Offset
-
-Function:
-// $grid-count : number
-// $grid-breakpoints? : $breakpoints
-@include add-grid-offset($grid-count, $breakpoints?);
-
-Usage:
-@include add-grid-offset(12);
-
-Style guide: Layout.Grid.Offset
-*/
-
-@mixin add-grid-offset($grid-count, $grid-breakpoints: $breakpoints) {
-	@include add-responsive('pull', $grid-breakpoints) {
-		@for $i from 1 through $grid-count {
-			@if $i != $grid-count {
-				#{&}pull-#{$i} {
-					right: 100% / ($grid-count / $i) !important;
-				}
+			@at-root .#{&}pull-#{$i} {
+				right: 100% / ($grid-count / $i) !important;
 			}
-		}
-	}
 
-	@include add-responsive('push', $grid-breakpoints) {
-		@for $i from 1 through $grid-count {
-			@if $i != $grid-count {
-				#{&}pull-#{$i} {
-					left: 100% / ($grid-count / $i) !important;
-				}
-			}
-		}
-	}
-}
-
-/*
-Order
-
-Function:
-// $grid-count : number
-// $grid-breakpoints? : $breakpoints
-@include add-grid-order($grid-count, $breakpoints?);
-
-Usage:
-@include add-grid-order(12);
-
-Style guide: Layout.Grid.Order
-*/
-
-@mixin add-grid-order($grid-count, $grid-breakpoints: $breakpoints) {
-	@include add-responsive(order, $grid-breakpoints) {
-		@for $i from 1 through $grid-count {
-			@if $i != $grid-count {
-				#{&}-#{$i} {
-					order: $i;
-				}
+			@at-root .#{&}push-#{$i} {
+				left: 100% / ($grid-count / $i) !important;
 			}
 		}
 	}

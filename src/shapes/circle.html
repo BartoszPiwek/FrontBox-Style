@@ -1,6 +1,9 @@
 <style type="iframe">
-  @import 'index';
-  @include add-circle-style;
+  @import "index";
+
+  .circle {
+    @extend %circle-style;
+  }
 
   /* Addon */
   .container {
@@ -10,16 +13,16 @@
 
   .circle {
     background: red;
-  }
 
-  .circle__content {
-    background: yellow;
+    > * {
+      background: yellow;
+    }
   }
 </style>
 
 <div class="container">
   <div class="circle">
-    <div class="circle__content">
+    <div>
       content
     </div>
   </div>

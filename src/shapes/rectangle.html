@@ -1,9 +1,9 @@
 <style type="iframe">
-  @import 'index';
-  @include add-rectangle-style;
+  @import "index";
 
-  .rectangle-16-9 {
-  @include add-rectangle(16, 9);
+  .rectangle {
+    @extend %rectangle-style;
+    @include rectangle(16, 9);
   }
 
   /* Addon */
@@ -12,14 +12,16 @@
     max-width: 500px;
   }
 
-  .rectangle__content {
-    background: red;
+  .rectangle {
+    > * {
+      background: red;
+    }
   }
 </style>
 
 <div class="container">
-  <div class="rectangle rectangle-16-9">
-    <div class="rectangle__content">
+  <div class="rectangle">
+    <div>
       content
     </div>
   </div>

@@ -91,13 +91,16 @@ Style guide: Variables.Index
 /*
 Media
 
-Wrap code in breakpoint screen.<br>
-Mixins `media` and `media-max` take parameter `$valueIndex` - index value from `$breakpoints` map ([go to section](section-variables.html#variables-breakpoints)).
+Wrap code in breakpoint screen.
+
+Mixins `media` (min-width) and `media-max` (max-width) take parameter `$name` to wrap code in media query.
+
+> `$name` is variable map name inside `$breakpoints` map ([go to section](section-variables.html#variables-breakpoints)).
 
 Function:
-// $valueIndex: string;
-@include media($valueIndex) {}
-@include media-max($valueIndex) {}
+// $index: string;
+@include media($index) {}
+@include media-max($index) {}
 
 Usage:
 .element {
@@ -156,14 +159,14 @@ Styleguide: Functions.Map deep get
 /*
 Modules
 
-Change elements behavior.
+Change element behaviors.
 
 Style guide: Modules
 */
 /*
 Click Expand
 
-Expand click space using pseudo element `before`. Use prepared class `click-expand` to style element.
+Expand click space using pseudo element `before` with prepared class `click-expand`.
 
 Function:
 // $space : numberPixel
@@ -192,16 +195,19 @@ Style guide: Fix.fixed
 /*
 Hover
 
-Style states `:hover`, `:active` and `:focus`. Style only trigger for non touch devices.<br>
-> Set <b>true</b> for parameter <code>$canParentTrigger</code> to create trigger hover class `&--hover` for any parent element. 
+Style states `:hover`, `:active` and `:focus`.
+
+Set flag `$canParentTrigger` to create trigger hover class `&--hover` for any parent element. 
+
+> States only trigger for non touch devices.
 
 Function:
 // $canParentTrigger : boolean : false
-@include add-hover($canParentTrigger);
+@include hover($canParentTrigger) {};
 
 Usage:
 .selector {
- @include add-hover(true) {
+ @include hover(true) {
   color: red;
  };
 }
@@ -251,11 +257,11 @@ Function:
 // $size : numberPixel
 // $color-background : string
 // $color-thumb : string
-add-scrollbar($size, $color-background, $color-thumb);
+@include scrollbar($size, $color-background, $color-thumb);
 
 Usage:
 .scrollbar {
-	@include add-scrollbar(20px, #000, #FFF);
+	@include scrollbar(20px, #000, #FFF);
 }
 
 HTML:
@@ -276,7 +282,7 @@ Grid
 Grid system based on the flex display property.
 
 Style:
-@include add-grid-row-style;
+@extend %grid-style;
 
 Style guide: Layout.Grid
 */
@@ -299,10 +305,10 @@ Parameter `$grid-breakpoints` on default is [$breakpoints](section-variables.htm
 Function:
 // $grid-count : number
 // $grid-breakpoints? : $breakpoints
-@include add-grid($grid-count, $breakpoints?);
+@include grid($grid-count, $breakpoints?);
 
 Usage:
-@include add-grid(12);
+@include grid(12);
 
 Markup: grid.html
 
@@ -314,10 +320,10 @@ Offset
 Function:
 // $grid-count : number
 // $grid-breakpoints? : $breakpoints
-@include add-grid-offset($grid-count, $breakpoints?);
+@include grid-offset($grid-count, $breakpoints?);
 
 Usage:
-@include add-grid-offset(12);
+@include grid-offset(12);
 
 Style guide: Layout.Grid.Offset
 */
@@ -327,34 +333,34 @@ Order
 Function:
 // $grid-count : number
 // $grid-breakpoints? : $breakpoints
-@include add-grid-order($grid-count, $breakpoints?);
+@include grid-order($grid-count, $breakpoints?);
 
 Usage:
-@include add-grid-order(12);
+@include grid-order(12);
 
 Style guide: Layout.Grid.Order
 */
 /*
 Space
 
-Create space for flex box layout between element children's. Space can be created in axis x/y or both.
+Create space between element children's.
 
 Function:
-// $size : numberPixel
-// $size-y : numberPixel? : $size
-add-space-x($size);
-add-space-y($size);
-add-space($size, $size-y);
+// $space-horizontal : numberPixel
+// $space-vertical-y : numberPixel? : $space-horizontal
+space-x($space-horizontal);
+space-y($space-vertical);
+space($space-horizontal, $space-vertical);
 
 Usage:
 .space {
- @include add-space(20px, 10px);
+ @include space(20px, 10px);
 }
 .space-x {
- @include add-space-x(20px);
+ @include space-x(20px);
 }
 .space-y {
- @include add-space-y(10px);
+ @include space-y(10px);
 }
 
 Markup: space.html
@@ -365,24 +371,39 @@ Style guide: Layout.space
 Wrap
 
 Crete wrapper element to hold content in specific width with optional aside space.
-Space can be created in axis x (`padding left` and `padding-right`).
 
 Function:
 // $max-width : pixels
-// $padding-x? : pixels
-add-wrap($max-width, $padding-x);
+// $$space-aside? : pixels
+wrap($max-width, $space-aside);
 
 Usage:
-.wrap-header {
-	@include add-wrap(1024px, 20px);
+.wrap {
+	@extend %wrap-style;
+	@include wrap(1024px, 20px);
 }
 
 Style:
-@include add-wrap-style;
+@extend %wrap-style;
 
 Markup: wrap.html
 
 Style guide: Layout.wrap
+*/
+/*
+Group 
+
+Center elements in content using prepared class `group`.
+
+HTML:
+<div class='group></div>
+
+Style:
+@include add-group-style;
+
+Markup: group.html
+
+Style guide: Layout.group
 */
 /*
 Styles
@@ -400,7 +421,7 @@ Set of CSS rules that resets the styling of all HTML elements to a consistent ba
 > Recommended for all projects!
 
 Usage:
-@include add-browser-reset-style;
+@include browser-reset-style;
 
 Style guide: Styles.Browser reset
 */
@@ -437,10 +458,10 @@ Parameter `$breakpoints-array` on default is [$breakpoints](section-variables.ht
 Function:
 // $class-name : string
 // $breakpoints-array? : $breakpoints
-@include add-responsive($class-name, $breakpoints-array) {};
+@include responsive($class-name, $breakpoints-array) {};
 
 Usage:
-@include add-responsive(color-red {
+@include responsive(color-red {
 	color: red;
 }
 
@@ -458,13 +479,13 @@ Create responsive classes for content.
 Generated name selectors will have prefixed with breakpoint name and underscore.
 
 Function:
-add-responsive($breakpoints-array);
+responsive($breakpoints-array);
 
 Arguments:
 $breakpoints-array : { [key: string]: number }? : $breakpoints
 
 Usage:
-@include add-responsive {
+@include responsive {
 	.foo {}	
 }
 
@@ -585,42 +606,64 @@ Markup: rectangle.html
 
 Style guide: Shapes.Rectangle
 */
-.color-red {
+.aaa {
   color: red;
 }
 
+.bbb {
+  color: blue;
+}
+
 @media screen and (min-width: 576px) {
-  .sm_color-red {
+  .sm_aaa {
     color: red;
+  }
+  .sm_bbb {
+    color: blue;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .md_color-red {
+  .md_aaa {
     color: red;
+  }
+  .md_bbb {
+    color: blue;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .lg_color-red {
+  .lg_aaa {
     color: red;
+  }
+  .lg_bbb {
+    color: blue;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .xl_color-red {
+  .xl_aaa {
     color: red;
+  }
+  .xl_bbb {
+    color: blue;
   }
 }
 
 @media screen and (min-width: 1366px) {
-  .hd_color-red {
+  .hd_aaa {
     color: red;
+  }
+  .hd_bbb {
+    color: blue;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .whd_color-red {
+  .whd_aaa {
     color: red;
+  }
+  .whd_bbb {
+    color: blue;
   }
 }

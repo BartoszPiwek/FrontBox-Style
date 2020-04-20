@@ -1,6 +1,9 @@
 <style type="iframe">
-  @import 'index';
-  @include add-square-style;
+  @import "index";
+
+  .square {
+    @extend %square-style;
+  }
 
   /* Addon */
   .container {
@@ -8,14 +11,16 @@
     max-width: 500px;
   }
 
-  .square__content {
-    background: red;
+  .square {
+    > * {
+      background: red;
+    }
   }
 </style>
 
 <div class="container">
   <div class="square">
-    <div class="square__content">
+    <div>
       content
     </div>
   </div>

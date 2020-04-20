@@ -1,24 +1,24 @@
 /*
 Space
 
-Create space for flex box layout between element children's. Space can be created in axis x/y or both.
+Create space between element children's.
 
 Function:
-// $size : numberPixel
-// $size-y : numberPixel? : $size
-add-space-x($size);
-add-space-y($size);
-add-space($size, $size-y);
+// $space-horizontal : numberPixel
+// $space-vertical-y : numberPixel? : $space-horizontal
+space-x($space-horizontal);
+space-y($space-vertical);
+space($space-horizontal, $space-vertical);
 
 Usage:
 .space {
- @include add-space(20px, 10px);
+ @include space(20px, 10px);
 }
 .space-x {
- @include add-space-x(20px);
+ @include space-x(20px);
 }
 .space-y {
- @include add-space-y(10px);
+ @include space-y(10px);
 }
 
 Markup: space.html
@@ -27,26 +27,26 @@ Style guide: Layout.space
 */
 
 // Horizontal space
-@mixin add-space-x($size) {
-	width: calc(100% + #{$size});
-	margin-left: -#{$size};
+@mixin space-x($space-horizontal) {
+	width: calc(100% + #{$space-horizontal});
+	margin-left: -#{$space-horizontal};
 
-	> *:not(.space-ignore) {
-		padding-left: $size;
+	> * {
+		padding-left: $space-horizontal;
 	}
 }
 
 // Vertical space
-@mixin add-space-y($size) {
-	margin-bottom: -#{$size};
+@mixin space-y($space-vertical) {
+	margin-bottom: -#{$space-vertical};
 
-	> *:not(.space-ignore) {
-		padding-bottom: $size;
+	> * {
+		padding-bottom: $space-vertical;
 	}
 }
 
 // Vertical/horizontal space
-@mixin add-space($size: 0, $size-y: $size) {
-	@include add-space-x($size);
-	@include add-space-y($size-y);
+@mixin space($space-horizontal: 0, $space-vertical: $space-horizontal) {
+	@include space-x($space-horizontal);
+	@include space-y($space-vertical);
 }

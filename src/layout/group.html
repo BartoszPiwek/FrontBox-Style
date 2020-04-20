@@ -1,6 +1,9 @@
 <style type="iframe">
   @import "index";
-  @include add-group-style;
+
+  .group {
+    @extend %group-style;
+  }
 
   /* Addon */
   .element {

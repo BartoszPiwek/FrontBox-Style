@@ -6,13 +6,14 @@ Create responsive classes with breakpoint name prefix.
 Parameter `$breakpoints-array` on default is [$breakpoints](section-variables.html#variables-breakpoints).
 
 Function:
-// $class-name : string
 // $breakpoints-array? : $breakpoints
-@include add-responsive($class-name, $breakpoints-array) {};
+responsive($breakpoints-array?);
 
 Usage:
-@include add-responsive(color-red {
-	color: red;
+@include responsive {
+	@at-root .#{&}color-red {
+		color: red;
+	}
 }
 
 HTML:
@@ -23,16 +24,14 @@ Markup: responsive.html
 Style guide: Generators.Responsive
 */
 
-@mixin add-responsive($class-name, $breakpoints-array: $breakpoints) {
-	.#{$class-name} {
-		@content;
-	}
+@mixin responsive($breakpoints-array: $breakpoints) {
+	@content;
 
 	@each $label, $other in $breakpoints {
 		$breakpoint-name: map-deep-get($breakpoints, $label, name);
 
 		@include media($label) {
-			.#{$breakpoint-name}_#{$class-name} {
+			#{$breakpoint-name}_ {
 				@content;
 			}
 		}

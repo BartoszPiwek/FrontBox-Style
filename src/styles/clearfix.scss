@@ -4,29 +4,26 @@ Clearfix
 Prepared class `clearfix` to force an element self-clear its children.
 
 Usage:
-@include add-cleartfix-style;
-
-HTML:
-<div class="clearfix"></div>
+.clearfix {
+ @extend %clearfix-style;
+}
 
 Markup: clearfix.html
 
 Style guide: Styles.Clearfix
 */
 
-@mixin add-clearfix-style {
-	.clearfix {
-		zoom: 1;
-		*zoom: 1;
+%clearfix-style {
+	zoom: 1;
+	*zoom: 1;
 
-		&:before,
-		&:after {
-			content: ' ';
-			display: table;
-		}
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
 
-		&:after {
-			clear: both;
-		}
+	&:after {
+		clear: both;
 	}
 }

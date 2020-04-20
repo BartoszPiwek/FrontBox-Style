@@ -9,11 +9,11 @@ Set flag `$canParentTrigger` to create trigger hover class `&--hover` for any pa
 
 Function:
 // $canParentTrigger : boolean : false
-@include add-hover($canParentTrigger) {};
+@include hover($canParentTrigger) {};
 
 Usage:
 .selector {
- @include add-hover(true) {
+ @include hover(true) {
   color: red;
  };
 }
@@ -31,7 +31,7 @@ Markup: hover.html
 Style guide: Modules.Hover
 */
 
-@mixin add-hover($canParentTrigger: false) {
+@mixin hover($canParentTrigger: false) {
 	@media (hover: hover) {
 		&:hover,
 		&:active,

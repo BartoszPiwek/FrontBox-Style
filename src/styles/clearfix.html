@@ -1,7 +1,10 @@
 <style type="iframe">
   @import "index";
-  @include add-browser-reset-style;
-  @include add-clearfix-style;
+  @include browser-reset-style;
+
+  .clearfix {
+    @extend %clearfix-style;
+  }
 
   /* Addon */
   .container {

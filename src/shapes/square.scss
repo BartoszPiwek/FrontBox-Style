@@ -3,36 +3,27 @@ Square
 
 Responsive square shape based on element width.
 
-Prepared elements classes:
-- `square` - parent
-- `square__content` - child. 
-
-HTML:
-<div class="square">
-	<div class="square__content"></div>
-</div>
+Usage:
+.square {
+ @extend %square-style;
+}
 
 Markup: square.html
-
-Style:
-@import add-square-style;
 
 Style guide: Shapes.square
 */
 
-@mixin add-square-style {
-	.square {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding-bottom: 100%;
+%square-style {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
 
-		&__content {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
+	> * {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 	}
 }

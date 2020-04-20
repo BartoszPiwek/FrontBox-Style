@@ -2,39 +2,40 @@
 Wrap
 
 Crete wrapper element to hold content in specific width with optional aside space.
-Space can be created in axis x (`padding left` and `padding-right`).
 
 Function:
 // $max-width : pixels
-// $padding-x? : pixels
-add-wrap($max-width, $padding-x);
+// $$space-aside? : pixels
+wrap($max-width, $space-aside);
 
 Usage:
-.wrap-header {
-	@include add-wrap(1024px, 20px);
+.wrap {
+	@extend %wrap-style;
+	@include wrap(1024px, 20px);
 }
 
 Style:
-@include add-wrap-style;
+@extend %wrap-style;
 
 Markup: wrap.html
 
 Style guide: Layout.wrap
 */
 
-@mixin add-wrap($max-width, $padding-x: 0) {
-	max-width: $max-width + $padding-x * 2;
+@mixin wrap($max-width, $space-aside: 0) {
+	@if $space-aside != 0 {
+		max-width: $max-width + $space-aside * 2;
+		padding-right: $space-aside;
+		padding-left: $space-aside;
+	}
 
-	@if $padding-x {
-		padding-right: $padding-x;
-		padding-left: $padding-x;
+	@else {
+		max-width: $max-width + $space-aside * 2;
 	}
 }
 
-@mixin add-wrap-style {
-	.wrap {
-		width: 100%;
-		margin-right: auto;
-		margin-left: auto;
-	}
+%wrap-style {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
 }

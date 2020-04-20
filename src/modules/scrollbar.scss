@@ -7,11 +7,11 @@ Function:
 // $size : numberPixel
 // $color-background : string
 // $color-thumb : string
-@include add-scrollbar($size, $color-background, $color-thumb);
+@include scrollbar($size, $color-background, $color-thumb);
 
 Usage:
 .scrollbar {
-	@include add-scrollbar(20px, #000, #FFF);
+	@include scrollbar(20px, #000, #FFF);
 }
 
 HTML:
@@ -22,7 +22,7 @@ Markup: scrollbar.html
 Style guide: Modules.Scrollbar
 */
 
-@mixin add-scrollbar($size, $color-background, $color-thumb) {
+@mixin scrollbar($size, $color-background, $color-thumb) {
 	&::-webkit-scrollbar {
 		width: $size;
 		height: $size;

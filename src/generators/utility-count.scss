@@ -5,13 +5,13 @@ Create responsive classes for content.
 Generated name selectors will have prefixed with breakpoint name and underscore.
 
 Function:
-add-responsive($breakpoints-array);
+responsive($breakpoints-array);
 
 Arguments:
 $breakpoints-array : { [key: string]: number }? : $breakpoints
 
 Usage:
-@include add-responsive {
+@include responsive {
 	.foo {}	
 }
 
