@@ -170,12 +170,12 @@ Expand click space using pseudo element `before` with prepared class `click-expa
 
 Function:
 // $space : numberPixel
-@include add-click-expand($space);
+@include click-expand($space);
 
 Usage:
 // $space : numberPixel
 .link {
-	@include add-click-expand(20px);
+	@include click-expand(20px);
 }
 
 HTML:
@@ -230,11 +230,11 @@ Input Placeholder
 Style placeholder text inside `input` or `textarea` elements.
 
 Function:
-@include add-input-placeholder {};
+@include input-placeholder {};
 
 Usage:
 input {
- @include add-input-placeholder {
+ @include input-placeholder {
 	color: red;
  }
 }
@@ -399,7 +399,7 @@ HTML:
 <div class='group></div>
 
 Style:
-@include add-group-style;
+@include group-style;
 
 Markup: group.html
 
@@ -432,7 +432,7 @@ Clearfix
 Prepared class `clearfix` to force an element self-clear its children.
 
 Usage:
-@include add-cleartfix-style;
+@include cleartfix-style;
 
 HTML:
 <div class="clearfix"></div>
@@ -525,7 +525,7 @@ HTML:
 Markup: square.html
 
 Style:
-@import add-square-style;
+@import square-style;
 
 Style guide: Shapes.square
 */
@@ -534,18 +534,18 @@ Triangle
 
 Create triangle shape.
 
-Mixin `add-rectangle` create triangle.
+Mixin `rectangle` create triangle.
 
 Function:
 // $width : numberPixel
 // $height : numberPixel
 // $position : 'up' | 'right' | 'down' | 'left'
 // $color : string
-@include add-triangle($width, $height, $position, $color);
+@include triangle($width, $height, $position, $color);
 
 Usage:
 .triangle-up {
-	@include add-triangle(20px, 20px, 'top', #000);
+	@include triangle(20px, 20px, 'top', #000);
 }
 
 HTML:
@@ -569,7 +569,7 @@ Child element will be centered on axis xy.
 Markup: circle.html
 
 Style:
-@include add-circle-style;
+@include circle-style;
 
 Style guide: Shapes.circle
 */
@@ -578,7 +578,7 @@ Rectangle
 
 Responsive rectangle shape based on element width.
 
-Mixin `add-rectangle` create width to height ratio.
+Mixin `rectangle` create width to height ratio.
 
 Prepared elements classes:
 - `rectangle` - parent
@@ -587,11 +587,11 @@ Prepared elements classes:
 Function:
 // $width: number
 // $height: number
-@include add-rectangle($width, $height);
+@include rectangle($width, $height);
 
 Usage:
 .rectangle-16-9 {
- @include add-rectangle(16, 9);
+ @include rectangle(16, 9);
 }
 
 HTML:
@@ -600,7 +600,7 @@ HTML:
 </div>
 
 Style:
-@include add-rectangle-style;
+@include rectangle-style;
 
 Markup: rectangle.html
 

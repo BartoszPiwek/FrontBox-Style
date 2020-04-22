@@ -5,7 +5,7 @@ Crete wrapper element to hold content in specific width with optional aside spac
 
 Function:
 // $max-width : pixels
-// $$space-aside? : pixels
+// $space-aside? : pixels
 wrap($max-width, $space-aside);
 
 Usage:
@@ -22,15 +22,13 @@ Markup: wrap.html
 Style guide: Layout.wrap
 */
 
-@mixin wrap($max-width, $space-aside: 0) {
-	@if $space-aside != 0 {
+@mixin wrap($max-width, $space-aside: 0px) {
+	@if $space-aside != 0px {
 		max-width: $max-width + $space-aside * 2;
 		padding-right: $space-aside;
 		padding-left: $space-aside;
-	}
-
-	@else {
-		max-width: $max-width + $space-aside * 2;
+	} @else {
+		max-width: $max-width;
 	}
 }
 

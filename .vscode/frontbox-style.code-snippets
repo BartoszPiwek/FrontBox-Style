@@ -1,0 +1,23 @@
+{
+	// Generators
+	"Print to console": {
+		"prefix": "responsive",
+		"body": [
+			"@include responsive {",
+			"\t@at-root .#{&}${1:class-name} {",
+			"\t\t${2:}",
+			"\t}",
+			"}"
+		],
+		"description": "Create  responsive classes with breakpoint name prefix.\n",
+		"scope": "scss"
+	},
+	// Layout
+	"Layout: Wrap": {
+		"prefix": "wrap",
+		"body": [
+			"@include wrap($$max-width: ${1:1024}px, $$space-aside: ${2:0}px);"
+		],
+		"description": "Crete wrapper element to hold content in specific width with optional aside space."
+	}
+}

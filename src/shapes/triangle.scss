@@ -3,18 +3,18 @@ Triangle
 
 Create triangle shape.
 
-Mixin `add-rectangle` create triangle.
+Mixin `rectangle` create triangle.
 
 Function:
 // $width : numberPixel
 // $height : numberPixel
 // $position : 'up' | 'right' | 'down' | 'left'
 // $color : string
-@include add-triangle($width, $height, $position, $color);
+@include triangle($width, $height, $position, $color);
 
 Usage:
 .triangle-up {
-	@include add-triangle(20px, 20px, 'top', #000);
+	@include triangle(20px, 20px, 'top', #000);
 }
 
 HTML:
@@ -25,7 +25,7 @@ Markup: triangle.html
 Style guide: Shapes.Triangle
 */
 
-@mixin add-triangle($width, $height, $position, $color) {
+@mixin triangle($width, $height, $position, $color) {
 	$half-width: $width / 2;
 
 	width: 0;

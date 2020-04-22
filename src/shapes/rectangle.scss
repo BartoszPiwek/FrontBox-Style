@@ -3,17 +3,17 @@ Rectangle
 
 Responsive rectangle shape based on element width.
 
-Mixin `add-rectangle` create width to height ratio.
+Mixin `rectangle` create width to height ratio.
 
 Function:
 // $width: number
 // $height: number
-@include add-rectangle($width, $height);
+@include rectangle($width, $height);
 
 Usage:
 .rectangle {
  @extend %rectangle-style;
- @include add-rectangle(16, 9);
+ @include rectangle(16, 9);
 }
 
 Markup: rectangle.html

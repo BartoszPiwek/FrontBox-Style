@@ -22,7 +22,7 @@ npm i @bpiwek/frontbox-style
 Import file in main scss file.
 
 ```scss
-@import "~@bpiwek/frontbox-style/index";
+@import "node_modules/frontbox-style/index";
 ```
 
 Voilà!
