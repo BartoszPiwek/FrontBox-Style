@@ -18,4 +18,8 @@ Style guide: Layout.group
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
+
+	> * {
+		flex: 0 0 auto;
+	}
 }

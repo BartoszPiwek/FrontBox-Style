@@ -27,7 +27,9 @@ Style guide: Layout.wrap
 		max-width: $max-width + $space-aside * 2;
 		padding-right: $space-aside;
 		padding-left: $space-aside;
-	} @else {
+	} 
+	
+	@else {
 		max-width: $max-width;
 	}
 }
