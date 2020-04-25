@@ -225,30 +225,6 @@ Markup: hover.html
 Style guide: Modules.Hover
 */
 /*
-Input Placeholder
-
-Style placeholder text inside `input` or `textarea` elements.
-
-Function:
-@include input-placeholder {};
-
-Usage:
-input {
- @include input-placeholder {
-	color: red;
- }
-}
-
-HTML:
-<input type="text" placeholder="Placeholder" />
-<textarea placeholder="Placeholder"></textarea>
-
-Markup: input-placeholder.html
-
-Style guide: Modules.input-placeholder
-*/
-/* stylelint-disable */
-/*
 Scrollbar
 
 Style browser scrollbar.
@@ -281,17 +257,14 @@ Grid
 
 Grid system based on the flex display property.
 
-Style:
-@extend %grid-style;
+Include style form columns and rows.
+
+Usage:
+.wrap {
+	@extend %grid-style;
+}
 
 Style guide: Layout.Grid
-*/
-/*
-Row
-
-Style form container for columns. 
-
-Style guide: Layout.Grid.Row
 */
 /*
 Columns
@@ -313,32 +286,6 @@ Usage:
 Markup: grid.html
 
 Style guide: Layout.Grid.Columns
-*/
-/*
-Offset
-
-Function:
-// $grid-count : number
-// $grid-breakpoints? : $breakpoints
-@include grid-offset($grid-count, $breakpoints?);
-
-Usage:
-@include grid-offset(12);
-
-Style guide: Layout.Grid.Offset
-*/
-/*
-Order
-
-Function:
-// $grid-count : number
-// $grid-breakpoints? : $breakpoints
-@include grid-order($grid-count, $breakpoints?);
-
-Usage:
-@include grid-order(12);
-
-Style guide: Layout.Grid.Order
 */
 /*
 Space
@@ -374,7 +321,7 @@ Crete wrapper element to hold content in specific width with optional aside spac
 
 Function:
 // $max-width : pixels
-// $$space-aside? : pixels
+// $space-aside? : pixels
 wrap($max-width, $space-aside);
 
 Usage:
@@ -393,13 +340,12 @@ Style guide: Layout.wrap
 /*
 Group 
 
-Center elements in content using prepared class `group`.
+Center elements in content.
 
-HTML:
-<div class='group></div>
-
-Style:
-@include group-style;
+Usage:
+.group {
+	@extend %group-style;
+}
 
 Markup: group.html
 
@@ -425,17 +371,15 @@ Usage:
 
 Style guide: Styles.Browser reset
 */
-/* Main Elements */
 /*
 Clearfix
 
 Prepared class `clearfix` to force an element self-clear its children.
 
 Usage:
-@include cleartfix-style;
-
-HTML:
-<div class="clearfix"></div>
+.clearfix {
+ @extend %clearfix-style;
+}
 
 Markup: clearfix.html
 
@@ -456,13 +400,14 @@ Create responsive classes with breakpoint name prefix.
 Parameter `$breakpoints-array` on default is [$breakpoints](section-variables.html#variables-breakpoints).
 
 Function:
-// $class-name : string
 // $breakpoints-array? : $breakpoints
-@include responsive($class-name, $breakpoints-array) {};
+responsive($breakpoints-array?);
 
 Usage:
-@include responsive(color-red {
-	color: red;
+@include responsive {
+	@at-root .color-red {
+		color: red;
+	}
 }
 
 HTML:
@@ -513,19 +458,12 @@ Square
 
 Responsive square shape based on element width.
 
-Prepared elements classes:
-- `square` - parent
-- `square__content` - child. 
-
-HTML:
-<div class="square">
-	<div class="square__content"></div>
-</div>
+Usage:
+.square {
+ @extend %square-style;
+}
 
 Markup: square.html
-
-Style:
-@import square-style;
 
 Style guide: Shapes.square
 */
@@ -560,16 +498,14 @@ Circle
 
 Responsive circle shape based on element width.
 
-Prepared elements classes:
-- `circle` - parent
-- `circle__content` - child. 
-
 Child element will be centered on axis xy.
 
-Markup: circle.html
+Usage: 
+.circle {
+  @extend %circle-style;
+}
 
-Style:
-@include circle-style;
+Markup: circle.html
 
 Style guide: Shapes.circle
 */
@@ -580,90 +516,59 @@ Responsive rectangle shape based on element width.
 
 Mixin `rectangle` create width to height ratio.
 
-Prepared elements classes:
-- `rectangle` - parent
-- `rectangle__content` - child. 
-
 Function:
 // $width: number
 // $height: number
 @include rectangle($width, $height);
 
 Usage:
-.rectangle-16-9 {
+.rectangle {
+ @extend %rectangle-style;
  @include rectangle(16, 9);
 }
-
-HTML:
-<div class="rectangle rectangle-16-9">
-  <div class="rectangle__content"></div>
-</div>
-
-Style:
-@include rectangle-style;
 
 Markup: rectangle.html
 
 Style guide: Shapes.Rectangle
 */
 .aaa {
-  color: red;
-}
+  color: red; }
 
 .bbb {
-  color: blue;
-}
+  color: blue; }
 
 @media screen and (min-width: 576px) {
   .sm_aaa {
-    color: red;
-  }
+    color: red; }
   .sm_bbb {
-    color: blue;
-  }
-}
+    color: blue; } }
 
 @media screen and (min-width: 768px) {
   .md_aaa {
-    color: red;
-  }
+    color: red; }
   .md_bbb {
-    color: blue;
-  }
-}
+    color: blue; } }
 
 @media screen and (min-width: 992px) {
   .lg_aaa {
-    color: red;
-  }
+    color: red; }
   .lg_bbb {
-    color: blue;
-  }
-}
+    color: blue; } }
 
 @media screen and (min-width: 1200px) {
   .xl_aaa {
-    color: red;
-  }
+    color: red; }
   .xl_bbb {
-    color: blue;
-  }
-}
+    color: blue; } }
 
 @media screen and (min-width: 1366px) {
   .hd_aaa {
-    color: red;
-  }
+    color: red; }
   .hd_bbb {
-    color: blue;
-  }
-}
+    color: blue; } }
 
 @media screen and (min-width: 1440px) {
   .whd_aaa {
-    color: red;
-  }
+    color: red; }
   .whd_bbb {
-    color: blue;
-  }
-}
+    color: blue; } }

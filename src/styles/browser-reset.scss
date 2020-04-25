@@ -66,7 +66,7 @@ Style guide: Styles.Browser reset
 	}
 
 	/* Form Elements */
-	[type="text"] {
+	[type='text'] {
 		&::-ms-clear,
 		&::-ms-reveal {
 			display: none;
@@ -75,13 +75,13 @@ Style guide: Styles.Browser reset
 		}
 	}
 
-	[type="number"] {
+	[type='number'] {
 		-moz-appearance: textfield;
 	}
 
 	//  Hide original input element
-	[type="checkbox"],
-	[type="radio"] {
+	[type='checkbox'],
+	[type='radio'] {
 		position: absolute !important;
 		bottom: 0 !important;
 		left: 50% !important;
@@ -96,11 +96,12 @@ Style guide: Styles.Browser reset
 		clip-path: inset(50%) !important;
 	}
 
-	[type="button"],
-	[type="reset"],
-	[type="submit"],
+	[type='button'],
+	[type='reset'],
+	[type='submit'],
 	button {
 		border: 0;
+		outline: none;
 		background: 0 0;
 		cursor: pointer;
 		-webkit-appearance: button;

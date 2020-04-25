@@ -1,25 +1,26 @@
-<h1>
-<strong>FrontBox Style</strong> <small>by Bartosz Piwek</small><br>
-<img src="https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style.svg">
-</h1>
+# FrontBox Style
 
 Hermetic SCSS files contain helpful methods used on most websites, divided into categories: functions, generators, modules, shapes, styles, variables.
 
+## Information
+
+|         |                                                                                                |
+| ------- | ---------------------------------------------------------------------------------------------- |
+| Author  | Bartosz Piwek                                                                                  |
+| Version | ![frontbox style npm package version](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-style.svg) |
+| CSS     | [SCSS](https://sass-lang.com)                                                                  |
+
 ## Install
 
-Add package on your project using command:
+### Add package
 
 ```bash
 yarn add @bpiwek/frontbox-style
-```
-
-or
-
-```bash
+# or
 npm i @bpiwek/frontbox-style
 ```
 
-Import file in main scss file.
+### Import file
 
 ```scss
 @import "node_modules/frontbox-style/index";
@@ -33,12 +34,15 @@ Go to [website](https://festive-meitner-bb09bc.netlify.com/) to read the documen
 
 ## Develop
 
-Make sure to install this fallowing plugins for Visual Code Studio before making changes:
+### Visual Code Studio plugins
 
 - [Prettier - code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Stylelint - style linter](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 
+### Configuration files
+
+- [stylelint](https://gist.github.com/BartoszPiwek/5287e6f12bb9696aa7e9f8267341d5ca)
+
 ## Bugs
 
-Feel free to report bug using
-<a href="https://github.com/BartoszPiwek/FrontBox-Style/issues/new?labels=bug">this link</a>.
+Feel free to report bug using [this link](https://github.com/BartoszPiwek/FrontBox-Style/issues/new?labels=bug).

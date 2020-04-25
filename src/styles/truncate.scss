@@ -1,0 +1,37 @@
+/*
+Truncate
+
+Prepared class `clearfix` to force an element self-clear its children.
+
+Usage:
+.truncate {
+ @extend %truncate-style;
+}
+
+Markup: truncate.html
+
+Style guide: Styles.Truncate
+*/
+
+%truncate-style {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	&-wrap {
+		position: relative;
+		width: 100%;
+
+		> * {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	&:not(.is-multilane) {
+		white-space: nowrap;
+	}
+}
