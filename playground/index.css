@@ -140,16 +140,11 @@ map-deep-get($deep-map, $keys...);
 Usage:
 $deep-map: (
   "first": (
-    value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  ),
-  "second": (
-    value: "Fusce non orci elit.",
+    value: red,
   ),
 );
 element {
- &:before {
-   content: "[#]{map-deep-get($deep-map, first, value)}";
- }
+  color: map-deep-get($deep-map, first, value)";
 }
 
 Markup: map-deep-get.html
@@ -319,6 +314,11 @@ Wrap
 
 Crete wrapper element to hold content in specific width with optional aside space.
 
+Style:
+.wrap {
+	@extend %wrap-style;
+}
+
 Function:
 // $max-width : pixels
 // $space-aside? : pixels
@@ -326,12 +326,8 @@ wrap($max-width, $space-aside);
 
 Usage:
 .wrap {
-	@extend %wrap-style;
-	@include wrap(1024px, 20px);
+	@include wrap(700px, 20px);
 }
-
-Style:
-@extend %wrap-style;
 
 Markup: wrap.html
 
@@ -358,8 +354,6 @@ Styles for selectors/classes.
 
 Style guide: Styles
 */
-/* stylelint-disable property-no-vendor-prefix */
-/* stylelint-disable selector-no-qualifying-type */
 /*
 Browser reset
 
@@ -371,6 +365,8 @@ Usage:
 
 Style guide: Styles.Browser reset
 */
+/* stylelint-disable property-no-vendor-prefix */
+/* stylelint-disable selector-no-qualifying-type */
 /*
 Clearfix
 
@@ -385,6 +381,40 @@ Markup: clearfix.html
 
 Style guide: Styles.Clearfix
 */
+/*
+Truncate
+
+Truncate string.
+
+Style:
+.truncate {
+ @extend %truncate-style;
+ &-wrap {
+	 @extend %truncate-wrap-style;
+ }
+}
+
+Markup: truncate.html
+
+Style guide: Styles.Truncate
+*/
+.truncate {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  .truncate:not(.is-multilane) {
+    white-space: nowrap; }
+
+.truncate-wrap {
+  position: relative;
+  width: 100%; }
+  .truncate-wrap > * {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%); }
+
 /*
 Generators
 

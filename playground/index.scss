@@ -9,3 +9,11 @@
 		color:blue;
 	}
 }
+
+.truncate {
+	@extend %truncate-style;
+
+	&-wrap {
+		@extend %truncate-wrap-style;
+	}
+}

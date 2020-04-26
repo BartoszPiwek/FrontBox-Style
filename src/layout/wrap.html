@@ -5,9 +5,7 @@
   .wrap {
     @extend %wrap-style;
 
-    &-small {
-      @include wrap(500px);
-    }
+    @include wrap(500px);
 
     &-space {
       @include wrap(700px, 20px);
@@ -17,7 +15,6 @@
   /* Addon */
   .wrap {
     text-align: center;
-
     background: yellow;
 
     div {

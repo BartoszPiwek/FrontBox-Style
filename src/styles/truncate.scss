@@ -1,11 +1,14 @@
 /*
 Truncate
 
-Prepared class `clearfix` to force an element self-clear its children.
+Truncate string.
 
-Usage:
+Style:
 .truncate {
  @extend %truncate-style;
+ &-wrap {
+	 @extend %truncate-wrap-style;
+ }
 }
 
 Markup: truncate.html
@@ -18,20 +21,20 @@ Style guide: Styles.Truncate
 	overflow: hidden;
 	text-overflow: ellipsis;
 
-	&-wrap {
-		position: relative;
-		width: 100%;
-
-		> * {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 100%;
-			transform: translate(-50%, -50%);
-		}
-	}
-
 	&:not(.is-multilane) {
 		white-space: nowrap;
+	}
+}
+
+%truncate-wrap-style {
+	position: relative;
+	width: 100%;
+
+	> * {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		transform: translate(-50%, -50%);
 	}
 }
