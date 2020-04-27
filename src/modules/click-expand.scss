@@ -3,18 +3,19 @@ Click Expand
 
 Expand click space using pseudo element `before` with prepared class `click-expand`.
 
+Style:
+.click-expand {
+	@extend %click-expand-style;
+}
+
 Function:
 // $space : numberPixel
 @include click-expand($space);
 
 Usage:
-// $space : numberPixel
 .link {
 	@include click-expand(20px);
 }
-
-HTML:
-<a href="#" class="expand-link link"></a>
 
 Markup: click-expand.html
 

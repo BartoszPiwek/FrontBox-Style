@@ -1,5 +1,5 @@
 node_modules
-*.lock
 documentation
-package-lock.json
 *.log
+.vscode
+!.vscode/extensions.json

@@ -15,16 +15,11 @@ map-deep-get($deep-map, $keys...);
 Usage:
 $deep-map: (
   "first": (
-    value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  ),
-  "second": (
-    value: "Fusce non orci elit.",
+    value: red,
   ),
 );
 element {
- &:before {
-   content: "[#]{map-deep-get($deep-map, first, value)}";
- }
+  color: map-deep-get($deep-map, first, value)";
 }
 
 Markup: map-deep-get.html

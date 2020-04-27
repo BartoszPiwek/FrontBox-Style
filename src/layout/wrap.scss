@@ -3,6 +3,11 @@ Wrap
 
 Crete wrapper element to hold content in specific width with optional aside space.
 
+Style:
+.wrap {
+	@extend %wrap-style;
+}
+
 Function:
 // $max-width : pixels
 // $space-aside? : pixels
@@ -10,12 +15,8 @@ wrap($max-width, $space-aside);
 
 Usage:
 .wrap {
-	@extend %wrap-style;
-	@include wrap(1024px, 20px);
+	@include wrap(1024px, 16px);
 }
-
-Style:
-@extend %wrap-style;
 
 Markup: wrap.html
 

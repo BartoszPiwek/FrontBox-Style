@@ -1,0 +1,40 @@
+/*
+Truncate
+
+Truncate string.
+
+Style:
+.truncate {
+ @extend %truncate-style;
+ &-wrap {
+	 @extend %truncate-wrap-style;
+ }
+}
+
+Markup: truncate.html
+
+Style guide: Styles.Truncate
+*/
+
+%truncate-style {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	&:not(.is-multilane) {
+		white-space: nowrap;
+	}
+}
+
+%truncate-wrap-style {
+	position: relative;
+	width: 100%;
+
+	> * {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		transform: translate(-50%, -50%);
+	}
+}

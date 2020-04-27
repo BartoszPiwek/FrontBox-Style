@@ -3,18 +3,15 @@
 
   $deepMap: (
     "first": (
-      value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    ),
-    "second": (
-      value: "Fusce non orci elit.",
+      value: red,
     ),
   );
 
   .element {
-    &:before {
-      content: "#{map-deep-get($deepMap, first, value);}";
-    }
+    color: map-deep-get($deepMap, first, value);
   }
 </style>
 
-<div class="element"></div>
+<div class="element">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus placeat sint, atque sequi dolores, dolorum fugiat alias veniam ducimus quas, debitis aperiam aut non facere fuga eius voluptatem illo. Consectetur.
+</div>
