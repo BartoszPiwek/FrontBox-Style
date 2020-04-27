@@ -13,8 +13,8 @@ Usage:
 // 	[key: string]: string
 // }
 $fonts: (
-  default: Arial,
-  monospace: monospace
+  default: "Arial",
+  monospace: "monospace"
 );
 .text {
   &-default {
@@ -32,7 +32,7 @@ Style guide: Variables.font
 
 @function font($id) {
 	@if map-has-key($fonts, $id) {
-		@return map-get($fonts, $id);
+		@return #{map-get($fonts, $id)};
 	}
 
 	@error 'Invalid index name: `#{$id}`.';
