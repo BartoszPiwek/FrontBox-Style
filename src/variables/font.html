@@ -1,0 +1,37 @@
+<style type="iframe">
+	@import 'index';
+
+	$fonts: (
+		default: Arial,
+		monospace: monospace,
+	);
+
+	.text {
+		&-default {
+			font-family: font('default');
+		}
+
+		&-monospace {
+			font-family: font('monospace');
+		}
+	}
+
+	/* Addon */
+	.container {
+		& + & {
+			margin-top: 20px;
+		}
+	}
+</style>
+
+<div class="container">
+	<p class="text-default">
+		Font text default
+	</p>
+</div>
+
+<div class="container">
+	<p class="text-monospace">
+		Font text monospace
+	</p>
+</div>

@@ -1,6 +1,6 @@
 {
 	"plugins": ["stylelint-scss", "stylelint-order"],
-  "extends": ["stylelint-config-property-sort-order-smacss"],
+  	"extends": ["stylelint-config-property-sort-order-smacss"],
 	"rules": {
 		"order/property-sort-order-smacss": true,
 		"at-rule-blacklist": ["debug"],
