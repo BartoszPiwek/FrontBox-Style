@@ -1,19 +1,7 @@
 @import '../index';
 
-@include responsive {
-	@at-root .#{&}aaa {
-		color:red;
-	}
-
-	@at-root .#{&}bbb {
-		color:blue;
-	}
+.grid {
+	@extend %grid-style;
 }
 
-.truncate {
-	@extend %truncate-style;
-
-	&-wrap {
-		@extend %truncate-wrap-style;
-	}
-}
+@include grid(12);

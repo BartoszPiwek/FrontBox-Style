@@ -28,6 +28,10 @@ Style guide: Layout.Grid
 		flex-shrink: 0;
 		height: auto !important;
 		min-height: 1px;
+
+		> * {
+			flex: 1 1 auto;
+		}
 	}
 }
 
@@ -61,12 +65,14 @@ Style guide: Layout.Grid.Columns
 				max-width: 100% / ($grid-count / $i);
 			}
 
-			@at-root .#{&}pull-#{$i} {
-				right: 100% / ($grid-count / $i) !important;
-			}
+			@if ($i != $grid-count) {
+				@at-root .#{&}pull-#{$i} {
+					right: 100% / ($grid-count / $i) !important;
+				}
 
-			@at-root .#{&}push-#{$i} {
-				left: 100% / ($grid-count / $i) !important;
+				@at-root .#{&}push-#{$i} {
+					left: 100% / ($grid-count / $i) !important;
+				}
 			}
 		}
 	}
