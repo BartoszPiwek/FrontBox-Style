@@ -3,7 +3,7 @@ Triangle
 
 Create triangle shape.
 
-Mixin `rectangle` create triangle.
+Mixin `triangle` create triangle.
 
 Function:
 // $width : numberPixel
@@ -33,26 +33,18 @@ Style guide: Shapes.Triangle
 
 	@if ($position == 'left') {
 		border-right: $height solid $color;
-	}
-
-	@else if($position == 'up') {
+	} @else if($position == 'up') {
 		border-bottom: $height solid $color;
-	}
-
-	@else if($position == 'right') {
+	} @else if($position == 'right') {
 		border-left: $height solid $color;
-	}
-
-	@else if($position == 'down') {
+	} @else if($position == 'down') {
 		border-top: $height solid $color;
 	}
 
 	@if ($position != 'left' and $position != 'right' == true) {
 		border-right: $half-width solid transparent;
 		border-left: $half-width solid transparent;
-	}
-
-	@else {
+	} @else {
 		border-top: $half-width solid transparent;
 		border-bottom: $half-width solid transparent;
 	}
