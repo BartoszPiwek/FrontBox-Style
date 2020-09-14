@@ -28,7 +28,7 @@ Style guide: Variables.media
 */
 
 @mixin media($name) {
-	$width: map-deep-get($breakpoints, $name, size);
+	$width: map-get($breakpoints, $name);
 
 	@if $width {
 		@media screen and (min-width: #{$width}px) {
@@ -42,7 +42,7 @@ Style guide: Variables.media
 }
 
 @mixin media-max($name) {
-	$width: map-deep-get($breakpoints, $name, size);
+	$width: map-get($breakpoints, $name);
 
 	@if $width {
 		@media screen and (max-width: #{$width - 1}px) {

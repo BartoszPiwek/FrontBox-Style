@@ -7,13 +7,13 @@ Include style form columns and rows.
 
 Usage:
 .wrap {
-	@extend %grid-style;
+	@include grid-style;
 }
 
 Style guide: Layout.Grid
 */
 
-%grid-style {
+@mixin grid-style {
 	display: flex;
 	position: relative;
 	flex-direction: row;
@@ -21,13 +21,16 @@ Style guide: Layout.Grid
 	width: 100%;
 
 	> * {
-		display: flex;
 		position: relative;
-		flex-direction: column;
 		flex-grow: 0;
 		flex-shrink: 0;
 		height: auto !important;
 		min-height: 1px;
+	}
+
+	&--same > * {
+		display: flex;
+		flex-direction: column;
 
 		> * {
 			flex: 1 1 auto;

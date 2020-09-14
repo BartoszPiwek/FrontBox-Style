@@ -1,40 +1,40 @@
 {
-  "name": "@bpiwek/frontbox-style",
-  "version": "0.0.5",
-  "description": "Hermetic SCSS files contain helpful methods used on most websites, divided into categories: functions, generators, modules, shapes, styles, variables.",
-  "homepage": "https://github.com/BartoszPiwek/FrontBox-Style#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BartoszPiwek/FrontBox-Style.git"
-  },
-  "main": "index.scss",
-  "style": "index.scss",
-  "scripts": {
-    "playground": "node-sass playground/index.scss playground/index.css",
-    "doc": "kss src/ --config kss-config.json",
-    "publish": "npm publish --access public",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "sass",
-    "scss",
-    "framework",
-    "frontbox",
-    "style",
-    "css",
-    "grid",
-    "shapes",
-    "modules"
-  ],
-  "author": "Bartosz Piwek",
-  "license": "ISC",
-  "devDependencies": {
-    "@bpiwek/frontbox-kss-styleguide": "^0.0.12",
-    "kss": "^3.0.0",
-    "node-sass": "^4.13.0",
-    "stylelint": "^13.2.1",
-    "stylelint-config-property-sort-order-smacss": "^6.0.0",
-    "stylelint-order": "^4.0.0",
-    "stylelint-scss": "^3.16.0"
-  }
+	"name": "@bpiwek/frontbox-style",
+	"version": "0.1.0",
+	"description": "Hermetic SCSS files contain helpful methods used on most websites, divided into categories: functions, generators, modules, shapes, styles, variables.",
+	"homepage": "https://github.com/BartoszPiwek/FrontBox-Style#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/BartoszPiwek/FrontBox-Style.git"
+	},
+	"main": "index.scss",
+	"style": "index.scss",
+	"scripts": {
+		"playground": "node-sass playground/index.scss playground/index.css",
+		"doc": "kss src/ --config kss-config.json",
+		"publish": "npm publish --access public",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"sass",
+		"scss",
+		"framework",
+		"frontbox",
+		"style",
+		"css",
+		"grid",
+		"shapes",
+		"modules"
+	],
+	"author": "Bartosz Piwek",
+	"license": "ISC",
+	"devDependencies": {
+		"@bpiwek/frontbox-kss-styleguide": "^0.0.12",
+		"kss": "^3.0.0",
+		"node-sass": "^4.13.0",
+		"stylelint": "^13.2.1",
+		"stylelint-config-property-sort-order-smacss": "^6.0.0",
+		"stylelint-order": "^4.0.0",
+		"stylelint-scss": "^3.16.0"
+	}
 }

@@ -27,11 +27,15 @@ Style guide: Generators.Responsive
 @mixin responsive($breakpoints-array: $breakpoints) {
 	@content;
 
-	@each $label, $other in $breakpoints {
-		$breakpoint-name: map-deep-get($breakpoints, $label, name);
-
+	@each $label, $value in $breakpoints {
 		@include media($label) {
-			#{$breakpoint-name}_ {
+			#{$label}_ {
+				@content;
+			}
+		}
+
+		@include media-max($label) {
+			#{$label}-max_ {
 				@content;
 			}
 		}

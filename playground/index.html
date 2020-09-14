@@ -1,89 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="index.css" />
+		<title>FrontBox Style Playground</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="index.css">
-    <title>FrontBox Style Playground</title>
-</head>
+	<body>
+		<h1>FrontBox Style Playground</h1>
 
-<body>
-    <h1>FrontBox Style Playground</h1>
+		<h2>Variables</h2>
 
-    <h2>Variables</h2>
+		<h3>Color</h3>
+		<p>This text should be</p>
+		<ul>
+			<li>
+				<span class="color-blue">blue</span>
+			</li>
+			<li>
+				<span class="color-red">red</span>
+			</li>
+		</ul>
 
-    <h3>Color</h3>
-    <p>This text should be</p>
-    <ul>
-        <li>
-            <span class="color-blue">blue</span>
-        </li>
-        <li>
-            <span class="color-red">red</span>
-        </li>
-    </ul>
+		<h3>Index</h3>
+		<p>This element should be</p>
+		<ul>
+			<li>
+				<div class="index-wrapper">
+					<div class="index-item">hidden</div>
+					<div class="index-item index-first">visible</div>
+				</div>
+			</li>
+			<li>
+				<div class="index-wrapper">
+					<div class="index-item">visible</div>
+					<div class="index-item index-last">hidden</div>
+				</div>
+			</li>
+		</ul>
 
-    <h3>Index</h3>
-    <p>This element should be</p>
-    <ul>
-        <li>
-            <div class="index-wrapper">
-                <div class="index-item">
-                    hidden
-                </div>
-                <div class="index-item index-first">
-                    visible
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="index-wrapper">
-                <div class="index-item">
-                    visible
-                </div>
-                <div class="index-item index-last">
-                    hidden
-                </div>
-            </div>
-        </li>
-    </ul>
+		<h3>Media</h3>
+		<p>This element should be visible when</p>
+		<ul>
+			<li>
+				<p>screen > 1000</p>
+				<div class="media-item media-md"></div>
+			</li>
+			<li>
+				<p>screen < 1000</p>
+				<div class="media-item media-max-md"></div>
+			</li>
+		</ul>
 
-    <h3>Media</h3>
-    <p>This element should be visible when</p>
-    <ul>
-        <li>
-            <p>screen > 1000</p>
-            <div class="media-item media-md"></div>
-        </li>
-        <li>
-            <p>screen < 1000</p>
-                    <div class="media-item media-max-md"></div>
-        </li>
-    </ul>
+		<h2>Modules</h2>
 
-    <h2>Modules</h2>
+		<h3>Wrap</h3>
+		<div class="wrap">
+			This element should have
+			<ul>
+				<li>align center</li>
+				<li>axis x padding 20px</li>
+				<li>max width 200px</li>
+			</ul>
+		</div>
 
-    <h3>Wrap</h3>
-    <div class="wrap">
-        This element should have
-        <ul>
-            <li>
-                align center
-            </li>
-            <li>
-                axis x padding 20px
-            </li>
-            <li>
-                max width 200px
-            </li>
-        </ul>
-    </div>
+		<div class="row">
+			<div class="col-4">col</div>
+			<div class="col-4">col</div>
+			<div class="col-4">col</div>
+		</div>
 
-    <div>
-        <div class="holder"></div>
-    </div>
-</body>
-
+		<div>
+			<div class="holder"></div>
+		</div>
+	</body>
 </html>
