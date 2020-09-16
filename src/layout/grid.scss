@@ -74,7 +74,7 @@ Style guide: Layout.Grid.Columns
 				}
 
 				@at-root .#{&}push-#{$i} {
-					left: 100% / ($grid-count / $i) !important;
+					margin-left: 100% / ($grid-count / $i) !important;
 				}
 			}
 		}
