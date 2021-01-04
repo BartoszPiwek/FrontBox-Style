@@ -75,10 +75,6 @@ Style guide: Layout.Grid.Columns
 					&-push-#{$i} {
 						margin-left: 100% / ($grid-count / $i) !important;
 					}
-
-					&-order-#{$1} {
-						order: $i;
-					}
 				}
 			}
 		}
