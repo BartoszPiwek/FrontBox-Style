@@ -4,3 +4,4 @@ documentation
 *.lock
 .vscode
 !.vscode/extensions.json
+*.css
