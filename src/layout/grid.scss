@@ -58,29 +58,29 @@ Markup: grid.html
 Style guide: Layout.Grid.Columns
 */
 
-// @mixin grid($grid-count, $grid-breakpoints: $breakpoints) {
-// 	@include responsive {
-// 		@for $i from 1 through $grid-count {
-// 			@at-root .#{&}col {
-// 				&-#{$i} {
-// 					flex-basis: 100% / ($grid-count / $i);
-// 					max-width: 100% / ($grid-count / $i);
-// 				}
+@mixin grid($grid-count, $grid-breakpoints: $breakpoints) {
+	@include responsive {
+		@for $i from 1 through $grid-count {
+			@at-root .#{&}col {
+				&-#{$i} {
+					flex-basis: 100% / ($grid-count / $i);
+					max-width: 100% / ($grid-count / $i);
+				}
 
-// 				@if ($i != $grid-count) {
-// 					&-pull-#{$i} {
-// 						right: 100% / ($grid-count / $i) !important;
-// 					}
+				@if ($i != $grid-count) {
+					&-pull-#{$i} {
+						right: 100% / ($grid-count / $i) !important;
+					}
 
-// 					&-push-#{$i} {
-// 						margin-left: 100% / ($grid-count / $i) !important;
-// 					}
+					&-push-#{$i} {
+						margin-left: 100% / ($grid-count / $i) !important;
+					}
 
-// 					&-order-#{$1} {
-// 						order: $i;
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// }
+					&-order-#{$1} {
+						order: $i;
+					}
+				}
+			}
+		}
+	}
+}
