@@ -33,18 +33,14 @@ Style guide: Modules.Hover
 
 @mixin hover($canParentTrigger: false) {
 	@media (hover: hover) {
-		&:hover,
-		&:active,
-		&:focus {
+		&:hover {
 			@content;
 		}
 	}
 
 	@if ($canParentTrigger == true) {
 		@media (hover: hover) {
-			&--hover:hover &,
-			&--hover:active &,
-			&--hover:focus & {
+			&--hover:hover {
 				@content;
 			}
 		}
