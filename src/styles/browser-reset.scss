@@ -101,13 +101,11 @@ Style guide: Styles.Browser reset
 		clip-path: inset(50%) !important;
 	}
 
-	[type='button'],
-	[type='reset'],
-	[type='submit'],
 	button {
 		border: 0;
 		outline: none;
 		background: 0 0;
+		text-align: left;
 		cursor: pointer;
 		-webkit-appearance: button;
 	}
