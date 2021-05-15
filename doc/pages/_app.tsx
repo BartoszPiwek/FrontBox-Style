@@ -3,9 +3,9 @@ import React from 'react';
 import './../styles/main.scss';
 
 function APP(props: AppProps) {
-	const { Component } = props;
+	const { Component, pageProps } = props;
 
-	return <Component />;
+	return <Component {...pageProps} />;
 }
 
 export default APP;

@@ -8,5 +8,5 @@ export interface ICodeInline {
 export const CodeInline = (params: ICodeInline) => {
 	const { children } = params;
 
-	return <div className={styles.container}>{children}</div>;
+	return <span className={styles.container}>{children}</span>;
 };

@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React, { ReactNode } from 'react';
 import styles from './StylesheetModule.module.scss';
-import { CodePreview } from 'components/CodePreview/CodePreview';
 
 export interface IStylesheetModule {
 	title: string;
@@ -20,10 +19,6 @@ export const StylesheetModule = (params: IStylesheetModule) => {
 
 				<p className={styles.description}>{description}</p>
 				<div className="stylesheet-module">{children}</div>
-
-				<CodePreview style=".wrap {color: red}">
-					<div className="wrap">{title}</div>
-				</CodePreview>
 			</div>
 		</div>
 	);

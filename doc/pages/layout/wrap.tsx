@@ -5,6 +5,8 @@ import file from '!!raw-loader!./../../../src/layout/wrap.scss';
 import { StylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
 import { CodeInline } from 'components/CodeInline/CodeInline';
 import { CodePreview } from 'components/CodePreview/CodePreview';
+import sass from 'node-sass';
+import { GetStaticPropsResult } from 'next';
 
 const style = `
 .wrap {
@@ -17,9 +19,14 @@ const usage = `
 	@include wrap(1024px, 16px);
 }
 `;
-// $max-width : pixels
-// $space-aside? : pixels
-function WrapLayoutPage() {
+
+export interface IWrapLayoutPage {
+	css: string;
+}
+
+export default function WrapLayoutPage(params: IWrapLayoutPage, foo) {
+	const { css } = params;
+
 	return (
 		<StylesheetModule
 			title="Wrap"
@@ -30,7 +37,6 @@ function WrapLayoutPage() {
 				<p>Before using this module, remember to include base style.</p>
 				<Code lang="scss" children={style} />
 			</InformationBanner>
-
 			<h2>Mixin</h2>
 			<p>
 				<CodeInline>$max-width: pixels</CodeInline>
@@ -39,12 +45,13 @@ function WrapLayoutPage() {
 				<CodeInline>$space-aside?: pixels</CodeInline>
 			</p>
 			<Code lang="scss" children="wrap($max-width, $space-aside);" />
-
 			<h2>Usage</h2>
 			<Code lang="scss" children={usage} />
-
 			<h2>Example</h2>
-			<CodePreview style=".wrap { color: red} ">
+			<p>
+				Yellow color point padding (<CodeInline>$space-aside</CodeInline> variable)
+			</p>
+			<CodePreview style={css}>
 				<div className="wrap wrap-small">
 					<div>Wrap content</div>
 				</div>
@@ -53,10 +60,45 @@ function WrapLayoutPage() {
 					<div>Wrap content</div>
 				</div>
 			</CodePreview>
-
 			<Code lang="scss" children={file} />
 		</StylesheetModule>
 	);
 }
 
-export default WrapLayoutPage;
+export async function getStaticProps(): Promise<GetStaticPropsResult<any>> {
+	const sassOutput = sass.renderSync({
+		includePaths: ['../'],
+		data: `
+		  @import "index";
+			@include browser-reset-style;
+
+			.wrap {
+				@include wrap-style;
+
+				@include wrap(500px);
+
+				&-space {
+					@include wrap(700px, 20px);
+				}
+			}
+
+			/* Addon */
+			.wrap {
+				text-align: center;
+				background: yellow;
+
+				div {
+					background: red;
+				}
+			}
+		`,
+	});
+
+	const css = sassOutput.css.toString('utf8');
+
+	return {
+		props: {
+			css,
+		},
+	};
+}
