@@ -1,7 +1,10 @@
 node_modules
 *.lock
 *.log
+*.html
 playground
-package-lock.json
 documentation
+package-lock.json
+kss-config.json
+.prettierrc
 .vscode
