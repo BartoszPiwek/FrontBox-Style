@@ -1,8 +1,7 @@
 {
 	"plugins": ["stylelint-scss", "stylelint-order"],
-  	"extends": ["stylelint-config-property-sort-order-smacss"],
+  "extends": ["stylelint-config-property-sort-order-smacss"],
 	"rules": {
-		"order/property-sort-order-smacss": true,
 		"at-rule-blacklist": ["debug"],
 		"at-rule-no-unknown": null,
 		"at-rule-no-vendor-prefix": true,
@@ -79,7 +78,7 @@
 		}],
 		"scss/at-extend-no-missing-placeholder": true,
 		"scss/at-function-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
-		"scss/at-import-no-partial-leading-underscore": true,
+		"scss/at-import-no-partial-leading-underscore": null,
 		"scss/at-import-partial-extension-blacklist": ["scss"],
 		"scss/at-mixin-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
 		"scss/at-rule-no-unknown": true,
