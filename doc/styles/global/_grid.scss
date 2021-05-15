@@ -1,0 +1,9 @@
+.row {
+	@include grid-style;
+}
+
+.space {
+	@include space(20px);
+}
+
+@include grid(12);

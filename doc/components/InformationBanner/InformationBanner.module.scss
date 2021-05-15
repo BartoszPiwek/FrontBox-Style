@@ -1,0 +1,68 @@
+@import 'variables';
+
+.container {
+	position: relative;
+	padding: 20px;
+	border: 1px solid;
+	border-radius: 10px;
+}
+
+.type {
+	&-info {
+		border-color: color('info');
+		background: transparentize(color('info'), 0.9);
+		color: darken(color('info'), 6);
+	}
+
+	&-success {
+		border-color: color('success');
+		background: transparentize(color('success'), 0.9);
+		color: darken(color('success'), 6);
+	}
+
+	&-danger {
+		border-color: color('danger');
+		background: transparentize(color('danger'), 0.9);
+		color: darken(color('danger'), 6);
+	}
+
+	&-warning {
+		border-color: color('warning');
+		background: transparentize(color('warning'), 0.9);
+		color: darken(color('warning'), 6);
+	}
+}
+
+.inner {
+	position: relative;
+
+	> * + * {
+		margin-top: 10px;
+
+		@include media('md') {
+			margin-top: 20px;
+		}
+	}
+
+	@include media('md') {
+		padding-right: 50px;
+	}
+}
+
+.decoration {
+	margin-bottom: 10px;
+	font-size: 0;
+	text-align: center;
+
+	&Icon {
+		width: 30px;
+		height: 30px;
+	}
+
+	@include media('md') {
+		position: absolute;
+		top: 14px;
+		right: 20px;
+		margin-bottom: 0;
+	}
+}

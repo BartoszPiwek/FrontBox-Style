@@ -1,0 +1,28 @@
+body,
+html {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	min-height: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	color: color('dark');
+	font-family: font('default');
+}
+
+* {
+	@include scrollbar(15px, color('blue'), color('white'));
+
+	hyphens: auto;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparentize(color('blue'), 0.8);
+
+	// Text selection color
+	&::selection {
+		background: color('blue');
+		fill: color('white');
+		color: color('white');
+	}
+}

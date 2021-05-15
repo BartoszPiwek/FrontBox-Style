@@ -1,0 +1,4 @@
+.wrap {
+	@include wrap-style;
+	@include wrap(1024px, 15px);
+}

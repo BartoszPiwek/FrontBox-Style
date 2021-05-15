@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"experimentalDecorators": true,
+		"jsx": "preserve",
+		"outDir": "./dist/",
+		"sourceMap": true,
+		"noImplicitAny": false,
+		"module": "commonjs",
+		"target": "esnext",
+		"esModuleInterop": true,
+		"declaration": false,
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": false,
+		"forceConsistentCasingInFileNames": false,
+		"noEmit": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"baseUrl": ".",
+		"paths": {
+			"@icons/*": ["public/icons/*"],
+			"@content/*": ["content/*"]
+		}
+	},
+	"exclude": ["node_modules"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}
