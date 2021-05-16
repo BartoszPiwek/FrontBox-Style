@@ -1,12 +1,11 @@
 import { Code } from 'components/Code/Code';
-import { InformationBanner } from 'components/InformationBanner/InformationBanner';
 import React from 'react';
 import file from '!!raw-loader!./../../../src/variables/color.scss';
 import { StylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
 import { CodeInline } from 'components/CodeInline/CodeInline';
 import { CodePreview } from 'components/CodePreview/CodePreview';
 import { GetStaticPropsResult } from 'next';
-import sass from 'node-sass';
+import sass from 'sass';
 
 const fn = `
 // $valueIndex: string
@@ -47,6 +46,7 @@ export interface IColorLayoutPage {
 
 export default function ColorLayoutPage(params: IColorLayoutPage) {
 	const { css } = params;
+
 	return (
 		<StylesheetModule
 			title="Color"
@@ -79,7 +79,7 @@ export default function ColorLayoutPage(params: IColorLayoutPage) {
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<any>> {
 	const sassOutput = sass.renderSync({
-		includePaths: ['../'],
+		includePaths: ['./../'],
 		data: style,
 	});
 

@@ -5,7 +5,7 @@ import file from '!!raw-loader!./../../../src/layout/wrap.scss';
 import { StylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
 import { CodeInline } from 'components/CodeInline/CodeInline';
 import { CodePreview } from 'components/CodePreview/CodePreview';
-import sass from 'node-sass';
+import sass from 'sass';
 import { GetStaticPropsResult } from 'next';
 
 const style = `
@@ -24,7 +24,7 @@ export interface IWrapLayoutPage {
 	css: string;
 }
 
-export default function WrapLayoutPage(params: IWrapLayoutPage, foo) {
+export default function WrapLayoutPage(params: IWrapLayoutPage) {
 	const { css } = params;
 
 	return (
@@ -68,7 +68,7 @@ export default function WrapLayoutPage(params: IWrapLayoutPage, foo) {
 }
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<any>> {
-	const sassOutput = sass.renderSync({
+	const sassOutput = await sass.renderSync({
 		includePaths: ['../'],
 		data: `
 		  @import "index";

@@ -1,16 +1,20 @@
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+import { ReactNode } from 'react';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 import styles from './Code.module.scss';
 
 export interface ICode {
-	children: string;
+	children: ReactNode;
 	lang: Language;
 }
 
 export const Code = (params: ICode) => {
 	const { children, lang } = params;
 
+	const code = reactElementToJSXString(children, {});
+
 	return (
-		<Highlight {...defaultProps} code={children.trim()} language={lang}>
+		<Highlight {...defaultProps} code={code} language={lang}>
 			{({ style, tokens, getLineProps, getTokenProps }) => (
 				<pre className={styles.container} style={style}>
 					{tokens.map((line, i) => (

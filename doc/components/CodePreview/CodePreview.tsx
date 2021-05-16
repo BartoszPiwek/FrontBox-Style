@@ -15,7 +15,7 @@ export interface ICodePreview {
 export const CodePreview = (params: ICodePreview) => {
 	const { style, children, scss } = params;
 
-	const source = reactElementToJSXString(children, {});
+	const source = reactElementToJSXString(children);
 
 	return (
 		<Tabs

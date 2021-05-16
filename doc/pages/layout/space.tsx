@@ -1,12 +1,11 @@
 import { Code } from 'components/Code/Code';
-import { InformationBanner } from 'components/InformationBanner/InformationBanner';
 import React from 'react';
 import file from '!!raw-loader!./../../../src/layout/space.scss';
 import { StylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
 import { CodeInline } from 'components/CodeInline/CodeInline';
 import { CodePreview } from 'components/CodePreview/CodePreview';
-import sass from 'node-sass';
 import { GetStaticPropsResult } from 'next';
+import sass from 'sass';
 
 const style = `
 @import "index";
@@ -57,6 +56,12 @@ const style = `
   }
 `;
 
+const mixin = `
+space-x($space-horizontal);
+space-y($space-vertical);
+space($space-horizontal, $space-vertical);
+`;
+
 const usage = `
 .space {
  @include space(20px, 10px);
@@ -75,7 +80,7 @@ export interface ISpaceLayoutPage {
 	css: string;
 }
 
-function SpaceLayoutPage(params: ISpaceLayoutPage) {
+export default function SpaceLayoutPage(params: ISpaceLayoutPage) {
 	const { css } = params;
 
 	return (
@@ -92,14 +97,7 @@ function SpaceLayoutPage(params: ISpaceLayoutPage) {
 			<p>
 				<CodeInline>$space-vertical-y?: pixels || $space-horizontal</CodeInline>
 			</p>
-			<Code
-				lang="scss"
-				children="
-space-x($space-horizontal);
-space-y($space-vertical);
-space($space-horizontal, $space-vertical);
-"
-			/>
+			<Code lang="scss" children={mixin} />
 
 			<h2>Usage</h2>
 			<Code lang="scss" children={usage} />
@@ -148,5 +146,3 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<any>> {
 		},
 	};
 }
-
-export default SpaceLayoutPage;
