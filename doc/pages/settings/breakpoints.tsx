@@ -15,14 +15,17 @@ $breakpoints: (
 
 export interface IBreakpointsLayoutPage {}
 
+export const breakpointsPageInfo = {
+	title: 'Breakpoints',
+	filePath: 'src/settings/breakpoints.scss',
+	fileContent: file,
+	description: 'Breakpoints screen map.',
+	href: '/settings/breakpoints',
+};
+
 export default function BreakpointsLayoutPage(params: IBreakpointsLayoutPage) {
 	return (
-		<StylesheetModule
-			title="Breakpoints"
-			filePath="src/settings/breakpoints.scss"
-			fileContent={file}
-			description="Breakpoints screen map."
-		>
+		<StylesheetModule {...breakpointsPageInfo}>
 			<InformationBanner type="info">
 				Declaration can be overwrite by own breakpoints.
 			</InformationBanner>

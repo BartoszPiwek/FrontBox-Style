@@ -1,10 +1,11 @@
 import Tabs from 'components/Tabs/Tabs';
 import React from 'react';
+import reactElementToJSXString from 'react-element-to-jsx-string';
+import { Code } from 'components/Code/Code';
 import { ReactNode } from 'react';
 import Frame from 'react-frame-component';
 import styles from './CodePreview.module.scss';
-import reactElementToJSXString from 'react-element-to-jsx-string';
-import { Code } from 'components/Code/Code';
+import { ResizableBox } from 'react-resizable';
 
 export interface ICodePreview {
 	style?: string;
@@ -21,12 +22,21 @@ export const CodePreview = (params: ICodePreview) => {
 		{
 			label: 'View',
 			Content: () => (
-				<Frame className={styles.container}>
-					<>
-						{style && <style>{style}</style>}
-						{children}
-					</>
-				</Frame>
+				<ResizableBox
+					className={styles.resize}
+					width={500}
+					height={200}
+					axis="x"
+					minConstraints={[360]}
+					handle={<span className={styles.resizeHandle} />}
+				>
+					<Frame className={styles.iframe}>
+						<>
+							{style && <style>{style}</style>}
+							{children}
+						</>
+					</Frame>
+				</ResizableBox>
 			),
 		},
 	];

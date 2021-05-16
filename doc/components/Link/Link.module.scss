@@ -1,0 +1,14 @@
+@import 'variables';
+
+.container {
+	display: inline-block;
+	transition: color $time-transition;
+
+	@include hover {
+		color: color('primary');
+	}
+}
+
+.isActive {
+	color: color('primary');
+}

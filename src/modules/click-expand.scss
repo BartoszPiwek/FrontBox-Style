@@ -29,7 +29,7 @@ Style guide: Modules.Click expand
 	}
 }
 
-%click-expand-style {
+@mixin click-expand-style {
 	position: relative;
 	z-index: 0;
 

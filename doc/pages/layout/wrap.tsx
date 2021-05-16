@@ -2,41 +2,40 @@ import { Code } from 'components/Code/Code';
 import { InformationBanner } from 'components/InformationBanner/InformationBanner';
 import React from 'react';
 import file from '!!raw-loader!./../../../src/layout/wrap.scss';
-import { StylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
 import { CodeInline } from 'components/CodeInline/CodeInline';
 import { CodePreview } from 'components/CodePreview/CodePreview';
-import sass from 'sass';
 import { GetStaticPropsResult } from 'next';
-
-const style = `
-.wrap {
-	@include wrap-style;
-}
-`;
-
-const usage = `
-.wrap {
-	@include wrap(1024px, 16px);
-}
-`;
+import { IRenderSCSS, renderScss } from 'utils/render-scss';
+import { StylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
 
 export interface IWrapLayoutPage {
-	css: string;
+	style: {
+		example1: IRenderSCSS;
+	};
 }
 
+export const wrapPageInfo = {
+	title: 'Wrap',
+	filePath: 'src/layout/wrap.scss',
+	description:
+		'Crete wrapper element to hold content in specific width and optional aside space.',
+	fileContent: file,
+	href: '/layout/wrap',
+};
+
 export default function WrapLayoutPage(params: IWrapLayoutPage) {
-	const { css } = params;
+	const { style } = params;
 
 	return (
-		<StylesheetModule
-			title="Wrap"
-			filePath="src/layout/wrap.scss"
-			fileContent={file}
-			description="Crete wrapper element to hold content in specific width and optional aside space."
-		>
+		<StylesheetModule {...wrapPageInfo}>
 			<InformationBanner type="warning">
 				<p>Before using this module, remember to include base style.</p>
-				<Code lang="scss" children={style} />
+				<Code
+					lang="scss"
+					children={`.wrap {
+	@include wrap-style;
+}`}
+				/>
 			</InformationBanner>
 			<h2>Mixin</h2>
 			<p>
@@ -47,12 +46,17 @@ export default function WrapLayoutPage(params: IWrapLayoutPage) {
 			</p>
 			<Code lang="scss" children="wrap($max-width, $space-aside);" />
 			<h2>Usage</h2>
-			<Code lang="scss" children={usage} />
+			<Code
+				lang="scss"
+				children={`.wrap {
+	@include wrap(1024px, 16px);
+}`}
+			/>
 			<h2>Example</h2>
 			<p>
 				Yellow color point padding (<CodeInline>$space-aside</CodeInline> variable).
 			</p>
-			<CodePreview style={css} scss={style}>
+			<CodePreview {...style.example1}>
 				<>
 					<div className="wrap wrap-small">
 						<div>Wrap content</div>
@@ -68,39 +72,34 @@ export default function WrapLayoutPage(params: IWrapLayoutPage) {
 }
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<any>> {
-	const sassOutput = await sass.renderSync({
-		includePaths: ['../'],
-		data: `
-		  @import "index";
-			@include browser-reset-style;
-
-			.wrap {
-				@include wrap-style;
-
-				@include wrap(500px);
-
-				&-space {
-					@include wrap(700px, 20px);
-				}
-			}
-
-			/* Addon */
-			.wrap {
-				text-align: center;
-				background: yellow;
-
-				div {
-					background: red;
-				}
-			}
-		`,
-	});
-
-	const css = sassOutput.css.toString('utf8');
-
 	return {
 		props: {
-			css,
+			style: {
+				example1: renderScss(`
+		@import "index";
+		@include browser-reset-style;
+
+		.wrap {
+			@include wrap-style;
+
+			@include wrap(500px);
+
+			&-space {
+				@include wrap(700px, 20px);
+			}
+		}
+
+		/* Addon */
+		.wrap {
+			text-align: center;
+			background: yellow;
+
+			div {
+				background: red;
+			}
+		}
+	`),
+			},
 		},
 	};
 }

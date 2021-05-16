@@ -13,15 +13,15 @@ body {
 }
 
 * {
-	@include scrollbar(15px, color('blue'), color('white'));
+	@include scrollbar(15px, color('primary'), color('white'));
 
 	hyphens: auto;
 	touch-action: manipulation;
-	-webkit-tap-highlight-color: transparentize(color('blue'), 0.8);
+	-webkit-tap-highlight-color: transparentize(color('primary'), 0.8);
 
 	// Text selection color
 	&::selection {
-		background: color('blue');
+		background: color('primary');
 		fill: color('white');
 		color: color('white');
 	}

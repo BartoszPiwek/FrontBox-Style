@@ -1,0 +1,8 @@
+.prism {
+	.token {
+		&.plain {
+			display: inline-block;
+			max-width: 10px;
+		}
+	}
+}

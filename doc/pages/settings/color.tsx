@@ -44,16 +44,19 @@ export interface IColorLayoutPage {
 	css: string;
 }
 
+export const colorPageInfo = {
+	title: 'Color',
+	filePath: 'src/settings/color.scss',
+	fileContent: file,
+	description: 'Get color value.',
+	href: '/settings/color',
+};
+
 export default function ColorLayoutPage(params: IColorLayoutPage) {
 	const { css } = params;
 
 	return (
-		<StylesheetModule
-			title="Color"
-			filePath="src/settings/color.scss"
-			fileContent={file}
-			description="Get color value."
-		>
+		<StylesheetModule {...colorPageInfo}>
 			<h2>Function</h2>
 			<p>
 				Return key value from <CodeInline>$colors</CodeInline> map.

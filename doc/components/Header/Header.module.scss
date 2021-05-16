@@ -1,0 +1,33 @@
+@import 'variables';
+
+.container {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 100vh;
+	padding: 20px;
+	background: color('white');
+
+	> * {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.list {
+	> * + * {
+		margin-top: 12px;
+	}
+}
+
+.title {
+	margin: 20px 0 8px;
+	font-size: 18px;
+	font-weight: bold;
+}
