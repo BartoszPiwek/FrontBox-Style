@@ -12,6 +12,7 @@ const pages = [wrapPageInfo, spacePageInfo, colorPageInfo, breakpointsPageInfo];
 export const Header = (params: IHeader) => {
 	return (
 		<header className={styles.container}>
+			<p className={styles.title}>FrontBox Style</p>
 			<ul className={styles.list}>
 				<li>
 					<Link title="Homepage" href="/" />

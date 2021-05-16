@@ -1,0 +1,39 @@
+@import 'variables';
+
+.iframe {
+	width: 100%;
+	border: 0;
+	height: 100%;
+
+	&.isGhost {
+		pointer-events: none;
+	}
+}
+
+.resize {
+	position: relative;
+	max-width: 100% !important;
+
+	&Handle {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 10px;
+		height: 100%;
+		transform: translateX(100%);
+		border-radius: 10px;
+		background: transparentize(color('black'), 0.8);
+		cursor: e-resize;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 30%;
+			height: 95%;
+			transform: translate(-50%, -50%);
+			background: transparentize(color('black'), 0);
+		}
+	}
+}

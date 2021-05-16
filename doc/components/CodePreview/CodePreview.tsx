@@ -1,11 +1,10 @@
 import Tabs from 'components/Tabs/Tabs';
 import React from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 import { Code } from 'components/Code/Code';
 import { ReactNode } from 'react';
-import Frame from 'react-frame-component';
 import styles from './CodePreview.module.scss';
-import { ResizableBox } from 'react-resizable';
+import ReactDOMServer from 'react-dom/server';
+import { RenderPage } from 'components/RenderPage/RenderPage';
 
 export interface ICodePreview {
 	style?: string;
@@ -16,28 +15,12 @@ export interface ICodePreview {
 export const CodePreview = (params: ICodePreview) => {
 	const { style, children, scss } = params;
 
-	const source = reactElementToJSXString(children);
+	const source = ReactDOMServer.renderToStaticMarkup(children);
 
 	const items = [
 		{
 			label: 'View',
-			Content: () => (
-				<ResizableBox
-					className={styles.resize}
-					width={500}
-					height={200}
-					axis="x"
-					minConstraints={[360]}
-					handle={<span className={styles.resizeHandle} />}
-				>
-					<Frame className={styles.iframe}>
-						<>
-							{style && <style>{style}</style>}
-							{children}
-						</>
-					</Frame>
-				</ResizableBox>
-			),
+			Content: () => <RenderPage style={style}>{children}</RenderPage>,
 		},
 	];
 
