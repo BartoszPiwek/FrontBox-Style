@@ -3,8 +3,7 @@ node_modules
 *.log
 *.html
 playground
-documentation
+doc
 package-lock.json
-kss-config.json
 .prettierrc
 .vscode

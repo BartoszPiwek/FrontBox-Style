@@ -17,29 +17,31 @@ export const CodePreview = (params: ICodePreview) => {
 
 	const source = reactElementToJSXString(children);
 
-	return (
-		<Tabs
-			items={[
-				{
-					label: 'View',
-					Content: () => (
-						<Frame className={styles.container}>
-							<>
-								{style && <style>{style}</style>}
-								{children}
-							</>
-						</Frame>
-					),
-				},
-				{
-					label: 'SCSS',
-					Content: () => <Code lang="scss">{scss}</Code>,
-				},
-				{
-					label: 'HTML',
-					Content: () => <Code lang="markup">{source}</Code>,
-				},
-			]}
-		></Tabs>
-	);
+	const items = [
+		{
+			label: 'View',
+			Content: () => (
+				<Frame className={styles.container}>
+					<>
+						{style && <style>{style}</style>}
+						{children}
+					</>
+				</Frame>
+			),
+		},
+	];
+
+	if (scss) {
+		items.push({
+			label: 'SCSS',
+			Content: () => <Code lang="scss">{scss}</Code>,
+		});
+	}
+
+	items.push({
+		label: 'HTML',
+		Content: () => <Code lang="markup">{source}</Code>,
+	});
+
+	return <Tabs items={items}></Tabs>;
 };

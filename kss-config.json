@@ -1,8 +1,0 @@
-{
-  "title": "Frontbox Style Documentation",
-  "builder": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/",
-  "extend": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/helpers/",
-  "destination": "documentation/",
-  "homepage": "README.md",
-  "custom": ["Function", "Style", "Classes", "Usage", "HTML"]
-}

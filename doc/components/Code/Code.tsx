@@ -4,14 +4,23 @@ import reactElementToJSXString from 'react-element-to-jsx-string';
 import styles from './Code.module.scss';
 
 export interface ICode {
-	children: ReactNode;
+	children: ReactNode | string;
 	lang: Language;
 }
 
 export const Code = (params: ICode) => {
 	const { children, lang } = params;
 
-	const code = reactElementToJSXString(children, {});
+	if (!children) {
+		return <></>;
+	}
+
+	let code: string;
+	if (typeof children === 'string') {
+		code = children;
+	} else {
+		code = reactElementToJSXString(children);
+	}
 
 	return (
 		<Highlight {...defaultProps} code={code} language={lang}>

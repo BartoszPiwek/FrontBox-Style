@@ -10,7 +10,7 @@ import { GetStaticPropsResult } from 'next';
 
 const style = `
 .wrap {
-	@extend %wrap-style;
+	@include wrap-style;
 }
 `;
 
@@ -52,7 +52,7 @@ export default function WrapLayoutPage(params: IWrapLayoutPage) {
 			<p>
 				Yellow color point padding (<CodeInline>$space-aside</CodeInline> variable).
 			</p>
-			<CodePreview style={css}>
+			<CodePreview style={css} scss={style}>
 				<>
 					<div className="wrap wrap-small">
 						<div>Wrap content</div>

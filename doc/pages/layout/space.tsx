@@ -9,51 +9,42 @@ import sass from 'sass';
 
 const style = `
 @import "index";
-  @include browser-reset-style;
-
-  .space {
-    @include space(20px, 10px);
+@include browser-reset-style;
+.space {
+  @include space(20px, 10px);
+}
+.space-x {
+  @include space-x(20px);
+}
+.space-y {
+  @include space-y(10px);
+}
+/* Addon */
+.container {
+  overflow: hidden;
+  & + & {
+    margin-top: 40px;
   }
-
-  .space-x {
-    @include space-x(20px);
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.element {
+  &:before {
+    background: red;
+    display: block;
+    height: 40px;
+    content: "";
   }
-
-  .space-y {
-    @include space-y(10px);
+  &-50 {
+    width: 50%;
   }
-
-  /* Addon */
-  .container {
-    overflow: hidden;
-
-    & + & {
-      margin-top: 40px;
-    }
+  &-100 {
+    width: 100%;
   }
-
-  .content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .element {
-    &:before {
-      background: red;
-      display: block;
-      height: 40px;
-      content: "";
-    }
-
-    &-50 {
-      width: 50%;
-    }
-
-    &-100 {
-      width: 100%;
-    }
-  }
+}
 `;
 
 const mixin = `
@@ -103,7 +94,7 @@ export default function SpaceLayoutPage(params: ISpaceLayoutPage) {
 			<Code lang="scss" children={usage} />
 
 			<h2>Example</h2>
-			<CodePreview style={css}>
+			<CodePreview style={css} scss={style}>
 				<>
 					<div className="container">
 						<div className="space-x content">
