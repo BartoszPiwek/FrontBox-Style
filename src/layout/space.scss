@@ -1,31 +1,3 @@
-/*
-Space
-
-Create space between element children's.
-
-Function:
-// $space-horizontal : numberPixel
-// $space-vertical-y : numberPixel? : $space-horizontal
-space-x($space-horizontal);
-space-y($space-vertical);
-space($space-horizontal, $space-vertical);
-
-Usage:
-.space {
- @include space(20px, 10px);
-}
-.space-x {
- @include space-x(20px);
-}
-.space-y {
- @include space-y(10px);
-}
-
-Markup: space.html
-
-Style guide: Layout.space
-*/
-
 // Horizontal space
 @mixin space-x($space-horizontal) {
 	width: calc(100% + #{$space-horizontal});

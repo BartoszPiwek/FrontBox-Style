@@ -1,0 +1,44 @@
+@import 'variables';
+
+.button {
+	flex: 1 1 auto;
+	width: 100%;
+	padding: 10px 6px;
+	transition: border-color $time-transition;
+	border-bottom: 4px solid transparentize(color('black'), 0.9);
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+
+	&.isActive {
+		border-color: color('blue');
+		color: color('blue');
+	}
+}
+
+.header {
+	display: none;
+
+	@include media('sm') {
+		display: flex;
+	}
+}
+
+.body {
+	padding: 20px;
+	border-top: 4px solid transparentize(color('black'), 0.9);
+	border-radius: 0 0 10px 10px;
+	background: transparentize(color('black'), 0.95);
+
+	@include media('sm') {
+		border-top: 0;
+	}
+}
+
+.item {
+	&Button {
+		@include media('sm') {
+			display: none;
+		}
+	}
+}

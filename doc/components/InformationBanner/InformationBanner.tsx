@@ -14,7 +14,7 @@ export const InformationBanner = (params: IInformationBanner) => {
 	return (
 		<div className={classNames(styles.container, styles[`type-${type}`])}>
 			<div className={styles.decoration}>
-				{type === 'warning' && <WarningIcon className={styles.decorationIcon} />}
+				<WarningIcon className={styles.decorationIcon} />
 			</div>
 			<div className={styles.inner}>{children}</div>
 		</div>

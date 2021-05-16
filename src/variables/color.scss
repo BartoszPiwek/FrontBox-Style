@@ -1,29 +1,4 @@
-/*
-Color
-
-Get color value.<br>
-Function `color` return index value from `$colors` map.
-
-Function:
-// $valueIndex: string
-color($valueIndex);
-
-Usage:
-// $colors : { 
-// 	[key: string]: string
-// }
-$colors: (
-  primary: blue,
-  secondary: red
-);
-.element {
-	background: color('primary');
-}
-
-Markup: color.html
-
-Style guide: Variables.color
-*/
+$colors: ();
 
 @function color($id) {
 	@if map-has-key($colors, $id) {

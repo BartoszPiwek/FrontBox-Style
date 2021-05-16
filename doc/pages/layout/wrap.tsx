@@ -31,6 +31,7 @@ export default function WrapLayoutPage(params: IWrapLayoutPage, foo) {
 		<StylesheetModule
 			title="Wrap"
 			filePath="src/layout/wrap.scss"
+			fileContent={file}
 			description="Crete wrapper element to hold content in specific width and optional aside space."
 		>
 			<InformationBanner type="warning">
@@ -49,18 +50,19 @@ export default function WrapLayoutPage(params: IWrapLayoutPage, foo) {
 			<Code lang="scss" children={usage} />
 			<h2>Example</h2>
 			<p>
-				Yellow color point padding (<CodeInline>$space-aside</CodeInline> variable)
+				Yellow color point padding (<CodeInline>$space-aside</CodeInline> variable).
 			</p>
 			<CodePreview style={css}>
-				<div className="wrap wrap-small">
-					<div>Wrap content</div>
-				</div>
+				<>
+					<div className="wrap wrap-small">
+						<div>Wrap content</div>
+					</div>
 
-				<div className="wrap wrap-space">
-					<div>Wrap content</div>
-				</div>
+					<div className="wrap wrap-space">
+						<div>Wrap content</div>
+					</div>
+				</>
 			</CodePreview>
-			<Code lang="scss" children={file} />
 		</StylesheetModule>
 	);
 }

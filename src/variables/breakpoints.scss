@@ -1,21 +1,3 @@
-/*
-Breakpoints
-
-[Default](https://github.com/BartoszPiwek/FrontBox-Style/blob/master/src/variables/breakpoints.scss) breakpoints screen map.
-> Declaration can be overwrite by own breakpoints.
-
-Usage:
-// $breakpoints : { 
-// 		[key: string]: number
-// }
-$breakpoints : { 
-	sm: 576,
-	md: 1000
-}
-
-Style guide: Variables.breakpoints
-*/
-
 $breakpoints: (
 	sm: 576,
 	md: 768,
