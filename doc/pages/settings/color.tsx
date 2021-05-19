@@ -64,7 +64,7 @@ export default function ColorLayoutPage(params: IColorLayoutPage) {
 			<p>
 				<CodeInline>$key: string</CodeInline>
 			</p>
-			<Code lang="scss" children="color($key);" />
+			<Code lang="scss" children="color($key);" isFormatted={false} />
 
 			<h2>Usage</h2>
 			<Code lang="scss" children={usage} />

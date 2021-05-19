@@ -53,7 +53,7 @@ export default function SpaceLayoutPage(params: ISpaceLayoutPage) {
 			<p>
 				<CodeInline>$space-vertical-y?: pixels || $space-horizontal</CodeInline>
 			</p>
-			<Code lang="scss" children={mixin} />
+			<Code lang="scss" children={mixin} isFormatted={false} />
 
 			<h2>Usage</h2>
 			<Code lang="scss" children={usage} />

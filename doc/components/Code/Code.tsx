@@ -1,52 +1,82 @@
 import classNames from 'classnames';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import { ReactNode } from 'react';
+import { PureComponent, ReactNode } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import styles from './Code.module.scss';
-import Prettier from 'prettier';
+import Prettier, { BuiltInParserName, CustomParser, LiteralUnion } from 'prettier';
 import parserHtml from 'prettier/parser-html';
+import parserPostCss from 'prettier/parser-postcss';
 
 export interface ICode {
 	children?: ReactNode | string;
 	lang: Language;
+	isFormatted?: boolean;
 }
 
-export const Code = (params: ICode) => {
-	const { children, lang } = params;
+export class Code extends PureComponent<ICode> {
+	static defaultProps = {
+		isFormatted: true,
+	};
 
-	if (!children) {
-		return <></>;
+	constructor(config: ICode) {
+		super(config);
 	}
 
-	let code: string;
-	if (typeof children === 'string') {
-		code = children;
-	} else {
-		code = reactElementToJSXString(children);
+	private toString(children: ReactNode | string): string {
+		if (typeof children !== 'string') {
+			return reactElementToJSXString(children);
+		}
+
+		return children;
 	}
 
-	// code = Prettier.format(code, {
-	// 	parser: 'scss',
-	// 	plugins: [parserHtml],
-	// });
-	code = code.replace(`<>`, '').replace(`</>`, '').trim();
+	private formatCode(code: string) {
+		if (!this.props.isFormatted) {
+			return code;
+		}
 
-	return (
-		<Highlight {...defaultProps} code={code} language={lang}>
-			{({ style, tokens, getLineProps, getTokenProps }) => (
-				<pre className={classNames(styles.container, 'prism')} style={style}>
-					{tokens.map((line, i) => (
-						<div {...getLineProps({ line, key: i })}>
-							{line.map((token, key) => {
-								const props = getTokenProps({ token, key });
-								props.children = props.children.replace('	', '  ');
+		const getParserName = (lang: Language): LiteralUnion<BuiltInParserName> => {
+			switch (lang) {
+				case 'markup':
+					return 'html';
+			}
 
-								return <span {...props} />;
-							})}
-						</div>
-					))}
-				</pre>
-			)}
-		</Highlight>
-	);
-};
+			return lang;
+		};
+
+		return Prettier.format(code, {
+			parser: getParserName(this.props.lang),
+			plugins: [parserHtml, parserPostCss],
+		});
+	}
+
+	render() {
+		if (!this.props.children) {
+			return <></>;
+		}
+
+		const code = this.toString(this.props.children);
+		const formattedCode = this.formatCode(code).replace(`<>`, '').replace(`</>`, '').trim();
+
+		return (
+			<div className={styles.container}>
+				<Highlight {...defaultProps} code={formattedCode} language={this.props.lang}>
+					{({ tokens, getLineProps, getTokenProps }) => (
+						<pre className={classNames(styles.code)}>
+							{tokens.map((line, i) => (
+								<div {...getLineProps({ line, key: i })}>
+									{line.map((token, key) => {
+										const props = getTokenProps({ token, key });
+										props.children = props.children.replace('	', '  ');
+
+										return <span {...props} />;
+									})}
+								</div>
+							))}
+						</pre>
+					)}
+				</Highlight>
+			</div>
+		);
+	}
+}

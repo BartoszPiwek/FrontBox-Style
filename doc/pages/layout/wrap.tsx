@@ -44,7 +44,7 @@ export default function WrapLayoutPage(params: IWrapLayoutPage) {
 			<p>
 				<CodeInline>$space-aside?: pixels</CodeInline>
 			</p>
-			<Code lang="scss" children="wrap($max-width, $space-aside);" />
+			<Code lang="scss" isFormatted={false} children="wrap($max-width, $space-aside);" />
 			<h2>Usage</h2>
 			<Code
 				lang="scss"

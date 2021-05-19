@@ -1,9 +1,14 @@
 @import 'variables';
 
 .container {
-	width: 100%;
-	padding: 20px;
-	overflow-y: auto;
+	overflow-x: auto;
+	background: color('black');
 	border-radius: 10px;
+	padding: 20px;
+}
+
+.code {
+	width: 100%;
+	overflow-y: auto;
 	font-size: 16px;
 }

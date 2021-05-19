@@ -1,13 +1,16 @@
 @import 'variables';
 
 .container {
-	position: sticky;
 	top: 0;
 	left: 0;
-	width: 300px;
+	position: fixed;
+	transform: translateX(-100%);
+	width: 230px;
 	height: 100vh;
 	padding: 20px;
 	background: color('white');
+	z-index: index('first');
+	transition: transform $time-transition;
 
 	> * {
 		&:first-child {
@@ -17,6 +20,11 @@
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
+
+	@include media('md') {
+		position: sticky;
+		transform: none;
 	}
 }
 

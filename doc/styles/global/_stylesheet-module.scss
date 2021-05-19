@@ -1,6 +1,10 @@
 .stylesheet-module {
 	p {
-		font-size: 18px;
+		font-size: 16px;
+
+		@include media('md') {
+			font-size: 18px;
+		}
 	}
 
 	> * {

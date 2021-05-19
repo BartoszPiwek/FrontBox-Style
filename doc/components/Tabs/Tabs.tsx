@@ -52,7 +52,11 @@ export default function Tabs(params: ITabs) {
 								</button>
 							</div>
 
-							{isActive && <Content />}
+							{isActive && (
+								<div className={styles.itemContent}>
+									<Content />
+								</div>
+							)}
 						</div>
 					);
 				})}

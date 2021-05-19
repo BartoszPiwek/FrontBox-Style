@@ -24,7 +24,9 @@ export default function Layout(params: ILayout) {
 
 			<div className={styles.page}>
 				<Header />
-				<main className={styles.main}>{children}</main>
+				<main className={styles.main}>
+					<div className="wrap">{children}</div>
+				</main>
 			</div>
 		</>
 	);
