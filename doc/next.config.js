@@ -1,6 +1,9 @@
 const path = require('path');
 
 module.exports = {
+	experimental: {
+		externalDir: true,
+	},
 	future: {
 		webpack5: true,
 	},

@@ -16,7 +16,7 @@ Style guide: Layout.Grid
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	width: 100%;
+	min-width: 100%;
 
 	> * {
 		flex-grow: 0;

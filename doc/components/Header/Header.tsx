@@ -1,6 +1,6 @@
 import { Link } from 'components/Link/Link';
-import { spacePageInfo } from 'pages/layout/space';
-import { wrapPageInfo } from 'pages/layout/wrap';
+import { spacePageInfo } from 'pages/_layout/space';
+import { wrapPageInfo } from 'pages/_layout/wrap';
 import { breakpointsPageInfo } from 'pages/settings/breakpoints';
 import { colorPageInfo } from 'pages/settings/color';
 import styles from './Header.module.scss';

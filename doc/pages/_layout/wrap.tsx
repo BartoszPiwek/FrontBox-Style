@@ -6,7 +6,7 @@ import { CodeInline } from 'components/CodeInline/CodeInline';
 import { CodePreview } from 'components/CodePreview/CodePreview';
 import { GetStaticPropsResult } from 'next';
 import { IRenderSCSS, renderScss } from 'utils/render-scss';
-import { StylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
+import { StylesheetTemplate } from 'templates/StylesheetTemplate/StylesheetTemplate';
 
 export interface IWrapLayoutPage {
 	style: {
@@ -27,7 +27,7 @@ export default function WrapLayoutPage(params: IWrapLayoutPage) {
 	const { style } = params;
 
 	return (
-		<StylesheetModule {...wrapPageInfo}>
+		<StylesheetTemplate {...wrapPageInfo}>
 			<InformationBanner type="warning">
 				<p>Before using this module, remember to include base style.</p>
 				<Code
@@ -67,7 +67,7 @@ export default function WrapLayoutPage(params: IWrapLayoutPage) {
 					</div>
 				</>
 			</CodePreview>
-		</StylesheetModule>
+		</StylesheetTemplate>
 	);
 }
 

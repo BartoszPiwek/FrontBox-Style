@@ -4,13 +4,16 @@
 	top: 0;
 	left: 0;
 	position: fixed;
-	transform: translateX(-100%);
 	width: 230px;
 	height: 100vh;
 	padding: 20px;
 	background: color('white');
 	z-index: index('first');
-	transition: transform $time-transition;
+
+	@include media-max('md') {
+		transition: transform $time-transition;
+		transform: translateX(-100%);
+	}
 
 	> * {
 		&:first-child {
@@ -24,7 +27,6 @@
 
 	@include media('md') {
 		position: sticky;
-		transform: none;
 	}
 }
 

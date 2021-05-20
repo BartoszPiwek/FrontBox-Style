@@ -31,6 +31,8 @@ export class Code extends PureComponent<ICode> {
 	}
 
 	private formatCode(code: string) {
+		console.log(this.props);
+
 		if (!this.props.isFormatted) {
 			return code;
 		}
@@ -54,8 +56,10 @@ export class Code extends PureComponent<ICode> {
 		if (!this.props.children) {
 			return <></>;
 		}
+		console.log(this.props.children);
 
 		const code = this.toString(this.props.children);
+
 		const formattedCode = this.formatCode(code).replace(`<>`, '').replace(`</>`, '').trim();
 
 		return (

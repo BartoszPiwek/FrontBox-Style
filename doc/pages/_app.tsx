@@ -1,12 +1,16 @@
+import { IPermalinkCmsFields } from 'cms/collections/fields/permalink.cms-field';
 import Layout from 'layouts/Layout';
-import { AppProps } from 'next/dist/next-server/lib/router/router';
+import type { AppProps } from 'next/dist/next-server/lib/router/router';
 import React from 'react';
-import { IStylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
 import './../styles/main.scss';
 
-function APP(props: AppProps) {
+export default function APP(props: AppProps) {
 	const { Component, pageProps } = props;
-	const { title, description } = pageProps as IStylesheetModule;
+	const { title, description, isCms = false } = pageProps as IPermalinkCmsFields;
+
+	if (isCms) {
+		return <Component />;
+	}
 
 	return (
 		<Layout title={title} description={description}>
@@ -14,5 +18,3 @@ function APP(props: AppProps) {
 		</Layout>
 	);
 }
-
-export default APP;

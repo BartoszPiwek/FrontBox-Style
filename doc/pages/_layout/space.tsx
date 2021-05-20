@@ -1,7 +1,7 @@
 import { Code } from 'components/Code/Code';
 import React from 'react';
 import file from '!!raw-loader!./../../../src/layout/space.scss';
-import { StylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
+import { StylesheetTemplate } from 'templates/StylesheetTemplate/StylesheetTemplate';
 import { CodeInline } from 'components/CodeInline/CodeInline';
 import { CodePreview } from 'components/CodePreview/CodePreview';
 import { GetStaticPropsResult } from 'next';
@@ -45,7 +45,7 @@ export default function SpaceLayoutPage(params: ISpaceLayoutPage) {
 	const { style } = params;
 
 	return (
-		<StylesheetModule {...spacePageInfo}>
+		<StylesheetTemplate {...spacePageInfo}>
 			<h2>Mixin</h2>
 			<p>
 				<CodeInline>$space-horizontal: pixels</CodeInline>
@@ -84,7 +84,7 @@ export default function SpaceLayoutPage(params: ISpaceLayoutPage) {
 					</div>
 				</>
 			</CodePreview>
-		</StylesheetModule>
+		</StylesheetTemplate>
 	);
 }
 

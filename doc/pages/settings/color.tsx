@@ -1,7 +1,7 @@
 import { Code } from 'components/Code/Code';
 import React from 'react';
 import file from '!!raw-loader!./../../../src/variables/color.scss';
-import { StylesheetModule } from 'templates/StylesheetModule/StylesheetModule';
+import { StylesheetTemplate } from 'templates/StylesheetTemplate/StylesheetTemplate';
 import { CodeInline } from 'components/CodeInline/CodeInline';
 import { CodePreview } from 'components/CodePreview/CodePreview';
 import { GetStaticPropsResult } from 'next';
@@ -56,7 +56,7 @@ export default function ColorLayoutPage(params: IColorLayoutPage) {
 	const { css } = params;
 
 	return (
-		<StylesheetModule {...colorPageInfo}>
+		<StylesheetTemplate {...colorPageInfo}>
 			<h2>Function</h2>
 			<p>
 				Return key value from <CodeInline>$colors</CodeInline> map.
@@ -76,7 +76,7 @@ export default function ColorLayoutPage(params: IColorLayoutPage) {
 					<p className="text-secondary">Color text secondary</p>
 				</>
 			</CodePreview>
-		</StylesheetModule>
+		</StylesheetTemplate>
 	);
 }
 

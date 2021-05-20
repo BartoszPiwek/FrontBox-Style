@@ -3,8 +3,10 @@ import { ReactNode } from 'react';
 import styles from './InformationBanner.module.scss';
 import WarningIcon from '@icons/warning.svg';
 
+export type IInformationBannerType = 'warning' | 'info' | 'danger' | 'success';
+
 export interface IInformationBanner {
-	type: 'warning' | 'info' | 'danger' | 'success';
+	type: IInformationBannerType;
 	children: ReactNode | string;
 }
 

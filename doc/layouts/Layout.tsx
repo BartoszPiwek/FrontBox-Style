@@ -18,7 +18,7 @@ export default function Layout(params: ILayout) {
 				<meta charSet="utf-8" />
 				<title>{title}</title>
 				<meta name="description" content={description} />
-				{/* <link rel="icon" href={favicon} type="image/png" /> */}
+				<link rel="icon" href="/images/favicon.png" type="image/png" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</Head>
 
