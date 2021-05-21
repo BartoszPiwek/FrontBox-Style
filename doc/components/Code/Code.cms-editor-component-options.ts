@@ -1,5 +1,10 @@
 import { EditorComponentOptions } from 'netlify-cms-core';
 import { Language } from 'prism-react-renderer';
+import { createCmsFromBlock } from 'utils/create-cms-block';
+import {
+	createCmsComponentPatter,
+	ICreateCmsComponentPatter,
+} from 'utils/create-cms-component-patter';
 import { ICode } from './Code';
 
 export interface ICodeCmsEditorComponentOptions {
@@ -7,6 +12,11 @@ export interface ICodeCmsEditorComponentOptions {
 	lang: Language;
 	isFormatted: string;
 }
+
+const meta: ICreateCmsComponentPatter = {
+	componentName: 'Code',
+	params: [{ value: 'isFormatted' }, { value: 'lang', isString: true }],
+};
 
 export const codeCmsEditorComponentOptions: EditorComponentOptions = {
 	id: 'code',
@@ -39,9 +49,9 @@ export const codeCmsEditorComponentOptions: EditorComponentOptions = {
 			widget: 'string',
 		},
 	],
-	pattern: /^::code\[(.*)\]{isFormatted="(.*)" lang="(.*)"}/,
+	pattern: createCmsComponentPatter(meta),
 	fromBlock(match: RegExpMatchArray): ICode {
-		const [, children, _isFormatted, _lang] = match;
+		const [, _isFormatted, _lang, children] = match;
 
 		const isFormatted = _isFormatted == 'true';
 		const lang = _lang as Language;
@@ -52,11 +62,7 @@ export const codeCmsEditorComponentOptions: EditorComponentOptions = {
 			lang,
 		};
 	},
-	toBlock(params: ICode) {
-		const { isFormatted, children, lang } = params;
-
-		return `::code[${children}]{isFormatted="${isFormatted}" lang="${lang}"}`;
-	},
+	toBlock: createCmsFromBlock(meta),
 	toPreview(params: ICode) {
 		return 'TODO';
 	},

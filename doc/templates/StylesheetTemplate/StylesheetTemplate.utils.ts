@@ -1,22 +1,26 @@
 import { getFilesPath, getContent } from 'utils/api';
 import { IStylesheetTemplate } from './StylesheetTemplate';
 import { IStylesheetTemplateCmsFields } from './StylesheetTemplate.cms-field';
+import { serialize } from 'next-mdx-remote/serialize';
 
 export async function getStylesheetTemplateContentBySlug(
 	path: string,
 	slug: string
 ): Promise<IStylesheetTemplate> {
 	const slugs = await getFilesPath(path);
-	const contents = await Promise.all(
+	const filesContents = await Promise.all(
 		slugs.map((slug) => getContent<IStylesheetTemplateCmsFields>(path, slug))
 	);
 
-	const content = contents.find((content) => content.slug === slug);
+	const fileContent = filesContents.find((content) => content.slug === slug);
 
-	const fileContent = await import(`!!raw-loader!./../../../src/${content.filePath}`);
+	const sourcefileContent = await import(`!!raw-loader!./../../../src/${fileContent.filePath}`);
+
+	const content = await serialize(fileContent.content);
 
 	return {
-		...content,
-		fileContent: fileContent.default,
+		...fileContent,
+		content: content,
+		fileContent: sourcefileContent.default,
 	};
 }

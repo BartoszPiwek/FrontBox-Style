@@ -16,6 +16,7 @@ export const stylesheetTemplateCmsCollectionFile = (
 		name,
 		label,
 		format: 'frontmatter',
+		extension: 'mdx',
 		create: true,
 		folder: `content/${folder}`,
 		slug: '{{slug}}',

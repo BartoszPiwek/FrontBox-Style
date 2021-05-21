@@ -1,5 +1,5 @@
 ---
-slug: wrap
+slug: wrap2
 seo:
     description: Crete wrapper element to hold content in a specific width and
         optional aside space.
@@ -7,19 +7,21 @@ seo:
 title: Wrap
 description: Crete wrapper element to hold content in a specific width and
     optional aside space.
-content: >-
-    ::information-banner[Before using this module, remember to include base
-    style.]{type="warning"}
+content: |-
+    :::information-banner{type="warning"}
+    Before using this module, remember to include base style.
 
+
+    ::code[@include wrap-style;]{isFormatted="false" lang="scss"}]{type="warning"}
+
+
+    :::
 
     ## Mixin
 
-
     ::code-inline[$max-width: pixels]
 
-
     ::code-inline[$space-aside?: pixels]
-
 
     ::code[wrap($max-width, $space-aside);]{isFormatted="false" lang="scss"}
 filePath: layout/wrap.scss

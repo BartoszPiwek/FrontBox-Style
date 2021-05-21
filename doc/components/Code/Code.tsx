@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import { PureComponent, ReactNode } from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 import styles from './Code.module.scss';
-import Prettier, { BuiltInParserName, CustomParser, LiteralUnion } from 'prettier';
+import Prettier, { BuiltInParserName, LiteralUnion } from 'prettier';
 import parserHtml from 'prettier/parser-html';
 import parserPostCss from 'prettier/parser-postcss';
+import { childrenToString } from 'utils/children-to-string';
 
 export interface ICode {
 	children?: ReactNode | string;
@@ -22,17 +22,7 @@ export class Code extends PureComponent<ICode> {
 		super(config);
 	}
 
-	private toString(children: ReactNode | string): string {
-		if (typeof children !== 'string') {
-			return reactElementToJSXString(children);
-		}
-
-		return children;
-	}
-
 	private formatCode(code: string) {
-		console.log(this.props);
-
 		if (!this.props.isFormatted) {
 			return code;
 		}
@@ -56,9 +46,7 @@ export class Code extends PureComponent<ICode> {
 		if (!this.props.children) {
 			return <></>;
 		}
-		console.log(this.props.children);
-
-		const code = this.toString(this.props.children);
+		const code = childrenToString(this.props.children);
 
 		const formattedCode = this.formatCode(code).replace(`<>`, '').replace(`</>`, '').trim();
 

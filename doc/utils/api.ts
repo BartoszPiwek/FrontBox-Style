@@ -9,7 +9,7 @@ export async function getFilesPath(path?: string): Promise<string[]> {
 	const files = readdirSync(`${process.cwd()}/content/${path}`);
 
 	return files.map((file) => {
-		return file.replace('.md', '');
+		return file.replace('.mdx', '');
 	});
 }
 
@@ -26,7 +26,7 @@ export const getContents = async <Output extends IPermalinkCmsFields>(
 };
 
 export const getContent = async <Output>(path: string, slug: string): Promise<Output> => {
-	const fileContent = readFileSync(join(contentPath, path, slug) + '.md');
+	const fileContent = readFileSync(join(contentPath, path, slug) + '.mdx');
 	const content = matter<string, Output>(fileContent.toString()).data as Output;
 
 	return content;

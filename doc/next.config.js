@@ -1,6 +1,14 @@
 const path = require('path');
 
-module.exports = {
+const withMDX = require('@next/mdx')({
+	extension: /\.mdx$/,
+});
+
+module.exports = withMDX({
+	options: {
+		remarkPlugins: [],
+		rehypePlugins: [],
+	},
 	experimental: {
 		externalDir: true,
 	},
@@ -25,4 +33,4 @@ module.exports = {
 
 		return config;
 	},
-};
+});

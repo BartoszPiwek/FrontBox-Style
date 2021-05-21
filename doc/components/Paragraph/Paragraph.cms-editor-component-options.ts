@@ -4,20 +4,20 @@ import {
 	createCmsComponentPatter,
 	ICreateCmsComponentPatter,
 } from 'utils/create-cms-component-patter';
-import { ICodeInline } from './CodeInline';
+import { IParagraph } from './Paragraph';
 
 const meta: ICreateCmsComponentPatter = {
-	componentName: 'CodeInline',
+	componentName: 'Paragraph',
 };
 
-export const codeInlineCmsEditorComponentOptions: EditorComponentOptions = {
-	id: 'code-inline',
-	label: 'Code inline',
+export const paragraphCmsEditorComponentOptions: EditorComponentOptions = {
+	id: 'paragraph',
+	label: 'Paragraph',
 	fields: [
 		{
 			name: 'children',
 			label: 'Children',
-			widget: 'string',
+			widget: 'markdown',
 		},
 	],
 	pattern: createCmsComponentPatter(meta),
@@ -28,10 +28,10 @@ export const codeInlineCmsEditorComponentOptions: EditorComponentOptions = {
 			children,
 		};
 	},
-	toBlock: (params: ICodeInline) => {
+	toBlock: (params: IParagraph) => {
 		return createCmsFromBlock(meta, params);
 	},
-	toPreview(params: ICodeInline) {
+	toPreview(params: IParagraph) {
 		return 'TODO';
 	},
 };
