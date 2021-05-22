@@ -2,6 +2,7 @@ import { getFilesPath, getContent } from 'utils/api';
 import { IStylesheetTemplate } from './StylesheetTemplate';
 import { IStylesheetTemplateCmsFields } from './StylesheetTemplate.cms-field';
 import { serialize } from 'next-mdx-remote/serialize';
+import { mdxSourceCompileScss } from 'utils/mdx-source-compile-scss';
 
 export async function getStylesheetTemplateContentBySlug(
 	path: string,
@@ -16,7 +17,7 @@ export async function getStylesheetTemplateContentBySlug(
 
 	const sourcefileContent = await import(`!!raw-loader!./../../../src/${fileContent.filePath}`);
 
-	const content = await serialize(fileContent.content);
+	const content = mdxSourceCompileScss(await serialize(fileContent.content));
 
 	return {
 		...fileContent,

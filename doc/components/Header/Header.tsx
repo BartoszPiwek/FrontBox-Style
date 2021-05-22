@@ -1,15 +1,17 @@
 import { Link } from 'components/Link/Link';
-import { spacePageInfo } from 'pages/_layout/space';
-import { wrapPageInfo } from 'pages/_layout/wrap';
-import { breakpointsPageInfo } from 'pages/settings/breakpoints';
-import { colorPageInfo } from 'pages/settings/color';
+import { useRouter } from 'next/router';
 import styles from './Header.module.scss';
 
-export interface IHeader {}
-
-const pages = [wrapPageInfo, spacePageInfo, colorPageInfo, breakpointsPageInfo];
+export interface IHeader {
+	navigation: Array<{
+		title: string;
+		slug: string;
+	}>;
+}
 
 export const Header = (params: IHeader) => {
+	const { navigation = [] } = params;
+
 	return (
 		<header className={styles.container}>
 			<p className={styles.title}>FrontBox Style</p>
@@ -17,11 +19,16 @@ export const Header = (params: IHeader) => {
 				<li>
 					<Link title="Homepage" href="/" />
 				</li>
-				{pages.map((page, index) => (
-					<li key={index}>
-						<Link {...page} />
-					</li>
-				))}
+
+				{navigation.map((item, index) => {
+					const { slug, title } = item;
+
+					return (
+						<li key={index}>
+							<Link href={`/${slug}`} title={title} />
+						</li>
+					);
+				})}
 			</ul>
 		</header>
 	);

@@ -7,12 +7,6 @@ import {
 } from 'utils/create-cms-component-patter';
 import { ICode } from './Code';
 
-export interface ICodeCmsEditorComponentOptions {
-	children: string[];
-	lang: Language;
-	isFormatted: string;
-}
-
 const meta: ICreateCmsComponentPatter = {
 	componentName: 'Code',
 	isChildrenString: true,
@@ -32,6 +26,7 @@ export const codeCmsEditorComponentOptions: EditorComponentOptions = {
 				{
 					label: 'SCSS',
 					value: 'scss',
+					required: false,
 				},
 				{
 					label: 'HTML',

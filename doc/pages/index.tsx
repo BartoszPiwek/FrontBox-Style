@@ -7,7 +7,7 @@ export default function HomePage() {
 export async function getStaticProps(context: GetStaticPropsContext) {
 	return {
 		props: {
-			title: 'Admin',
+			title: 'Homepage',
 		},
 	};
 }

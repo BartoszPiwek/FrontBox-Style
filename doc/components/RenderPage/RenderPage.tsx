@@ -7,7 +7,7 @@ import React from 'react';
 
 export interface IRenderPage {
 	style: string;
-	children: ReactNode;
+	children: string;
 }
 
 export const RenderPage = (params: IRenderPage) => {
@@ -37,10 +37,7 @@ export const RenderPage = (params: IRenderPage) => {
 				loading="lazy"
 				mountTarget="body"
 			>
-				<>
-					{style && <style>{style}</style>}
-					{children}
-				</>
+				<div dangerouslySetInnerHTML={{ __html: children }}></div>
 			</Frame>
 		</ResizableBox>
 	);

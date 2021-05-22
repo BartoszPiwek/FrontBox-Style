@@ -28,7 +28,7 @@ export const editorCmsComponentToBlock = (
 				config.params.find((param) => param.value === key)?.isString || key === 'children';
 
 			if (isString) {
-				return `${key}="${value}"`;
+				return `${key}={\`${value}\`}`;
 			}
 
 			return `${key}={${value}}`;

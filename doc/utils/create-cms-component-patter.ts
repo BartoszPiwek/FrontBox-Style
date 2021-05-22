@@ -15,7 +15,7 @@ export const createCmsComponentPatter = (config: ICreateCmsComponentPatter): Reg
 			const { value, isString } = param;
 
 			const matchString =
-				value + '=' + (isString ? '"' : '{') + '(.*)' + (isString ? '"' : '}');
+				value + '=' + (isString ? '{`' : '{') + '([\\s\\S]*?)' + (isString ? '`}' : '}');
 
 			return `${index === 0 ? ' ' : ''}${matchString}`;
 		})
@@ -26,8 +26,6 @@ export const createCmsComponentPatter = (config: ICreateCmsComponentPatter): Reg
 			isChildrenString ? '`}' : ''
 		}<\/${componentName}>`
 	);
-
-	console.log(regexp);
 
 	return regexp;
 };

@@ -1,20 +1,26 @@
 import { IPermalinkCmsFields } from 'cms/collections/fields/permalink.cms-field';
 import Layout from 'layouts/Layout';
-import type { AppProps } from 'next/dist/next-server/lib/router/router';
 import React from 'react';
 import './../styles/main.scss';
+import App from 'next/app';
 
-export default function APP(props: AppProps) {
-	const { Component, pageProps } = props;
-	const { title, description, isCms = false } = pageProps as IPermalinkCmsFields;
-
-	if (isCms) {
-		return <Component />;
+export default class MyApp extends App {
+	constructor(config) {
+		super(config);
 	}
 
-	return (
-		<Layout title={title} description={description}>
-			<Component {...pageProps} />
-		</Layout>
-	);
+	render() {
+		const { Component, pageProps } = this.props;
+		const { title, description, isCms = false, navigation } = pageProps as IPermalinkCmsFields;
+
+		if (isCms) {
+			return <Component />;
+		}
+
+		return (
+			<Layout title={title} description={description} navigation={navigation}>
+				<Component {...pageProps} />
+			</Layout>
+		);
+	}
 }

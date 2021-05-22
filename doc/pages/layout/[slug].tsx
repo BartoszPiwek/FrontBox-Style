@@ -5,7 +5,7 @@ import {
 	StylesheetTemplate,
 } from 'templates/StylesheetTemplate/StylesheetTemplate';
 import { getStylesheetTemplateContentBySlug } from 'templates/StylesheetTemplate/StylesheetTemplate.utils';
-import { getSlugs } from 'utils/api';
+import { getContents, getSlugs } from 'utils/api';
 
 export default function LayoutPages(params: IStylesheetTemplate) {
 	return <StylesheetTemplate {...params} />;
@@ -24,7 +24,18 @@ export async function getStaticProps(context): Promise<GetStaticPropsResult<ISty
 	const { slug } = context.params;
 	const props = await getStylesheetTemplateContentBySlug('layout', slug);
 
+	const navigation = (await getContents('layout')).map((item) => {
+		const { title, slug } = item;
+		return {
+			title,
+			slug: `layout/${slug}`,
+		};
+	});
+
 	return {
-		props,
+		props: {
+			...props,
+			navigation,
+		},
 	};
 }

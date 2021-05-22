@@ -20,7 +20,7 @@ export const stylesheetTemplateCmsCollectionFile = (
 		create: true,
 		folder: `content/${folder}`,
 		slug: '{{slug}}',
-		identifier_field: 'slug',
+		identifier_field: 'title',
 		fields: stylesheetTemplateCmsFields,
 	};
 };

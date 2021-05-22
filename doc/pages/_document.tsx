@@ -1,14 +1,28 @@
-import { GetStaticPropsContext, GetStaticPropsResult } from 'next';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { Header, IHeader } from 'components/Header/Header';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import React from 'react';
+import { getContents } from 'utils/api';
+import MyApp from './_app';
 
-class MyDocument extends Document {
-	static async getInitialProps(ctx) {
+class MyDocument extends Document<IHeader> {
+	static async getInitialProps(ctx: DocumentContext) {
 		const initialProps = await Document.getInitialProps(ctx);
 
-		return { ...initialProps };
+		const navigation = [...(await getContents('layout'))].map((item) => {
+			const { title, slug } = item;
+
+			return {
+				title,
+				slug,
+			};
+		});
+
+		return { ...initialProps, navigation };
 	}
 
 	render() {
+		const { navigation } = this.props;
+
 		return (
 			<Html>
 				<Head />
@@ -19,16 +33,6 @@ class MyDocument extends Document {
 			</Html>
 		);
 	}
-}
-
-export async function getStaticProps(
-	context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<any>> {
-	return {
-		props: {
-			foo: 'fee',
-		},
-	};
 }
 
 export default MyDocument;

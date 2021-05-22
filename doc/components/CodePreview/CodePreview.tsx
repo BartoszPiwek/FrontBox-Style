@@ -1,26 +1,21 @@
 import Tabs from 'components/Tabs/Tabs';
 import React from 'react';
 import { Code } from 'components/Code/Code';
-import { ReactNode } from 'react';
-import styles from './CodePreview.module.scss';
-import ReactDOMServer from 'react-dom/server';
 import { RenderPage } from 'components/RenderPage/RenderPage';
 
 export interface ICodePreview {
-	style?: string;
+	css?: string;
 	scss?: string;
-	children: ReactNode;
+	children: string;
 }
 
 export const CodePreview = (params: ICodePreview) => {
-	const { style, children, scss } = params;
-
-	const source = ReactDOMServer.renderToStaticMarkup(children);
+	const { css, children, scss } = params;
 
 	const items = [
 		{
 			label: 'View',
-			Content: () => <RenderPage style={style}>{children}</RenderPage>,
+			Content: () => <RenderPage style={css}>{children}</RenderPage>,
 		},
 	];
 
@@ -33,7 +28,7 @@ export const CodePreview = (params: ICodePreview) => {
 
 	items.push({
 		label: 'HTML',
-		Content: () => <Code lang="markup">{source}</Code>,
+		Content: () => <Code lang="markup">{children}</Code>,
 	});
 
 	return <Tabs items={items}></Tabs>;

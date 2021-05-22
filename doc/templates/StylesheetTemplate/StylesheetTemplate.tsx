@@ -7,9 +7,15 @@ import { MDXRemote } from 'next-mdx-remote';
 import { CodeInline } from 'components/CodeInline/CodeInline';
 import { InformationBanner } from 'components/InformationBanner/InformationBanner';
 import { Paragraph } from 'components/Paragraph/Paragraph';
+import { CodePreview } from 'components/CodePreview/CodePreview';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { IHeader } from 'components/Header/Header';
 
-export interface IStylesheetTemplate extends IStylesheetTemplateCmsFields {
+export interface IStylesheetTemplate
+	extends Omit<IStylesheetTemplateCmsFields, 'content'>,
+		IHeader {
 	fileContent: string;
+	content: MDXRemoteSerializeResult;
 }
 
 export const StylesheetTemplate = (params: IStylesheetTemplate) => {
@@ -29,6 +35,7 @@ export const StylesheetTemplate = (params: IStylesheetTemplate) => {
 						CodeInline: CodeInline,
 						InformationBanner: InformationBanner,
 						Paragraph: Paragraph,
+						CodePreview: CodePreview,
 						p: ({ children }) => {
 							return children;
 						},

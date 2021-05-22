@@ -1,18 +1,14 @@
 import sass from 'sass';
+import stripCssComments from 'strip-css-comments';
 
-export interface IRenderSCSS {
-	style: string;
-	scss: string;
-}
-
-export const renderScss = (data: string): IRenderSCSS => {
+export const renderScss = (data: string): string => {
 	const sassOutput = sass.renderSync({
 		includePaths: ['../'],
 		data,
 	});
 
-	return {
-		style: sassOutput.css.toString('utf8'),
-		scss: data,
-	};
+	return stripCssComments(sassOutput.css.toString('utf8'), {
+		preserve: false,
+		whitespace: false,
+	});
 };

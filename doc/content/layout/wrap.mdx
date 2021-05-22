@@ -8,13 +8,13 @@ title: Wrap
 description: Crete wrapper element to hold content in a specific width and
   optional aside space.
 content: |-
-  <InformationBanner type="warning">
+  <InformationBanner type={`warning`}>
   <Paragraph>
   Before using this module, remember to include base style.
   </Paragraph>
 
-  <Code isFormatted={false} lang="scss">{`
-  .wrap { 	@include wrap(1024px, 16px); }
+  <Code isFormatted={true} lang={`scss`}>{`
+  .wrap {@include wrap(1024px, 16px); } 
   `}</Code>
   </InformationBanner>
 
@@ -34,7 +34,7 @@ content: |-
 
   ## Usage
 
-  <Code isFormatted={true} lang="scss">{`
+  <Code isFormatted={true} lang={`scss`}>{`
   .wrap {
   	@include wrap(1024px, 16px);
   }
@@ -51,6 +51,31 @@ content: |-
 
    variable).
   </Paragraph>
+
+  <CodePreview scss={`@import "index";
+  @include browser-reset-style;
+  .wrap {
+  	@include wrap-style;
+  	@include wrap(500px);
+  	&-space {
+  		@include wrap(700px, 20px);
+  	}
+  }
+  /* Addon */
+  .wrap {
+  	text-align: center;
+  	background: yellow;
+  	div {
+  		background: red;
+  	}
+  }`}>{`
+  <div class="wrap wrap-small">
+  	<div>Wrap content</div>
+  </div>
+  <div class="wrap wrap-space">
+  	<div>Wrap content</div>
+  </div>
+  `}</CodePreview>
 filePath: layout/wrap.scss
 created: 05-20-2021 09:48:46
 ---

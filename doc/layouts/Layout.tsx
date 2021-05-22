@@ -1,16 +1,16 @@
-import { Header } from 'components/Header/Header';
+import { Header, IHeader } from 'components/Header/Header';
 import Head from 'next/head';
 import React, { ReactNode } from 'react';
 import styles from './Layout.module.scss';
 
-export interface ILayout {
+export interface ILayout extends IHeader {
 	title: string;
 	description: string;
 	children?: ReactNode;
 }
 
 export default function Layout(params: ILayout) {
-	const { children, title, description } = params;
+	const { children, title, description, navigation } = params;
 
 	return (
 		<>
@@ -23,7 +23,7 @@ export default function Layout(params: ILayout) {
 			</Head>
 
 			<div className={styles.page}>
-				<Header />
+				<Header navigation={navigation} />
 				<main className={styles.main}>
 					<div className="wrap">{children}</div>
 				</main>

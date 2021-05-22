@@ -1,5 +1,6 @@
 import { codeCmsEditorComponentOptions } from 'components/Code/Code.cms-editor-component-options';
 import { codeInlineCmsEditorComponentOptions } from 'components/CodeInline/CodeInline.cms-editor-component-options';
+import { codePreviewCmsEditorComponentOptions } from 'components/CodePreview/CodePreview.cms-editor-component-options';
 import { informationBannerCmsEditorComponentOptions } from 'components/InformationBanner/InformationBanner.cms-editor-component-options';
 import { paragraphCmsEditorComponentOptions } from 'components/Paragraph/Paragraph.cms-editor-component-options';
 import CMS from 'netlify-cms-app';
@@ -32,3 +33,4 @@ CMS.registerEditorComponent(informationBannerCmsEditorComponentOptions);
 CMS.registerEditorComponent(codeInlineCmsEditorComponentOptions);
 CMS.registerEditorComponent(codeCmsEditorComponentOptions);
 CMS.registerEditorComponent(paragraphCmsEditorComponentOptions);
+CMS.registerEditorComponent(codePreviewCmsEditorComponentOptions);
