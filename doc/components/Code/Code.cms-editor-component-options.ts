@@ -1,6 +1,6 @@
 import { EditorComponentOptions } from 'netlify-cms-core';
 import { Language } from 'prism-react-renderer';
-import { createCmsFromBlock } from 'utils/create-cms-block';
+import { editorCmsComponentToBlock } from 'utils/create-cms-block';
 import {
 	createCmsComponentPatter,
 	ICreateCmsComponentPatter,
@@ -15,6 +15,7 @@ export interface ICodeCmsEditorComponentOptions {
 
 const meta: ICreateCmsComponentPatter = {
 	componentName: 'Code',
+	isChildrenString: true,
 	params: [{ value: 'isFormatted' }, { value: 'lang', isString: true }],
 };
 
@@ -42,11 +43,13 @@ export const codeCmsEditorComponentOptions: EditorComponentOptions = {
 			name: 'isFormatted',
 			label: 'Is formatted',
 			widget: 'boolean',
+			// @ts-ignore
+			default: false,
 		},
 		{
 			name: 'children',
 			label: 'Children',
-			widget: 'string',
+			widget: 'text',
 		},
 	],
 	pattern: createCmsComponentPatter(meta),
@@ -62,7 +65,9 @@ export const codeCmsEditorComponentOptions: EditorComponentOptions = {
 			lang,
 		};
 	},
-	toBlock: createCmsFromBlock(meta),
+	toBlock: (params: ICode) => {
+		return editorCmsComponentToBlock(meta, params);
+	},
 	toPreview(params: ICode) {
 		return 'TODO';
 	},

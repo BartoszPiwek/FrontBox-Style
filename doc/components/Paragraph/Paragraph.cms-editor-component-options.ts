@@ -1,5 +1,5 @@
 import { EditorComponentOptions } from 'netlify-cms-core';
-import { createCmsFromBlock } from 'utils/create-cms-block';
+import { editorCmsComponentToBlock } from 'utils/create-cms-block';
 import {
 	createCmsComponentPatter,
 	ICreateCmsComponentPatter,
@@ -29,7 +29,7 @@ export const paragraphCmsEditorComponentOptions: EditorComponentOptions = {
 		};
 	},
 	toBlock: (params: IParagraph) => {
-		return createCmsFromBlock(meta, params);
+		return editorCmsComponentToBlock(meta, params);
 	},
 	toPreview(params: IParagraph) {
 		return 'TODO';

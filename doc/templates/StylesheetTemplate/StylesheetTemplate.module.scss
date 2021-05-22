@@ -29,3 +29,24 @@
 .footer {
 	margin-top: 100px;
 }
+
+.markdown {
+	p {
+		font-size: 16px;
+
+		@include media('md') {
+			font-size: 18px;
+		}
+	}
+
+	> * {
+		margin: 10px 0;
+	}
+
+	> h2 {
+		margin-top: 50px;
+		margin-bottom: 16px;
+		font-size: 22px;
+		font-weight: bold;
+	}
+}

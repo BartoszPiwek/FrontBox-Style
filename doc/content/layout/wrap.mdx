@@ -9,20 +9,48 @@ description: Crete wrapper element to hold content in a specific width and
   optional aside space.
 content: |-
   <InformationBanner type="warning">
-  sss
+  <Paragraph>
+  Before using this module, remember to include base style.
+  </Paragraph>
+
+  <Code isFormatted={false} lang="scss">{`
+  .wrap { 	@include wrap(1024px, 16px); }
+  `}</Code>
   </InformationBanner>
 
   ## Mixin
 
-  <CodeInline>
+  <Paragraph>
+  <CodeInline>{`
   $max-width: pixels
-  </CodeInline>
+  `}</CodeInline>
+  </Paragraph>
 
-  <br />
-
-  <CodeInline>
+  <Paragraph>
+  <CodeInline>{`
   $space-aside?: pixels
-  </CodeInline>
+  `}</CodeInline>
+  </Paragraph>
+
+  ## Usage
+
+  <Code isFormatted={true} lang="scss">{`
+  .wrap {
+  	@include wrap(1024px, 16px);
+  }
+  `}</Code>
+
+  ## Example
+
+  <Paragraph>
+  Yellow color point padding (
+
+  <CodeInline>{`
+  $space-aside
+  `}</CodeInline>
+
+   variable).
+  </Paragraph>
 filePath: layout/wrap.scss
 created: 05-20-2021 09:48:46
 ---

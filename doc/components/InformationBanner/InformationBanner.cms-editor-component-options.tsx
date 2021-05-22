@@ -1,10 +1,11 @@
 import { EditorComponentOptions } from 'netlify-cms-core';
-import { createCmsFromBlock } from 'utils/create-cms-block';
+import React from 'react';
+import { editorCmsComponentToBlock } from 'utils/create-cms-block';
 import {
 	createCmsComponentPatter,
 	ICreateCmsComponentPatter,
 } from 'utils/create-cms-component-patter';
-import { IInformationBanner } from './InformationBanner';
+import { IInformationBanner, InformationBanner } from './InformationBanner';
 
 const meta: ICreateCmsComponentPatter = {
 	componentName: 'InformationBanner',
@@ -52,8 +53,6 @@ export const informationBannerCmsEditorComponentOptions: EditorComponentOptions 
 	],
 	pattern: createCmsComponentPatter(meta),
 	fromBlock(match: RegExpMatchArray) {
-		console.log('fooooooooo');
-
 		const [, type, children] = match;
 
 		return {
@@ -61,9 +60,7 @@ export const informationBannerCmsEditorComponentOptions: EditorComponentOptions 
 			children,
 		};
 	},
-	toBlock: (params) => {
-		return createCmsFromBlock(meta, params);
-	},
+	toBlock: (params: IInformationBanner) => editorCmsComponentToBlock(meta, params),
 	toPreview(params: IInformationBanner) {
 		return 'TODO';
 	},

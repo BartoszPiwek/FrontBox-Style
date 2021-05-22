@@ -15,32 +15,26 @@ export interface IStylesheetTemplate extends IStylesheetTemplateCmsFields {
 export const StylesheetTemplate = (params: IStylesheetTemplate) => {
 	const { title, description, fileContent, filePath, content } = params;
 
-	const components = {
-		p: () => {
-			return <h1>ss</h1>;
-		},
-	};
-
-	const Foo = content;
-
 	return (
 		<div className={classNames(styles.container)}>
 			<h1 className={styles.title}>{title}</h1>
 
 			<p className={styles.description}>{description}</p>
 
-			<MDXRemote
-				compiledSource=""
-				{...content}
-				components={{
-					Code: Code,
-					CodeInline: CodeInline,
-					InformationBanner: InformationBanner,
-					Paragraph: Paragraph,
-				}}
-			></MDXRemote>
-
-			{/* <div className="stylesheet-module">{markdownToReact(content)}</div> */}
+			<div className={styles.markdown}>
+				<MDXRemote
+					{...content}
+					components={{
+						Code: Code,
+						CodeInline: CodeInline,
+						InformationBanner: InformationBanner,
+						Paragraph: Paragraph,
+						p: ({ children }) => {
+							return children;
+						},
+					}}
+				></MDXRemote>
+			</div>
 
 			<div className={styles.footer}>
 				<h2 className={styles.subtitle}>

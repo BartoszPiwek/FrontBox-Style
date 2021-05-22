@@ -1,49 +1,44 @@
 import { ICreateCmsComponentPatter } from './create-cms-component-patter';
 
-export const createCmsFromBlock = (
+export const editorCmsComponentToBlock = (
 	config: ICreateCmsComponentPatter,
-	params: { [key: string]: string } = {}
+	params: { [key: string]: any } = {}
 ): string => {
-	const { children } = params;
+	const { children = '' } = params;
+	const { componentName, isChildrenString = false } = config;
 	const _componentParams: Array<{ key: string; value: string }> = [];
 
-	const array = Object.entries(params);
-
-	for (const key in array) {
-		if (Object.prototype.hasOwnProperty.call(array, key)) {
-			const [paramKey, paramValue] = array[key];
-			if (paramKey === 'children') {
-				return;
-			}
+	Object.keys(params)
+		.filter((key) => {
+			return key !== 'children';
+		})
+		.forEach((key) => {
+			const value = params[key];
 
 			_componentParams.push({
-				key: paramKey,
-				value: paramValue,
+				key,
+				value,
 			});
-		}
-	}
+		});
 
-	const { componentName } = config;
 	const componentParams = _componentParams
-		.map((param, index) => {
+		.map((param) => {
 			const { key, value } = param;
+			const isString =
+				config.params.find((param) => param.value === key)?.isString || key === 'children';
 
-			return `${index === 0 ? ' ' : ''}${key}="${value}"`;
+			if (isString) {
+				return `${key}="${value}"`;
+			}
+
+			return `${key}={${value}}`;
+		})
+		.map((value, index) => {
+			return `${index === 0 ? ' ' : ''}${value}`;
 		})
 		.join(' ');
 
-	// const componentParams = params
-	// 	.map((param, index) => {
-	// 		const { value, isString } = param;
-
-	// 		const matchString =
-	// 			value + '=' + (isString ? '"' : '{') + '(.*)' + (isString ? '"' : '}');
-
-	// 		return `${index === 0 ? ' ' : ''}${matchString}`;
-	// 	})
-	// 	.join(' ');
-
-	console.log(`<${componentName}${componentParams}>\n${children}\n</${componentName}>`);
-
-	return `<${componentName}${componentParams}>\n${children}\n</${componentName}>`;
+	return `<${componentName}${componentParams}>${isChildrenString ? '{`' : ''}\n${children}\n${
+		isChildrenString ? '`}' : ''
+	}<\/${componentName}>`;
 };

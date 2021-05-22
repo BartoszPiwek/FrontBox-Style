@@ -1,5 +1,5 @@
 import { EditorComponentOptions } from 'netlify-cms-core';
-import { createCmsFromBlock } from 'utils/create-cms-block';
+import { editorCmsComponentToBlock } from 'utils/create-cms-block';
 import {
 	createCmsComponentPatter,
 	ICreateCmsComponentPatter,
@@ -8,6 +8,7 @@ import { ICodeInline } from './CodeInline';
 
 const meta: ICreateCmsComponentPatter = {
 	componentName: 'CodeInline',
+	isChildrenString: true,
 };
 
 export const codeInlineCmsEditorComponentOptions: EditorComponentOptions = {
@@ -29,7 +30,7 @@ export const codeInlineCmsEditorComponentOptions: EditorComponentOptions = {
 		};
 	},
 	toBlock: (params: ICodeInline) => {
-		return createCmsFromBlock(meta, params);
+		return editorCmsComponentToBlock(meta, params);
 	},
 	toPreview(params: ICodeInline) {
 		return 'TODO';

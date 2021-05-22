@@ -1,10 +1,10 @@
 @import 'variables';
 
 .container {
-	overflow-x: auto;
-	background: color('black');
-	border-radius: 10px;
 	padding: 20px;
+	overflow-x: auto;
+	border-radius: 10px;
+	background: color('black');
 }
 
 .code {

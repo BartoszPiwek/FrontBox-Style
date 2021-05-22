@@ -1,5 +1,6 @@
 export interface ICreateCmsComponentPatter {
 	componentName: string;
+	isChildrenString?: boolean;
 	params?: Array<{
 		value: string;
 		isString?: boolean;
@@ -7,7 +8,7 @@ export interface ICreateCmsComponentPatter {
 }
 
 export const createCmsComponentPatter = (config: ICreateCmsComponentPatter): RegExp => {
-	const { componentName, params = [] } = config;
+	const { componentName, params = [], isChildrenString = false } = config;
 
 	const componentParams = params
 		.map((param, index) => {
@@ -20,7 +21,13 @@ export const createCmsComponentPatter = (config: ICreateCmsComponentPatter): Reg
 		})
 		.join(' ');
 
-	console.log(`^<${componentName}${componentParams}>\n((.|\s)*)\n<\/${componentName}>`);
+	const regexp = new RegExp(
+		`^<${componentName}${componentParams}>${isChildrenString ? '{`' : ''}\n([\\s\\S]*?)\n${
+			isChildrenString ? '`}' : ''
+		}<\/${componentName}>`
+	);
 
-	return new RegExp(`^<${componentName}${componentParams}>\n((.|\s)*)\n<\/${componentName}>`);
+	console.log(regexp);
+
+	return regexp;
 };

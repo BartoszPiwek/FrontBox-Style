@@ -3,10 +3,11 @@ import {
 	permalinkCmsFields,
 } from 'cms/collections/fields/permalink.cms-field';
 import { CmsField } from 'netlify-cms-core';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 export interface IStylesheetTemplateCmsFields extends IPermalinkCmsFields {
 	title: string;
-	content: string;
+	content: MDXRemoteSerializeResult;
 	filePath: string;
 }
 
