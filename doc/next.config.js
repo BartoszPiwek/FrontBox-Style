@@ -20,7 +20,7 @@ module.exports = withMDX({
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'styles')],
 	},
-	webpack: (config, options) => {
+	webpack: (config, { isServer }) => {
 		config.module.rules.push({
 			test: /\.svg$/,
 			use: ['@svgr/webpack'],

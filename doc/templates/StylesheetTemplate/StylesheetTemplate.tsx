@@ -9,11 +9,8 @@ import { InformationBanner } from 'components/InformationBanner/InformationBanne
 import { Paragraph } from 'components/Paragraph/Paragraph';
 import { CodePreview } from 'components/CodePreview/CodePreview';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { IHeader } from 'components/Header/Header';
 
-export interface IStylesheetTemplate
-	extends Omit<IStylesheetTemplateCmsFields, 'content'>,
-		IHeader {
+export interface IStylesheetTemplate extends Omit<IStylesheetTemplateCmsFields, 'content'> {
 	fileContent: string;
 	content: MDXRemoteSerializeResult;
 }

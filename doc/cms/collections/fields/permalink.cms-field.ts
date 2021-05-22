@@ -2,7 +2,7 @@ import { IHeader } from 'components/Header/Header';
 import { ISeoCmsFields, seoCmsField } from 'components/Seo/Seo.cms-field';
 import { CmsField } from 'netlify-cms-core';
 
-export interface IPermalinkCmsFields extends ISeoCmsFields, IHeader {
+export interface IPermalinkCmsFields extends ISeoCmsFields {
 	slug: string;
 	isCms?: boolean;
 	created: string;

@@ -3,14 +3,14 @@ import Head from 'next/head';
 import React, { ReactNode } from 'react';
 import styles from './Layout.module.scss';
 
-export interface ILayout extends IHeader {
+export interface ILayout {
 	title: string;
 	description: string;
 	children?: ReactNode;
 }
 
 export default function Layout(params: ILayout) {
-	const { children, title, description, navigation } = params;
+	const { children, title, description } = params;
 
 	return (
 		<>
@@ -23,7 +23,7 @@ export default function Layout(params: ILayout) {
 			</Head>
 
 			<div className={styles.page}>
-				<Header navigation={navigation} />
+				<Header />
 				<main className={styles.main}>
 					<div className="wrap">{children}</div>
 				</main>

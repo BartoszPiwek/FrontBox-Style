@@ -5,10 +5,9 @@ import styles from './Code.module.scss';
 import Prettier, { BuiltInParserName, LiteralUnion } from 'prettier';
 import parserHtml from 'prettier/parser-html';
 import parserPostCss from 'prettier/parser-postcss';
-import { childrenToString } from 'utils/children-to-string';
 
 export interface ICode {
-	children?: ReactNode | string;
+	children?: string;
 	lang: Language;
 	isFormatted?: boolean;
 }
@@ -46,7 +45,7 @@ export class Code extends PureComponent<ICode> {
 		if (!this.props.children) {
 			return <></>;
 		}
-		const code = childrenToString(this.props.children);
+		const code = this.props.children;
 
 		const formattedCode = this.formatCode(code).replace(`<>`, '').replace(`</>`, '').trim();
 

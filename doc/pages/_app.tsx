@@ -11,14 +11,14 @@ export default class MyApp extends App {
 
 	render() {
 		const { Component, pageProps } = this.props;
-		const { title, description, isCms = false, navigation } = pageProps as IPermalinkCmsFields;
+		const { title, description, isCms = false } = pageProps as IPermalinkCmsFields;
 
 		if (isCms) {
 			return <Component />;
 		}
 
 		return (
-			<Layout title={title} description={description} navigation={navigation}>
+			<Layout title={title} description={description}>
 				<Component {...pageProps} />
 			</Layout>
 		);

@@ -1,17 +1,10 @@
 import { Link } from 'components/Link/Link';
-import { useRouter } from 'next/router';
 import styles from './Header.module.scss';
+import navigation from './../../content/navigation.json';
 
-export interface IHeader {
-	navigation: Array<{
-		title: string;
-		slug: string;
-	}>;
-}
+export interface IHeader {}
 
 export const Header = (params: IHeader) => {
-	const { navigation = [] } = params;
-
 	return (
 		<header className={styles.container}>
 			<p className={styles.title}>FrontBox Style</p>

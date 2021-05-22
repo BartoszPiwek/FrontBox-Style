@@ -5,7 +5,8 @@
 	"scripts": {
 		"start": "next dev",
 		"build": "next build",
-		"cms": "netlify-cms-proxy-server"
+		"cms": "netlify-cms-proxy-server",
+		"navigation": "npx tsc generate-navigation.ts"
 	},
 	"dependencies": {
 		"@mdx-js/loader": "^1.6.22",
@@ -25,18 +26,11 @@
 		"raw-loader": "^4.0.2",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
-		"react-element-to-jsx-string": "^14.3.2",
 		"react-frame-component": "^5.0.0",
 		"react-resizable": "^3.0.1",
-		"react-rnd": "^10.2.4",
-		"rehype-react": "^6.2.0",
-		"remark": "^13.0.0",
-		"remark-breaks": "^2.0.2",
-		"remark-directive": "^1.0.1",
-		"remark-mdx": "^1.6.22",
-		"remark-react": "^8.0.0",
 		"sass": "^1.32.13",
 		"strip-css-comments": "^4.1.0",
+		"ts-node": "^9.1.1",
 		"typescript": "^4.2.4"
 	},
 	"devDependencies": {
