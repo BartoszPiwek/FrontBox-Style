@@ -5,12 +5,11 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { mdxSourceCompileScss } from 'utils/mdx-source-compile-scss';
 
 export async function getStylesheetTemplateContentBySlug(
-	path: string,
 	slug: string
 ): Promise<IStylesheetTemplate> {
-	const slugs = await getFilesPath(path);
+	const slugs = await getFilesPath('pages');
 	const filesContents = await Promise.all(
-		slugs.map((slug) => getContent<IStylesheetTemplateCmsFields>(path, slug))
+		slugs.map((slug) => getContent<IStylesheetTemplateCmsFields>('pages', slug))
 	);
 
 	const fileContent = filesContents.find((content) => content.slug === slug);

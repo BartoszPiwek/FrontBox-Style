@@ -5,6 +5,7 @@ import { informationBannerCmsEditorComponentOptions } from 'components/Informati
 import { paragraphCmsEditorComponentOptions } from 'components/Paragraph/Paragraph.cms-editor-component-options';
 import CMS from 'netlify-cms-app';
 import { stylesheetTemplateCmsCollectionFile } from 'templates/StylesheetTemplate/StylesheetTemplate.cms-collection';
+import { optionsCmsCollectionFile } from './collections/options.cms-collection';
 
 CMS.init({
 	config: {
@@ -20,7 +21,7 @@ CMS.init({
 		},
 		local_backend: true,
 		show_preview_links: true,
-		collections: [stylesheetTemplateCmsCollectionFile('layout', 'Layout', 'layout')],
+		collections: [stylesheetTemplateCmsCollectionFile, optionsCmsCollectionFile],
 		// TODO: Can't config Next.js and NetlifyCMS tp append style for registerPreviewTemplate
 		// @ts-ignore
 		editor: {

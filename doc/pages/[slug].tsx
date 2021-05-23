@@ -12,7 +12,7 @@ export default function LayoutPages(params: IStylesheetTemplate) {
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-	const paths = await getSlugs('layout');
+	const paths = await getSlugs('pages');
 
 	return {
 		paths,
@@ -22,7 +22,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 
 export async function getStaticProps(context): Promise<GetStaticPropsResult<IStylesheetTemplate>> {
 	const { slug } = context.params;
-	const props = await getStylesheetTemplateContentBySlug('layout', slug);
+	const props = await getStylesheetTemplateContentBySlug(slug);
 
 	return {
 		props,

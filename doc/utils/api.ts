@@ -1,4 +1,4 @@
-import { IPermalinkCmsFields } from 'cms/collections/fields/permalink.cms-field';
+import { IPermalinkCmsFields } from 'cms/fields/permalink.cms-field';
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import { join } from 'path';
@@ -14,7 +14,7 @@ export async function getFilesPath(path?: string): Promise<string[]> {
 }
 
 export async function getSlugs(path: string): Promise<string[]> {
-	return (await getContents(path)).map((content) => '/' + path + '/' + content.slug);
+	return (await getContents(path)).map((content) => '/' + content.slug);
 }
 
 export const getContents = async <Output extends IPermalinkCmsFields>(

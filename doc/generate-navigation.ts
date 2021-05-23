@@ -1,12 +1,15 @@
 import { getContents } from './utils/api';
 import fs from 'fs';
+import { IStylesheetTemplateCmsFields } from 'templates/StylesheetTemplate/StylesheetTemplate.cms-field';
 
 const init = async () => {
-	const navigation = (await getContents('layout')).map((item) => {
-		const { title, slug } = item;
+	const navigation = (await getContents<IStylesheetTemplateCmsFields>('pages')).map((item) => {
+		const { title, slug, category } = item;
+
 		return {
 			title,
-			slug: `layout/${slug}`,
+			slug,
+			category,
 		};
 	});
 

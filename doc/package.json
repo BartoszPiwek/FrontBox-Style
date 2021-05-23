@@ -3,10 +3,10 @@
 	"version": "1.0.1",
 	"private": true,
 	"scripts": {
-		"start": "next dev",
-		"build": "next build",
+		"dev": "next dev",
+		"build": "npm run generate-navigation | next build",
 		"cms": "netlify-cms-proxy-server",
-		"navigation": "npx tsc generate-navigation.ts"
+		"generate-navigation": "npx ts-node-script generate-navigation.ts"
 	},
 	"dependencies": {
 		"@mdx-js/loader": "^1.6.22",

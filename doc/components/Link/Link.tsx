@@ -6,15 +6,16 @@ import { useRouter } from 'next/router';
 export interface ILink {
 	title: string;
 	href: string;
+	className?: string;
 }
 
 export const Link = (params: ILink) => {
-	const { title, href } = params;
+	const { title, href, className } = params;
 
 	return (
 		<NextLink href={href}>
 			<a
-				className={classNames(styles.container, {
+				className={classNames(className, styles.container, {
 					[styles.isActive]: useRouter().asPath === href,
 				})}
 			>

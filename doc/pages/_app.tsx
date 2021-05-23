@@ -1,4 +1,4 @@
-import { IPermalinkCmsFields } from 'cms/collections/fields/permalink.cms-field';
+import { IPermalinkCmsFields } from 'cms/fields/permalink.cms-field';
 import Layout from 'layouts/Layout';
 import React from 'react';
 import './../styles/main.scss';

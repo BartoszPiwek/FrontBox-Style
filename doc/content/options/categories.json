@@ -1,0 +1,28 @@
+{
+	"categories": [
+		{
+			"slug": "layout",
+			"title": "Layout"
+		},
+		{
+			"slug": "settings",
+			"title": "Settings"
+		},
+		{
+			"slug": "modules",
+			"title": "Modules"
+		},
+		{
+			"slug": "functions",
+			"title": "Functions"
+		},
+		{
+			"slug": "generators",
+			"title": "Generators"
+		},
+		{
+			"slug": "shapes",
+			"title": "Shapes"
+		}
+	]
+}
