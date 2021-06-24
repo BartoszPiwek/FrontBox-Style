@@ -26,10 +26,8 @@
 	],
 	"author": "Bartosz Piwek",
 	"license": "ISC",
-	"dependencies": {
-		"node-sass": "^6.0.0"
-	},
 	"devDependencies": {
+		"node-sass": "^6.0.1",
 		"stylelint": "^13.13.1",
 		"stylelint-config-property-sort-order-smacss": "^7.1.0",
 		"stylelint-order": "^4.1.0",

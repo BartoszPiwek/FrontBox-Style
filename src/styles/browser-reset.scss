@@ -66,6 +66,9 @@ Style guide: Styles.Browser reset
 
 	/* Form Elements */
 	input {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
 		outline: none;
 
 		&:focus {
