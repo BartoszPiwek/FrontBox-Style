@@ -3,7 +3,7 @@
 @include browser-reset-style;
 
 .row {
-	@include grid-style;
+	@include row-style;
 	@include space(40px);
 }
 
