@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $colors: ();
 
 @function color($id) {

@@ -1,3 +1,5 @@
+@use "./../settings/breakpoints" as *;
+
 /*
 Media
 
@@ -28,7 +30,7 @@ Style guide: Variables.media
 */
 
 @mixin media($name) {
-	$width: map-get($breakpoints, $name);
+	$width: map-get($breakpoints !global, $name);
 
 	@if $width {
 		@media screen and (min-width: #{$width}px) {

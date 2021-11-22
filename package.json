@@ -1,6 +1,6 @@
 {
 	"name": "@bpiwek/frontbox-style",
-	"version": "0.1.7",
+	"version": "0.2.0",
 	"description": "Hermetic SCSS files contain helpful methods used on most websites, divided into categories: functions, generators, modules, shapes, styles, variables.",
 	"homepage": "https://github.com/BartoszPiwek/FrontBox-Style#readme",
 	"repository": {
@@ -10,7 +10,7 @@
 	"main": "index.scss",
 	"style": "index.scss",
 	"scripts": {
-		"playground": "node-sass playground/index.scss playground/index.css",
+		"playground": "sass playground/index.scss playground/index.css",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
@@ -27,10 +27,12 @@
 	"author": "Bartosz Piwek",
 	"license": "ISC",
 	"devDependencies": {
-		"node-sass": "^6.0.1",
 		"stylelint": "^13.13.1",
 		"stylelint-config-property-sort-order-smacss": "^7.1.0",
 		"stylelint-order": "^4.1.0",
 		"stylelint-scss": "^3.20.1"
+	},
+	"dependencies": {
+		"sass": "^1.43.4"
 	}
 }

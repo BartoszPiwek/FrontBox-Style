@@ -1,6 +1,10 @@
-@import '../index';
+@use '../index' as *;
 
-@include browser-reset-style;
+$breakpoints: (
+	'sm': 576,
+) !global;
+
+@include browser-style-reset;
 
 .row {
 	@include row-style;

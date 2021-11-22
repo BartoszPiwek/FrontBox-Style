@@ -5,11 +5,11 @@ Organize values using variables map and easy-to-read functions or mixins.
 
 Style guide: Variables
 */
-@import './settings/breakpoints';
-@import './settings/color';
-@import './settings/index';
-@import './settings/font';
-@import './settings/media';
+@forward './settings/breakpoints';
+@forward './settings/color';
+@forward './settings/index';
+@forward './settings/font';
+@forward './settings/media';
 
 /*
 Functions
@@ -18,7 +18,7 @@ Resolve common problems with SCSS preprocessor.
 
 Style guide: Functions
 */
-@import './functions/map-deep-get';
+@forward './functions/map-deep-get';
 
 /*
 Modules
@@ -27,21 +27,21 @@ Change element behaviors.
 
 Style guide: Modules
 */
-@import './modules/click-expand';
-@import './modules/fixes';
-@import './modules/hover';
-@import './modules/screen-reader';
-@import './modules/scrollbar';
-@import './modules/vh';
+@forward './modules/click-expand';
+@forward './modules/fixes';
+@forward './modules/hover';
+@forward './modules/screen-reader';
+@forward './modules/scrollbar';
+@forward './modules/vh';
 
 /*
 Layout
 
 Style guide: Layout
 */
-@import './layout/grid';
-@import './layout/space';
-@import './layout/wrap';
+@forward './layout/grid';
+@forward './layout/space';
+@forward './layout/wrap';
 
 /*
 Styles
@@ -50,9 +50,9 @@ Styles for selectors/classes.
 
 Style guide: Styles
 */
-@import './styles/browser-reset';
-@import './styles/clearfix';
-@import './styles/truncate';
+@forward './styles/browser-style-reset';
+@forward './styles/clearfix';
+@forward './styles/truncate';
 
 /*
 Generators
@@ -61,8 +61,8 @@ Create dynamic code.
 
 Style guide: Generators
 */
-@import './generators/responsive';
-@import './generators/utility-count';
+@forward './generators/responsive';
+@forward './generators/utility-count';
 
 /*
 Shapes
@@ -71,7 +71,7 @@ Create CSS shapes.
 
 Style guide: Shapes
 */
-@import './shapes/square';
-@import './shapes/triangle';
-@import './shapes/circle';
-@import './shapes/rectangle';
+@forward './shapes/square';
+@forward './shapes/triangle';
+@forward './shapes/circle';
+@forward './shapes/rectangle';

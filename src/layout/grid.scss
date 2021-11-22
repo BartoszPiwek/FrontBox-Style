@@ -1,3 +1,9 @@
+@use "sass:math";
+
+@use "./../settings/breakpoints" as *;
+@use "./../settings/media" as *;
+@use "./../generators/responsive" as *;
+
 /*
 Grid
 
@@ -51,18 +57,20 @@ Style guide: Layout.Grid.Columns
 	@include responsive {
 		@for $i from 1 through $grid-count {
 			@at-root .#{&}col {
+				$value: math.div(100%, math.div($grid-count, $i));
+
 				&-#{$i} {
-					flex-basis: 100% / ($grid-count / $i);
-					max-width: 100% / ($grid-count / $i);
+					flex-basis: $value;
+					max-width: $value;
 				}
 
 				@if ($i != $grid-count) {
 					&-pull-#{$i} {
-						right: 100% / ($grid-count / $i) !important;
+						right: $value !important;
 					}
 
 					&-push-#{$i} {
-						margin-left: 100% / ($grid-count / $i) !important;
+						margin-left: $value !important;
 					}
 				}
 			}

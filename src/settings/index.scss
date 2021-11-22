@@ -24,6 +24,7 @@ Markup: index.html
 
 Style guide: Variables.Index
 */
+$indexes: ();
 
 @function index($id) {
 	@if map-has-key($indexes, $id) {
@@ -32,10 +33,3 @@ Style guide: Variables.Index
 
 	@error 'Invalid index name: `#{$id}`.';
 }
-
-$indexes: (
-	'loading': 99999,
-	'first': 9999,
-	'header': 8000,
-	'side drawer': 8010,
-);

@@ -5,7 +5,7 @@ Prepared class `clearfix` to force an element self-clear its children.
 
 Usage:
 .clearfix {
- @extend %clearfix-style;
+ @include clearfix;
 }
 
 Markup: clearfix.html
@@ -13,7 +13,7 @@ Markup: clearfix.html
 Style guide: Styles.Clearfix
 */
 
-%clearfix-style {
+@mixin clearfix {
 	zoom: 1;
 	*zoom: 1;
 

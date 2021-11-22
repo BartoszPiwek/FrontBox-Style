@@ -12,7 +12,7 @@ Style guide: Styles.Browser reset
 
 /* stylelint-disable property-no-vendor-prefix */
 /* stylelint-disable selector-no-qualifying-type */
-@mixin browser-reset-style {
+@mixin browser-style-reset {
 	*,
 	*:after,
 	*:before {
