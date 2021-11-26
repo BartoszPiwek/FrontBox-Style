@@ -3,5 +3,5 @@ documentation
 *.log
 *.lock
 .vscode
-!.vscode/extensions.json
 *.css
+*.map

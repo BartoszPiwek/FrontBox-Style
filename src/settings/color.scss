@@ -9,3 +9,7 @@ $colors: ();
 
 	@error 'Invalid index name: `#{$id}`.';
 }
+
+@mixin define-colors($newColors) {
+	$colors: map.merge($colors, $newColors) !global;
+}

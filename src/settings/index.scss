@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /*
 Index
 
@@ -32,4 +34,8 @@ $indexes: ();
 	}
 
 	@error 'Invalid index name: `#{$id}`.';
+}
+
+@mixin define-indexes($newIndexes) {
+  $indexes: map.merge($indexes, $newIndexes) !global;
 }

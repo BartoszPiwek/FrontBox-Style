@@ -30,7 +30,7 @@ Style guide: Variables.media
 */
 
 @mixin media($name) {
-	$width: map-get($breakpoints !global, $name);
+	$width: map-get($breakpoints, $name);
 
 	@if $width {
 		@media screen and (min-width: #{$width}px) {

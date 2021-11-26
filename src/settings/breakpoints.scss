@@ -8,3 +8,7 @@ $breakpoints: (
 	hd: 1366,
 	whd: 1440,
 );
+
+@mixin define-breakpoints($newBreakpoints) {
+	$breakpoints: map.merge($breakpoints, $newBreakpoints) !global;
+}

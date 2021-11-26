@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /*
 Font
 
@@ -29,11 +31,16 @@ Markup: font.html
 
 Style guide: Variables.font
 */
+$fonts: ();
 
 @function font($id) {
 	@if map-has-key($fonts, $id) {
-		@return #{map-get($fonts, $id)};
+		@return map-get($fonts, $id);
 	}
 
 	@error 'Invalid index name: `#{$id}`.';
+}
+
+@mixin define-fonts($newFonts) {
+	$fonts: map.merge($fonts, $newFonts) !global;
 }

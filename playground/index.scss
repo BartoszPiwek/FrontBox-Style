@@ -6,6 +6,10 @@ $breakpoints: (
 
 @include browser-style-reset;
 
+.wrap {
+	@include wrap-style();
+}
+
 .row {
 	@include row-style;
 	@include space(40px);

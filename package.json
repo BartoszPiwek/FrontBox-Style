@@ -1,6 +1,6 @@
 {
 	"name": "@bpiwek/frontbox-style",
-	"version": "0.2.0",
+	"version": "0.2.3",
 	"description": "Hermetic SCSS files contain helpful methods used on most websites, divided into categories: functions, generators, modules, shapes, styles, variables.",
 	"homepage": "https://github.com/BartoszPiwek/FrontBox-Style#readme",
 	"repository": {
