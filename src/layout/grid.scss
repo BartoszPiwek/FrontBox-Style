@@ -1,8 +1,7 @@
-@use "sass:math";
-
-@use "./../settings/breakpoints" as *;
-@use "./../settings/media" as *;
-@use "./../generators/responsive" as *;
+@use 'sass:math';
+@use './../settings/breakpoints' as *;
+@use './../settings/media' as *;
+@use './../generators/responsive' as *;
 
 /*
 Grid

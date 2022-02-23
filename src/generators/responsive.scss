@@ -1,5 +1,5 @@
-@use "./../settings/breakpoints" as *;
-@use "./../settings/media" as *;
+@use './../settings/breakpoints' as *;
+@use './../settings/media' as *;
 
 /*
 Responsive
@@ -33,12 +33,6 @@ Style guide: Generators.Responsive
 	@each $label, $value in $breakpoints {
 		@include media($label) {
 			#{$label}_ {
-				@content;
-			}
-		}
-
-		@include media-max($label) {
-			#{$label}-max_ {
 				@content;
 			}
 		}

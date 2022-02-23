@@ -1,72 +1,96 @@
-@use "./../settings/breakpoints" as *;
+@use './../settings/breakpoints' as *;
 
 /*
 Media
 
 Wrap code in breakpoint screen.
 
-Mixins `media` (min-width) and `media-max` (max-width) take parameter `$name` to wrap code in media query.
-
-> `$name` is variable map name inside `$breakpoints` map ([go to section](section-variables.html#variables-breakpoints)).
-
-Function:
-// $index: string;
+Mixins:
 @include media($index) {}
 @include media-max($index) {}
-
-Usage:
-.element {
-	@include media(tablet) {
-		color: red;
-	}
-	@include media-max(tablet) {
-		display: none;
-	}
-}
-
-Markup: media.html
-
-Style guide: Variables.media
+@include media-only($index) {}
+@include media-between($lowerIndex, $upperIndex) {}
 */
 
+$breakpoint-names: map-keys($breakpoints);
+
+@function breakpoint-min($name) {
+	$min: map-get($breakpoints, $name);
+	@return if($min != 0, $min, null);
+}
+
+@function breakpoint-max($name) {
+	$max: map-get($breakpoints, $name);
+	@return if($max and $max > 0, $max - 0.02, null);
+}
+
+@function breakpoint-next($name) {
+	$n: index($breakpoint-names, $name);
+	@if not $n {
+		@error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
+	}
+	@return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
 @mixin media($name) {
-	$width: map-get($breakpoints, $name);
+	$width: breakpoint-min($name);
 
 	@if $width {
 		@media screen and (min-width: #{$width}px) {
 			@content;
 		}
-	}
-
-	@else {
-		@content;
+	} @else {
+		@error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
 	}
 }
 
 @mixin media-max($name) {
-	$width: map-get($breakpoints, $name);
+	$width: breakpoint-max($name);
 
 	@if $width {
-		@media screen and (max-width: #{$width - 1}px) {
+		@media screen and (max-width: #{$width}px) {
 			@content;
 		}
-	}
-
-	@else {
-		@content;
+	} @else {
+		@error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
 	}
 }
 
-// @mixin media-special($name) {
-// 	$queries: map-get($media, $name);
+@mixin media-only($name) {
+	$min: breakpoint-min($name);
+	$next: breakpoint-next($name);
+	$max: breakpoint-max($next);
 
-// 	@if $queries {
-// 		@media #{$queries} {
-// 			@content;
-// 		}
-// 	}
+	@if $min != null and $max != null {
+		@media screen and (min-width: #{$min}px) and (max-width: #{$max}px) {
+			@content;
+		}
+	} @else if $max == null {
+		@include media($name) {
+			@content;
+		}
+	} @else if $min == null {
+		@include media-max($next) {
+			@content;
+		}
+	}
+}
 
-// 	@else {
-// 		@content;
-// 	}
-// }
+@mixin media-between($lower, $upper) {
+	$min: breakpoint-min($lower);
+	$max: breakpoint-max($upper);
+
+	@if $min != null and $max != null {
+		@media screen and (min-width: #{$min}px) and (max-width: #{$max}px) {
+			@content;
+		}
+	} @else if $max == null {
+		@include media($lower) {
+			@content;
+		}
+	} @else if $min == null {
+		@include media-max($upper) {
+			@content;
+		}
+	}
+}
